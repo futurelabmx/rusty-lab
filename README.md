@@ -1,8 +1,16 @@
-# rusty-lab.
+# Rusty-Lab.
 ¡Aprende Rust con Future Lab!
 
 TravisCI status:
 
 
 El libro se encuentra en construcción, nuevos capítulos serán añadidos con el
-tiempo.
+tiempo, si deseas contribuir puedes leer el archivo
+[CONTRIBUTING.md](contributing.md), las prioridades para este repositorio son:
+
+- [ ] Crear una página principal fuera del libro.
+- [ ] Crear un tema CSS personalizado para el libro.
+- [ ] Agregar un Favicon para verse cool :sunglasses:
+- [ ] Incluir archivos `.rs` para modificaciones futuras.
+- [ ] Escribir acerca de las `crates`.
+- [ ] Relacionar Rust con otros lenguajes.
