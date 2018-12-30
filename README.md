@@ -1,2 +1,5 @@
 # rusty-lab.
-Learn rust with Future Lab!
+¡Aprende Rust con Future Lab!
+
+El libro se encuentra en construcción, nuevos capítulos serán añadidos con el
+tiempo.
