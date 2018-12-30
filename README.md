@@ -1,7 +1,8 @@
 # Rusty-Lab.
 ¡Aprende Rust con Future Lab!
 
-TravisCI status:
+Github Pages Deploy Status:
+[![Build Status](https://travis-ci.org/futurelabmx/rusty-lab.svg?branch=master)](https://travis-ci.org/futurelabmx/rusty-lab)
 
 
 El libro se encuentra en construcción, nuevos capítulos serán añadidos con el
