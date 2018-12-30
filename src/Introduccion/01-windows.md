@@ -64,7 +64,7 @@ desarrollo de Rust se prepara para liberar una nueva versión, antes que
 nada primero deben migrar los cambios, por lo que la rama `beta` sale
 de la rama `master` y con eso tendremos nuestra liberación `beta`.
 
-```
+```ignore
 nightly: * - - * - - *
                      |
 beta:                *
@@ -75,7 +75,7 @@ activa, en su lugar utilizan *Sistemas de Integración Continua* para
 detectar cualquier posible regresión o error. Mientras esto ocurre, la
 rama `master` continúa actualizandose.
 
-```
+```ignore
 nightly: * - - * - - * - - * - - *
                      |
 beta:                *
@@ -86,7 +86,7 @@ favor, pues la edición `beta` primero fue probada antes de enviar los
 cambios a la versión estable, lo que se hace en estos casos es aplicar
 un parche en la rama `master` y después migrarlo a la rama `beta`.
 
-```
+```ignore
 nightly: * - - * - - * - - * - - * - - *
                      |
 beta:                * - - - - - - - - *
@@ -96,7 +96,7 @@ Seis semanas después de la liberación de la rama `beta` es tiempo de
 enviar una nueva versión estable, por lo que una rama llamada `stable`
 saldrá de la rama `beta`:
 
-```
+```ignore
 nightly: * - - * - - * - - * - - * - - * - * - *
                      |
 beta:                * - - - - - - - - *
