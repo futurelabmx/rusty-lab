@@ -3,3 +3,19 @@ authors = ["VentGrey, FutureLab"]
 multilingual = true
 src = "src"
 title = "Rusty Lab"
+
+[output.html]
+mathjax-support = true
+
+[output.html.playpen]
+editable = true
+
+[output.html.search]
+enable = true
+limit-results = 30
+teaser-word-count = 30
+use-boolean-and = true
+expand = true
+
+[build]
+create-missing = true
