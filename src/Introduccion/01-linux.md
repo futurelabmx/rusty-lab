@@ -1,0 +1,1 @@
+# Instalación en Gnu/Linux
