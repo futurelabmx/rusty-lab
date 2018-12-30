@@ -4,5 +4,6 @@
 - [Antes de empezar](Introduccion/01-antes-de-empezar.md)
   - [Instalación en Microsoft Windows](Introduccion/01-windows.md)
   - [Instalación en Mac OS](Introduccion/01-macos.md)
+  - [Instalación en Gnu/Linux](Introduccion/01-linux.md)
 --------------------------------------------------------------------------------
 [Contributores](contribs.md)
