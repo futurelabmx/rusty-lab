@@ -1,5 +1,5 @@
 [book]
-authors = ["VentGrey"]
-multilingual = false
+authors = ["VentGrey, FutureLab"]
+multilingual = true
 src = "src"
 title = "Rusty Lab"
