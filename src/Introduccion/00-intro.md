@@ -36,3 +36,31 @@ en estos lenguajes como:
 * Segfaults
 * etc.
 
+Pensemos en el enfoque principal de Rust, ser un lenguaje de programación de
+sistemas, un nivel en el que se trabaja con un manejo avanzado de la memoria del
+sistema, representación extensiva de datos, concurrencia, trabajar con
+diferentes hilos de ejecución y más. Esto puede ser visto como algo duro o
+difícil pues es muy fácil cometer errores que pueden congelar, desconfigurar o
+destuir completamente un sistema funcional e incluso los programadores de
+sistemas con más experiencia no están absueltos de cometer errores menores que
+dejan sus programas expuestos a vulnerabilidades, cierres inesperados o
+corrupción de datos parcial o total.
+
+
+Rust no se limita sólo a programación de sistemas, al ser extremadamente modular
+permite aplicaciones CLI, GUI's con [gtk-rs](https://gtk-rs.org/) o incluso 
+puedes desplegar tus propias web-apps utilizando
+[rocket](https://rocket.rs/), un poderoso framework hecho completamente en Rust.
+
+Incluso si eres un programador que trabaja a bajo nivel puedes re-escribir tus
+proyectos en Rust para mejorar su tiempo de ejecución, seguridad,
+concurrencia o legibilidad sin miedo a introducir nuevos errores
+o vulnerabilidades.
+
+En este libro comunitario aprenderás a manejar las bases del lenguaje de
+programación Rust, podrás aplicar tus conocimientos para mejorar o
+realizar nuevos proyectos, no esperes más, toma tu computadora, una
+libreta e empieza a aprender con nosotros.
+
+-- Future Lab
+![Future Lab](../images/future-logo.png)
