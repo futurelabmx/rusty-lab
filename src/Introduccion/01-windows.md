@@ -108,3 +108,23 @@ Bien, una nueva versión de Rust está lista para usarse, pero tenemos
 que considear algo y es que han pasado 6 semanas, por lo que una nueva
 versión `beta` viene en camino, por lo tanto cada que se libera una
 versión estable, se crea una nueva versión beta.
+
+## Herramientas de desarrollo para Rust
+
+* Racer (Nightly): `cargo install racer`.
+* rustfmt (Stable - Nightly): `rustup component add rustfmt`.
+* rust-doc (Stable - Nightly): `rustup component add rust-doc`.
+
+Si deseamos una integración propia con un IDE debemos de instalar
+[rls](https://github.com/rust-lang/rls) el cual es un servidor de
+lenguaje que nos ayudará con el resaltado de errores en tiempo real
+y nos proporcionará de otras funciones útiles.
+
+* RLS (Stable - Nightly):
+`rustup component add rls-preview rust-analysis rust-src`
+
+¡Listo! Con esto tenemos nuestro entorno base para escribir programas en Rust.
+Ahora tenemos que elegir un IDE para empezar a desarrollar.
+
+Ve al capítulo **2.4** para ver nuestras recomendaciones o al capítulo **3** si
+deseas comenzar a escribir tus programas en Rust.
