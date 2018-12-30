@@ -60,7 +60,7 @@ o vulnerabilidades.
 En este libro comunitario aprenderás a manejar las bases del lenguaje de
 programación Rust, podrás aplicar tus conocimientos para mejorar o
 realizar nuevos proyectos, no esperes más, toma tu computadora, una
-libreta e empieza a aprender con nosotros.
+libreta y empieza a aprender con nosotros.
 
 -- Future Lab
 ![Future Lab](../images/future-logo.png)
