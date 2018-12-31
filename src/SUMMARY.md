@@ -7,5 +7,6 @@
   - [Instalación en Gnu/Linux](Introduccion/01-linux.md)
   - [¿IDE o Editor de Texto?](Introduccion/02-ide.md)
 - [¡Hola Rust!](PrimeraUnidad/00-hola-rust.md)
+- [¿Cargo?](PrimeraUnidad/01-cargo.md)
 --------------------------------------------------------------------------------
 [Contributores](contribs.md)
