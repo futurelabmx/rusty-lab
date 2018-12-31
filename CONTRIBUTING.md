@@ -24,4 +24,12 @@ uno o dos, la comunidad te ayudará a encontrarlos y mejorar :wink:
 * Evita el lenguaje altisonante, comúnmente conocido como *"Groserías"*.
 * Si vas a corregir un archivo `.md` de otro usuario procura describir que
 cambios hiciste y las razones de éstos siempre manteniendo el respeto.
-* Exprésate
+
+
+## Archivos .rs
+
+Los archivos de Rust que incluyas en el repositorio deberán respetar el estilo
+de código propuesto en la guía oficial de Rust.
+
+* Sangría de 4 espacios, **no tabulaciones**, espacios.
+* Comentado en caso de necesitar correcciones o interacción con el usuario.

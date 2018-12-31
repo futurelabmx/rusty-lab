@@ -831,6 +831,61 @@ lo siguiente:</p>
     println!(&quot;¡Hola Mundo!&quot;);
 }
 </code></pre></pre>
+<p>Es un pequeño programa que imprime las palabras <code>¡Hola Mundo!</code> en la
+consola.</p>
+<p>Puedes ejecutar el código desde este mismo libro aun así, te
+recomendamos que practiques en tu terminal.</p>
+<p>Guarda tu archivo <code>main.rs</code> y en tu terminal procede a llamar al
+compilador de Rust llamado <code>rustc</code>. Mas adelante explicaremos como
+funciona a fondo <code>rustc</code>, por ahora procederemos a compilar nuestro
+programa de la siguiente manera:</p>
+<pre><code class="language-ignore">$ rustc main.rs
+$ ./main
+¡Hola Mundo!
+</code></pre>
+<blockquote>
+<p>Los comandos están expresados en un entorno UNIX-Like.</p>
+</blockquote>
+<p>Vamos a descomponer nuestro programa en partes para entender un poco mejor
+lo que está pasando.</p>
+<p>Veamos la primera parte del programa:</p>
+<pre><code class="language-rust ignore">fn main() {
+</code></pre>
+<p>Lo primero que vemos es el abstracto <code>fn</code> el cual se utiliza para declarar
+funciones en Rust. Mas delante podemos ver <code>main()</code>, esto es el identificador de
+la función, a la derecha podemos ver un par de paréntesis, al igual que en otros
+lenguajes los paréntesis al lado del identificador de la función sirven para
+indicar los parámetros que esta va a recibir al momento de ser llamada.</p>
+<p>El último elemento que podemos ver es una <em>&quot;llave abierta&quot;</em>, ésta indica el
+inicio de un bloque de código <code>{</code>.</p>
+<p>La siguiente línea que podemos ver es esta:</p>
+<pre><code class="language-rust ignore">println!(&quot;¡Hola Mundo!&quot;);
+</code></pre>
+<p>A diferencia de otros lenguajes, Rust no utiliza funciones para la salida de
+consola, en este caso <code>println!</code> es un macro que es un elemento de
+<em>metaprogramación</em> que exploraremos más tarde, por ahora recuerda que al llamar
+un macro siempre deberás de colocar un <code>!</code> después del identificador.</p>
+<p>Dentro del macro <code>println!</code> encontramos el elemento <code>&quot;¡Hola Mundo!&quot;</code>. Esto es
+una cadena de carácteres que funciona como argumento del macro.</p>
+<p>En la última línea podemos ver una llave cerrada, la cual indica el final de un
+bloque de código.</p>
+<p>Rust es un lenguaje de programación compilado, si tienes experiencia con
+lenguajes como C o C++ sabrás que después de escribir el código fuente
+es necesario pasar el archivo resultante por un compilador, en el caso
+de C o C++ se utiliza <code>gcc</code> o <code>clang</code>, en Rust usaremos <code>rustc</code>.</p>
+<p>Si vienes de lenguajes dinámicos, mejor conocidos como interpretados como
+Python o Ruby probablemente te sea un poco difícil acostumbrarte a
+compilar y ejecutar. A diferencia de otros lenguajes de programación
+compilados Rust puede considerarse como <em>adelantado</em> en esa cuestión ya
+que puedes compilar un programa y enviar el binario generado a otra
+persona para que lo ejecute, incluso sin tener Rust instalado.</p>
+<p>Cuando proporcionas a otra persona tu script con terminación en <code>.rb</code> o
+<code>.py</code> todo lo que necesitan es tener instalado en su computadora el
+lenguaje de programación correspondiente.</p>
+<p>Compilar nuestros programas con <code>rustc</code> está bien si estamos
+desarrollando software simple, pero si deseamos crear proyectos mas
+ambiciosos y con un poco mas de complejidad, en el capítulo <strong>4</strong>
+discutiremos acerca de <code>cargo</code>, el gestor de paquetes de Rust.</p>
 <a class="header" href="#contributores" id="contributores"><h1>Contributores</h1></a>
 <p>Gracias a estas personas esta recopilación fué posible:
 [WIP]</p>
