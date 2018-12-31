@@ -139,6 +139,8 @@ Cuando hayas terminado tu proyecto solo necesitarás la bandera
 `--release` para generar un binario optimizado, esto generará un
 binario ejecutable en el directorio `target/release`.
 
+## Fin de la lección
+
 Por ahora has aprendido a utilizar Cargo y a crear un pequeño hola mundo
 en Rust, pero imprimir mensajes de ese tipo en la consola no es divertido
 por lo que en el siguiente capítulo crearemos un programa llamado
