@@ -8,5 +8,6 @@
   - [¿IDE o Editor de Texto?](Introduccion/02-ide.md)
 - [¡Hola Rust!](PrimeraUnidad/00-hola-rust.md)
 - [¿Cargo?](PrimeraUnidad/01-cargo.md)
+- [FizzRust](PrimeraUnidad/02-fizzbuzz.md)
 --------------------------------------------------------------------------------
 [Contributores](contribs.md)
