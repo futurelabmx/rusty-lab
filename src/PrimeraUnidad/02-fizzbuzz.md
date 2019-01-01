@@ -34,6 +34,9 @@ problema FizzBuzz en diferentes lenguajes, aquí puedes ver algunos ejemplos.
 {{#include ../code/python/fizzbuzz.py}}
 ```
 
-
+## C (ANSI + Kernel Coding Style)
+```c
+{{#include ../code/c/fizzbuzz.c}}
+```
 
 
