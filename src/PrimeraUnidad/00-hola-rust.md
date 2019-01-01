@@ -19,7 +19,7 @@ mismas que aplican para otros lenguajes de programación.
 Ahora con tu editor de texto favorito abre el archivo `main.rs` y coloca
 lo siguiente:
 
-{{#playpen ../code/hello-world.rs}}
+{{#playpen ../code/rust/hello-world.rs}}
 
 Es un pequeño programa que imprime las palabras `¡Hola Mundo!` en la
 consola.

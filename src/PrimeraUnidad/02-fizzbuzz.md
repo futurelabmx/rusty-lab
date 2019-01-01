@@ -31,7 +31,7 @@ problema FizzBuzz en diferentes lenguajes, aquí puedes ver algunos ejemplos.
 ## Python
 
 ```python
-{{#include ../code/fizzbuzz.py}}
+{{#include ../code/python/fizzbuzz.py}}
 ```
 
 
