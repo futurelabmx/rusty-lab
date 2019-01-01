@@ -130,7 +130,7 @@ Revisemos dentro de la función `main`, esta función es la misma que utilizamos
 en nuestro primer `hola mundo` por lo que no hay necesidad de explicarla así
 que nos dirigiremos a la segunda línea de nuestro código actual:
 
-```rust,noplaypen
+```rust,ignore
 {{#include ../code/rust/fizzbuzz.rs:2}}
 ```
 
