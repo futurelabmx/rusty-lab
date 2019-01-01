@@ -1,4 +1,6 @@
 def fizzbuzz(x):
+    """Simple FizzBuzz, courtesy of @RodolfoFerro on @Github"""
+
     if x % 3 == 0 and x % 5 == 0:
         return "FizzBuzz"
     elif x % 3 == 0:
@@ -8,4 +10,7 @@ def fizzbuzz(x):
     else:
         return str(x)
 
-print("\n".join(fizzbuzz(x) for x in range(1, 100)))
+
+if __name__ == '__main__':
+    sequence = '\n'.join(fizzbuzz(x) for x in range(1, 100))
+    print(sequence)
