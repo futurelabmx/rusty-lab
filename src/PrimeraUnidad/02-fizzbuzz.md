@@ -121,3 +121,58 @@ preocupes si no lo entiendes pues lo explicaremos a lo largo de este capítulo.
 
 > No ejecutes este código aún, es una versión de pruebas que
 > modificaremos a lo largo de este y los siguientes capítulos.
+
+¿Que está pasando aquí? Hay muchos elementos nuevos (Claro, todo es nuevo
+a diferencia del macro `println!` que vimos en el capítulo pasado) por lo que
+vamos a volver a descomponer línea por línea todo el programa.
+
+Revisemos dentro de la función `main`, esta función es la misma que utilizamos
+en nuestro primer `hola mundo` por lo que no hay necesidad de explicarla así
+que nos dirigiremos a la segunda línea de nuestro código actual:
+
+```rust,noplaypen
+{{#include ../code/rust/fizzbuzz.rs:2}}
+```
+
+Como mencionamos en el capítulo **2**, asumiremos que posees conocimientos
+básicos de programación por lo que debe ser evidente que esto es algo
+conocido como *"ciclo for"*, los exploraremos más adelante en el capítulo
+de control de flujo, por ahora vamos a dejar claras las bases de un
+ciclo `for` en Rust.
+
+Lo primero que podemos observar es que la sintaxis de los ciclos `for`
+no es similar a la utilizada en lenguajes como C, JavaScript o Java:
+
+```c
+for (x = 0; x < 10; x++) {
+        printf("%i\n", x);
+}
+```
+
+En su lugar (y en términos mas abstractos) los ciclos `for` en Rust
+se ven algo así:
+
+```rust,ignore
+for x in 0..5 {
+    println!("{}", x);
+}
+```
+
+Si abstraemos los términos podríamos describirlos así:
+
+```rust,ignore
+for variable in expresion {
+    código
+}
+```
+
+Siendo `expresion` un iterador. En nuestro ejemplo elegimos el rango de
+`0..5`, esta expresión consta de un inicio y un fin y el ciclo realizará
+una iteración entre esos valores, aunque Rust posee rangos inclusivos,
+por defecto el límite superior es exclusivo, por lo tanto nuestro ciclo
+`for` imprimirá los valores del `0` al `4`, no hasta el número `5`.
+
+La razón por la que Rust no posee ciclos `for` con una sintaxis parecida
+a C es sencilla, al tener esa sintaxis se controla manualmente cada
+elemento del ciclo lo cual deja el código suceptible a errores *humanos*.
+
