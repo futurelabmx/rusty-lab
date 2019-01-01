@@ -17,8 +17,8 @@ teaser-word-count = 30
 use-boolean-and = true
 expand = true
 
-[[output.html.links]]
-title = "Repositorio en GitHub"
+[output.html.links]
+title = "GitHub Repo"
 icon = "fa-github"
 href = "https://github.com/futurelabmx/rusty-lab"
 
