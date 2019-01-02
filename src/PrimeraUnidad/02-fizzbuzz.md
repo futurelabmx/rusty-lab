@@ -28,13 +28,13 @@ explicar los árboles de desiciones en este capítulo sería desviarnos
 del objetivo principal, existen diferentes formas de resolver un
 problema FizzBuzz en diferentes lenguajes, aquí puedes ver algunos ejemplos.
 
-## Python
+#### Python
 
 ```python
 {{#include ../code/python/fizzbuzz.py}}
 ```
 
-## C (ANSI + Kernel Coding Style)
+#### C (ANSI + Kernel Coding Style)
 ```c
 {{#include ../code/c/fizzbuzz.c}}
 ```
@@ -53,7 +53,7 @@ el mismo programa pero con salida de colores y en el camino explicaremos por
 encima algunos conceptos base de programación en Rust.
 
 
-# Preparando el proyecto
+## Preparando el proyecto
 
 Utilizando nuestros conocimientos previos lo primero que haremos será crear
 un nuevo proyecto utilizando Cargo, vamos a llamarlo FizzBuzz.
@@ -112,6 +112,8 @@ Esto debería de descargar y compilar `colored` y dejarlo listo para usar:
     Finished dev [unoptimized + debuginfo] target(s) in 13.38s
 ```
 
+## Escribir una base
+
 Utilizando el editor de tu preferencia abre el archivo `main.rs`, este es el
 archivo que vamos a modificar, elimina la línea que contiene el mensaje de
 impresión (`println!`) y procede a escribir el siguiente código, no te
@@ -121,6 +123,8 @@ preocupes si no lo entiendes pues lo explicaremos a lo largo de este capítulo.
 
 > No ejecutes este código aún, es una versión de pruebas que
 > modificaremos a lo largo de este y los siguientes capítulos.
+
+## Comprendiendo el código
 
 ¿Que está pasando aquí? Hay muchos elementos nuevos (Claro, todo es nuevo
 a diferencia del macro `println!` que vimos en el capítulo pasado) por lo que
@@ -133,6 +137,8 @@ que nos dirigiremos a la segunda línea de nuestro código actual:
 ```rust,ignore
 {{#include ../code/rust/fizzbuzz.rs:2}}
 ```
+
+### El iterador
 
 Como mencionamos en el capítulo **2**, asumiremos que posees conocimientos
 básicos de programación por lo que debe ser evidente que esto es algo
@@ -166,7 +172,7 @@ for variable in expresion {
 }
 ```
 
-Siendo `expresion` un iterador. En nuestro ejemplo elegimos el rango de
+Siendo "`expresion`" un iterador. En nuestro ejemplo elegimos el rango de
 `0..5`, esta expresión consta de un inicio y un fin y el ciclo realizará
 una iteración entre esos valores, aunque Rust posee rangos inclusivos,
 por defecto el límite superior es exclusivo, por lo tanto nuestro ciclo
@@ -176,3 +182,82 @@ La razón por la que Rust no posee ciclos `for` con una sintaxis parecida
 a C es sencilla, al tener esa sintaxis se controla manualmente cada
 elemento del ciclo lo cual deja el código suceptible a errores *humanos*.
 
+Pero hay algo diferente en nuestro ciclo for, si volvemos por un momento
+a nuestro código podemos notar que no tenemos un valor definido como
+límite superior del ciclo:
+
+```rust,ignore
+{{#include ../code/rust/fizzbuzz.rs:2}}
+```
+
+En su lugar tenemos una llave abierta, indicando el inicio de las
+instrucciones del ciclo. Esto es muy sencillo, cuando Rust encuentre
+un ciclo `for` de este tipo lo ejecutará infinitamente.
+
+Nos hemos equivocado a propósito, pues Rust posee una forma más sencilla
+de realizar ciclos infinitos.
+
+Por ahora continuaremos explorando la estructura del ciclo `for`:
+
+```rust,ignore
+{{#include ../code/rust/fizzbuzz.rs:3:7}}
+```
+
+### Múltiples casos, múltiples resultados.
+
+Aquí podemos ver otro elemento *"antes de tiempo"* que viene del control
+de flujo en Rust, en este caso `match`.
+
+`match` es el equivalente a `switch` en otros lenguajes de programación
+como C o C++, una alternativa a comparar y ejecutar los diferentes
+valores que puede tomar una variable.
+
+La estructura de la palabra clave `match` puede ser utilizada de formas
+complejas y aunque no explicaremos a fondo su uso por ahora, intentaremos
+explicarte como funciona `match` en el caso de nuestro código.
+
+Para que `match` funcione correctamente necesita una expresión para
+evaluar, como nosotros tenemos `x` como variable (declarada en el
+alcance del ciclo `for`) y ésta se encuentra en uso como iterador
+su valor mutará en cada *"vuelta"* del ciclo, en este caso `x` aumentará
+su valor en una unidad por iteración por lo que `x` será lo que
+evaluaremos.
+
+Dentro de los paréntesis tenemos dos operaciones que procesarán `x` y
+arrojarán un resultado que será enviado a cualquiera de los posibles
+casos dentro de `match`, en este caso nuestras dos operaciones son las
+siguientes: `x % 3` y `x % 5`.
+
+El operador `%` cumple la misma función que en otros lenguajes, retorna
+el residuo de la división entre dos números, sabiendo esto cada
+iteración comparará a `x` dos veces, regresando el residuo del valor de
+`x` dividido entre `3` y `5`, dependiendo del resultado se enviará
+a la pantalla el mensaje.
+
+Veamos la primera condición:
+
+```rust,ignore
+{{#include ../code/rust/fizzbuzz.rs:4}}
+```
+Si el residuo resultante de la división de `x`/`3` **Y** `x`/`5` es
+igual a cero entonces se enviará a la pantalla el mensaje "FizzBuzz".
+
+---
+
+En la segunda condición las cosas cambian un poco, podemos observar
+un elemento nuevo, un guión bajo (`_`), éste funciona de la misma
+manera que un `default:` funciona dentro de un `switch`.
+
+En este caso `_` funciona como un *"atrapa-todo"* en el cual caerán
+todos los resultados que no coincidan don las condiciones expresadas en
+los casos de `match`. Si observamos detenídamente el código podemos
+llegar a la conclusión de que `_` funcionará en caso de que
+la división de `x`/`3` ó `x`/`5` arrojen *cualquier valor diferente de 0*
+
+```rust,ignore
+{{#include ../code/rust/fizzbuzz.rs:5:7}}
+```
+---
+
+
+### Agregando algo de color
