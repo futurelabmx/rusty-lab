@@ -7,7 +7,7 @@
 
 ¡Aprende Rust con Future Lab!
 
-Github Pages Deploy Status:
+GitHub Pages Deploy Status:
 
 [![Build Status](https://travis-ci.org/futurelabmx/rusty-lab.svg?branch=master)](https://travis-ci.org/futurelabmx/rusty-lab)
 

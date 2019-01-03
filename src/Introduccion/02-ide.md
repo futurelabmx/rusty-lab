@@ -13,7 +13,7 @@ Se indicarán los requerimientos entre paréntesis.
 
 ## ATOM
 
-Atom es un editor de texto desarrollado por Github utilizando la biblioteca
+Atom es un editor de texto desarrollado por GitHub utilizando la biblioteca
 *Electron*, es extensible y fácil de utilizar.
 
 Eficiencia de atom en Rust:

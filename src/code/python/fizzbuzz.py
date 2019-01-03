@@ -1,5 +1,5 @@
 def fizzbuzz(x):
-    """Simple FizzBuzz, courtesy of @RodolfoFerro on @Github"""
+    """Simple FizzBuzz, courtesy of @RodolfoFerro on @GitHub"""
 
     if x % 3 == 0 and x % 5 == 0:
         return "FizzBuzz"
