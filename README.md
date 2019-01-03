@@ -19,7 +19,7 @@ tiempo, si deseas contribuir puedes leer el archivo
 - [ ] Crear una página principal fuera del libro.
 - [ ] Crear un tema CSS personalizado para el libro.
 - [ ] Agregar un Favicon para verse cool :sunglasses:
-- [ ] Incluir archivos `.rs` para modificaciones futuras.
+- [x] Incluir archivos `.rs` para modificaciones futuras.
 - [ ] Escribir acerca de las `crates`.
 - [ ] Relacionar Rust con otros lenguajes.
 
