@@ -272,7 +272,7 @@ utilizaremos un crate llamado `colored`, la misma que agregamos
 al inicio de este capítulo, el uso es sencillo, por ejemplo, podemos
 imprimir "Hola Rust" en color rojo:
 
-```rust
+```rust,ignore
 {{#include ../code/rust/hello-color.rs}}
 ```
 > Eliminamos la opción de ejecución en este ejemplo, pues el navegador
@@ -290,7 +290,7 @@ hará de color cyan.
 
 Veamos el código utilizando colores de Future Lab :D
 
-```rust
+```rust,ignore
 {{#include ../code/rust/colored-fizzbuzz.rs}}
 ```
 
@@ -300,7 +300,7 @@ La declaración `extern crate` le especifica a Rust que nuestro programa
 depende de un biblioteca externa a nuestro proyecto, acercándola a
 nuestro alcance.
 
-```rust
+```rust,ignore
 {{#include ../code/rust/colored-fizzbuzz.rs:1}}
 ```
 
