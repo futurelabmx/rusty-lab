@@ -6,7 +6,7 @@ código necesitamos preparar nuestro entorno de desarrollo.
 
 > Este libro asume que posees conocimientos básicos de programación, si eres o
 > te consideras un novato en esta área te recomendamos comenzar por un lenguaje
-> mas sencillo como C o Python.
+> más sencillo como C o Python.
 
 Antes que nada tenemos que instalar Rust en nuestra computadora, dependiendo de
 nuestro sistema operativo nuestra instalación será diferente y necesitará más o
@@ -15,7 +15,7 @@ menos pasos para configurarse correctamente.
 Por ahora necesitaremos:
 
 * Una computadora
-* Acceso a internet
+* Acceso a Internet
 
 En los capítulos **2.1**, **2.2** y **2.3** cubriremos la instalación en
 diferentes sistemas operativos comunes, si ya posees Rust instalado o si
