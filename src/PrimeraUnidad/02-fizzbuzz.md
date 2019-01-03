@@ -1,5 +1,7 @@
 # Creando un programa FizzRust...FizzBuzz.
 
+## ⚠️ LECTURA PROLONGADA  ⚠️
+
 Hemos aprendo a las bases para utilizar nuestras herramientas de Rust y creamos
 nuestro primer "Hola Mundo" en poco tiempo, pero ahora pasemos a crear un
 programa más interesante, un programa llamado *"FizzBuzz"*.
@@ -261,3 +263,77 @@ la división de `x`/`3` ó `x`/`5` arrojen *cualquier valor diferente de 0*
 
 
 ### Agregando algo de color
+
+Bien, nuestro programa FizzBuzz funciona, en un ciclo infinito que
+se ejecutará hasta que nuestra computadora tenga la necesidad
+de detenerlo, más tarde arreglaremos ese problema, por ahora
+vamos a darle un poco de color a la salida del programa. Para esto
+utilizaremos un crate llamado `colored`, la misma que agregamos
+al inicio de este capítulo, el uso es sencillo, por ejemplo, podemos
+imprimir "Hola Rust" en color rojo:
+
+```rust
+{{#include ../code/rust/hello-color.rs}}
+```
+> Eliminamos la opción de ejecución en este ejemplo, pues el navegador
+> no soporta la impresión de texto de color.
+
+Hagamos una ligera modificación, cuando el programa tenga que imprimir
+*"Fizz"*, lo hará en un color rojo, en caso de que necesite imprimir
+*"Buzz"* será en color amarillo y en el caso de imprimir *"FizzBuzz"* lo
+hará de color cyan.
+
+> (No es necesario que pongas esos colores si no son de
+> tu agrado, en la [guía oficial](https://github.com/mackwic/colored#features) 
+> del crate están listados todos los colores y estilos disponibles, anímate a
+> experimentar un poco).
+
+Veamos el código utilizando colores de Future Lab :D
+
+```rust
+{{#include ../code/rust/colored-fizzbuzz.rs}}
+```
+
+Aun más elementos nuevos, vamos a explicarlos parte por parte:
+
+La declaración `extern crate` le especifica a Rust que nuestro programa
+depende de un biblioteca externa a nuestro proyecto, acercándola a
+nuestro alcance.
+
+```rust
+{{#include ../code/rust/colored-fizzbuzz.rs:1}}
+```
+
+La declaración `use` crea enlaces locales a funciones o métodos remotos,
+se utiliza para simplificar el uso de localización de archivos.
+
+```rust,ignore
+{{#include ../code/rust/colored-fizzbuzz.rs:3}}
+```
+
+Las siguientes líneas son sencillas de explicar:
+
+```rust,ignore
+{{#include ../code/rust/colored-fizzbuzz.rs:8:11}}
+```
+
+Nuestro macro `println!` ha cambiado, en este caso el crate `colored`
+solo funciona con cadenas de carácteres, por lo que necesitamos
+colocar algo llamado *"placeholder"* que en resumen es un espacio
+donde se colocará un elemento más tarde, tenemos que separar con una
+coma los argumentos, en ese caso el segundo argumento será nuestra
+cadena, en este caso *"Fizz"*, *"Buzz"*, y *"FizzBuzz"*, solo resta
+agregar la función correspondiente. `colored` retorna cadenas en todas
+sus funciones por lo que no habrá problema si pasamos las funciones
+seguidas de un punto en este caso.
+
+La impresión del programa debería verse de esta manera en una
+ejecución normal:
+
+![Salida De Colores](../images/colored-rust.png)
+
+Se ve genial ¿no?, puedes probar a hacer diferentes combinaciones, por ejemplo
+al imprimir "FizzBuzz" hacer que cada carácter tenga un color distinto:
+
+![Salida De Colores](../images/colored-rust2.png)
+
