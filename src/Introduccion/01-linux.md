@@ -1,12 +1,12 @@
 # Instalación en Gnu/Linux
 
-La instalación en Gnu/Linux es la instalación mas utilizada por los
+La instalación en Gnu/Linux es la instalación más utilizada por los
 programadores del lenguaje Rust.
 
 Antes de empezar, toma un aviso de nosotros, muchas distribuciones de GNU/Linux
 ya poseen Rust y sus herramientas en los repositorios oficiales, si bien esto
 lleva a una instalación rápida las versiones de Rust que ofrecen pueden no
-estar en su versión mas actual, excluyendo al usuario de la mayor parte de
+estar en su versión más actual, excluyendo al usuario de la mayor parte de
 características nuevas que las actualizaciones pueden ofrecer.
 
 Puedes instalar desde la terminal provista por tu sistema operativo ejecutando
@@ -14,7 +14,7 @@ el siguiente comando:
 
 `curl https://sh.rustup.rs -sSf | sh`
 
-Con esto descargaremos la versión mas actual de Rustup y procederemos con la
+Con esto descargaremos la versión más actual de Rustup y procederemos con la
 instalación del lenguaje.
 
 No te preocupes si resulta confuso al inicio, el instalador de Rust
@@ -64,7 +64,7 @@ distribución:
 Si eres un usuario novel te recomendamos mantenerte en el canal `Stable`.
 
 > Los canales `Beta` o `Nightly` son para aquellos valientes que desean
-> probar características mas nuevas del lenguaje aunque a veces son
+> probar características más nuevas del lenguaje aunque a veces son
 > necesarios para algunas herramientas.
 
 Vamos a explicar/traducir el proceso de liberación de Rust como viene
