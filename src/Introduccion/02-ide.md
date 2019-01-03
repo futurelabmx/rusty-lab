@@ -18,7 +18,7 @@ Atom es un editor de texto desarrollado por GitHub utilizando la biblioteca
 
 Eficiencia de atom en Rust:
 
-* Resaltado de sintáxis (Plugin)
+* Resaltado de sintaxis (Plugin)
 * Snippets (Plugin)
 * Autocompletado (Plugin)
 * Linternas (Plugin)
@@ -52,7 +52,7 @@ en Lisp.
 
 Eficiencia de emacs en Rust:
 
-* Resaltado de sintáxis (Plugin)
+* Resaltado de sintaxis (Plugin)
 * Snippets (Plugin)
 * Autocompletado (Plugin + Racer)
 * Linternas (Plugin)
@@ -77,7 +77,7 @@ para editar código fuente.
 
 Eficiencia de sublime text en Rust:
 
-* Resaltado de sintáxis
+* Resaltado de sintaxis
 * Snippets
 * Autocompletado (Plugin + Racer)
 * Linternas
@@ -102,7 +102,7 @@ mayoría de los sistemas operativos tipo UNIX.
 
 Eficiencia de Vim/Neovim en Rust:
 
-* Resaltado de sintáxis (Plugin)
+* Resaltado de sintaxis (Plugin)
 * Snippets (Plugin)
 * Autocompletado (Plugin + Racer)
 * Linternas (Plugin + Racer)
@@ -138,7 +138,7 @@ Microsoft, ideal para los entusiastas del software libre.
 
 Eficiencia de VSCode en Rust:
 
-* Resaltado de sintáxis (Plugin)
+* Resaltado de sintaxis (Plugin)
 * Snippets (Plugin)
 * Autocompletado (Plugin + Racer)
 * Linternas (Plugin)
@@ -164,7 +164,7 @@ extensibilidad y poder para el desarrollo multiplataforma.
 
 Eficiencia de Eclipse en Rust:
 
-* Resaltado de sintáxis (Plugin)
+* Resaltado de sintaxis (Plugin)
 * Snippets (Plugin)
 * Autocompletado (Plugin)
 * Linternas (Plugin)
@@ -186,7 +186,7 @@ Kotlin, Java y Python, cuenta con las ediciones de pago y comunitaria.
 
 Eficiencia de IntelliJ en Rust:
 
-* Resaltado de sintáxis (Plugin)
+* Resaltado de sintaxis (Plugin)
 * Snippets (Plugin)
 * Autocompletado (Plugin)
 * Linternas (Plugin)
@@ -209,7 +209,7 @@ desarrollar software en Android, iOS, Windows, Web y Cloud Computing.
 
 Eficiencia de Visual Studio en Rust:
 
-* Resaltado de sintáxis
+* Resaltado de sintaxis
 * ~~Snippets~~ (Sin soporte)
 * Autocompletado (Plugin + Racer)
 * ~~Linternas~~ (Sin soporte)
@@ -232,7 +232,7 @@ documentación y edición avanzada.
 
 Eficiencia de Builder en Rust:
 
-* Resaltado de sintáxis
+* Resaltado de sintaxis
 * Snippets
 * Autocompletado 
 * Linternas

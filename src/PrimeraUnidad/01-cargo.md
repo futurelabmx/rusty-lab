@@ -4,7 +4,7 @@ En el capítulo anterior creamos nuestro primer programa en Rust, un simple
 "Hola mundo".
 
 Pero pensemos un momento: ¿Y si deseamos crear un proyecto más grande?, ¿Qué tal
-si necesitamos crear una herramienta de línea de comandos mas compleja? o quizá
+si necesitamos crear una herramienta de línea de comandos más compleja? o quizá
 tenemos una gran idea para crear un API para usarse en Inteligencia Artificial.
 
 De una forma u otra necesitaremos una forma de manejar nuestro
@@ -36,7 +36,7 @@ Esto creará un nuevo proyecto de Cargo, si entramos en el directorio
 creado nos daremos cuenta que dentro hay varios archivos, un directorio
 y que se ha inicializado un nuevo repositorio con la herramienta `git`.
 
-Vamos a editar el archivo mas llamativo del directorio llamado
+Vamos a editar el archivo más llamativo del directorio llamado
 `Cargo.toml`:
 
 ```toml
@@ -57,11 +57,11 @@ construir y compilar el paquete en cuestión:
 * Nombre del paquete o `crate`.
 * Versión del paquete
 * Autor o autores del paquete
-* La edición de Rust (Hablaremos mas adelante de eso).
+* La edición de Rust (Hablaremos más adelante de eso).
 
 La siguiente sección se llama `[dependencies]`, debajo de esta se
 colocarán todas las dependencias requeridas para construir nuestro
-paquete de Rust, las usaremos mas adelante.
+paquete de Rust, las usaremos más adelante.
 
 Como mencionamos más arriba, cargo genera un directorio de nombre `src`
 en el cual se incluye un archivo llamado `main.rs`, este archivo en

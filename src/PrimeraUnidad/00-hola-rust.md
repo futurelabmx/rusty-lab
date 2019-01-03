@@ -91,6 +91,6 @@ Cuando proporcionas a otra persona tu script con terminación en `.rb` o
 lenguaje de programación correspondiente.
 
 Compilar nuestros programas con `rustc` está bien si estamos
-desarrollando software simple, pero si deseamos crear proyectos mas
-ambiciosos y con un poco mas de complejidad, en el capítulo **4**
+desarrollando software simple, pero si deseamos crear proyectos más
+ambiciosos y con un poco más de complejidad, en el capítulo **4**
 discutiremos acerca de `cargo`, el gestor de paquetes de Rust.

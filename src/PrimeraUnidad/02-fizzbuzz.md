@@ -20,7 +20,7 @@ les pide lo siguiente a los candidatos:
 *5. Por cada número que sea múltiplo de 3 y 5 se deberá imprimir*
 *FizzBuzz"*
 
-Por mas simple que parezca la prueba, muchos programadores no logran
+Por más simple que parezca la prueba, muchos programadores no logran
 pasarla pues no es un patrón que se vea dentro de las enseñanzas clásicas
 y por que no es posible representar las pruebas de manera directa y
 simple sin necesidad de duplicar algo.
@@ -157,7 +157,7 @@ for (x = 0; x < 10; x++) {
 }
 ```
 
-En su lugar (y en términos mas abstractos) los ciclos `for` en Rust
+En su lugar (y en términos más abstractos) los ciclos `for` en Rust
 se ven algo así:
 
 ```rust,ignore

@@ -39,7 +39,7 @@ distribución:
 Si eres un usuario novel te recomendamos mantenerte en el canal `Stable`.
 
 > Los canales `Beta` o `Nightly` son para aquellos valientes que desean
-> probar características mas nuevas del lenguaje aunque a veces son
+> probar características más recientes del lenguaje aunque a veces son
 > necesarios para algunas herramientas.
 
 Vamos a explicar/traducir el proceso de liberación de Rust como viene
