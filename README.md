@@ -1,4 +1,4 @@
-# Rusty-Lab.
+<h1 align="center"> Rusty-Lab </h1>
 
 <p align="center">
     <img src="src/images/rusty-lab.png" height="100px" width="100px" alt="Rusty-lab">

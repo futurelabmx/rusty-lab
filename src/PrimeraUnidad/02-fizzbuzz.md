@@ -182,7 +182,7 @@ por defecto el límite superior es exclusivo, por lo tanto nuestro ciclo
 
 La razón por la que Rust no posee ciclos `for` con una sintaxis parecida
 a C es sencilla, al tener esa sintaxis se controla manualmente cada
-elemento del ciclo lo cual deja el código suceptible a errores *humanos*.
+elemento del ciclo lo cual deja el código susceptible a errores *humanos*.
 
 Pero hay algo diferente en nuestro ciclo for, si volvemos por un momento
 a nuestro código podemos notar que no tenemos un valor definido como
@@ -252,7 +252,7 @@ manera que un `default:` funciona dentro de un `switch`.
 
 En este caso `_` funciona como un *"atrapa-todo"* en el cual caerán
 todos los resultados que no coincidan don las condiciones expresadas en
-los casos de `match`. Si observamos detenídamente el código podemos
+los casos de `match`. Si observamos detenidamente el código podemos
 llegar a la conclusión de que `_` funcionará en caso de que
 la división de `x`/`3` ó `x`/`5` arrojen *cualquier valor diferente de 0*
 
@@ -281,7 +281,7 @@ imprimir "Hola Rust" en color rojo:
 Hagamos una ligera modificación, cuando el programa tenga que imprimir
 *"Fizz"*, lo hará en un color rojo, en caso de que necesite imprimir
 *"Buzz"* será en color amarillo y en el caso de imprimir *"FizzBuzz"* lo
-hará de color cyan.
+hará de color cían.
 
 > (No es necesario que pongas esos colores si no son de
 > tu agrado, en la [guía oficial](https://github.com/mackwic/colored#features) 
@@ -318,7 +318,7 @@ Las siguientes líneas son sencillas de explicar:
 ```
 
 Nuestro macro `println!` ha cambiado, en este caso el crate `colored`
-solo funciona con cadenas de carácteres, por lo que necesitamos
+solo funciona con cadenas de caracteres, por lo que necesitamos
 colocar algo llamado *"placeholder"* que en resumen es un espacio
 donde se colocará un elemento más tarde, tenemos que separar con una
 coma los argumentos, en ese caso el segundo argumento será nuestra
@@ -336,4 +336,38 @@ Se ve genial ¿no?, puedes probar a hacer diferentes combinaciones, por ejemplo
 al imprimir "FizzBuzz" hacer que cada carácter tenga un color distinto:
 
 ![Salida De Colores](../images/colored-rust2.png)
+
+¡Genial! Nuestro programa ahora imprime las cosas de una manera
+más *"elegante"*. Pero podemos notar un problema en las imágenes,
+los números evaluados son muy altos, no deberíamos de cargar al
+sistema con esa clase de operaciones.
+
+Podríamos colocar un límite superior en el ciclo `for` en nuestro
+código, pero, si bien es una buena solución la verdad sea dicha, tenemos
+planeado enseñarte algo que causa muchos problemas con los principiantes
+en el lenguaje de programación Rust.
+
+## Operaciones de entrada
+
+Entre los usuarios Novel, pedir entrada de datos al usuario es un tema
+común, pues no existe una manera sencilla de hacerlo como en otros
+lenguajes como C, Python o Ruby.
+
+Esto tiene una razón sencilla, una entrada errónea del usuario puede
+causar comportamientos inesperados en los programas que podamos crear,
+puede parecer algo tedioso al inicio y es algo que se ha estado trabajando
+desde las versiones mas nuevas de Rust, aun así, las comparaciones entre
+Rust y otros lenguajes como Python y Ruby, carecen de sentido, pues
+cumplen roles diferentes.
+
+Vamos a pedir al usuario ingresar un número entero, el cual servirá como límite
+superior de nuestro ciclo `for`, con ello el usuario tendrá el control sobre
+las iteraciones de nuestro programa FizzBuzz.
+
+> En este caso, si el usuario ingresa cualquier cosa que no sea un número
+> entero se interpretará como un error irrecuperable y el programa se cerrará
+> inmediatamente.
+
+Primero necesitamos importar las bibliotecas necesarias para que el proyecto
+funcione:
 
