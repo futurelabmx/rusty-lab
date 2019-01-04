@@ -24,7 +24,7 @@ Eficiencia de atom en Rust:
 * Linternas (Plugin)
 * Formato de código (Plugin)
 * Ir a la definición (Plugin)
-* ~~Depuración~~ (Sin soporte)
+* <s>Depuración</s>
 * Tooltips de documentación (Plugin)
 
 ### Plugins de ATOM para Rust
@@ -58,7 +58,7 @@ Eficiencia de emacs en Rust:
 * Linternas (Plugin)
 * Formato de código (Plugin)
 * Ir a la definición (Plugin + Racer)
-* ~~Depuración~~ (Sin soporte)
+* <s>Depuración</s>
 * Tooltips de documentación (Plugin + Racer)
 
 ### Plugins de Emacs para Rust
@@ -83,8 +83,8 @@ Eficiencia de sublime text en Rust:
 * Linternas
 * Formato de código (Plugin)
 * Ir a la definición (Plugin + Racer)
-* ~~Depuración~~ (Sin soporte)
-* ~~Tooltips de documentación~~ (Sin soporte)
+* <s>Depuración</s>
+* <s>Tooltips de documentación</s>
 
 ### Plugins de Sublime Text para Rust
 
@@ -108,7 +108,7 @@ Eficiencia de Vim/Neovim en Rust:
 * Linternas (Plugin + Racer)
 * Formato de código (Plugin)
 * Ir a la definición (Plugin + Racer)
-* ~~Depuración~~ (Sin soporte)
+* <s>Depuración</s>
 * Tooltips de documentación (Plugin + Racer)
 
 ### Plugins de Vim/Neovim para Rust
@@ -210,13 +210,13 @@ desarrollar software en Android, iOS, Windows, Web y Cloud Computing.
 Eficiencia de Visual Studio en Rust:
 
 * Resaltado de sintaxis
-* ~~Snippets~~ (Sin soporte)
-* Autocompletado (Plugin + Racer)
-* ~~Linternas~~ (Sin soporte)
-* ~~Formato de código~~ (Sin soporte)
+* <s>Snippets</s>
+* Autocompletado 
+* <s>Linternas</s>
+* <s>Formato de código</s>
 * Ir a la definición (Plugin)
 * Depuración (Plugin)
-* ~~Tooltips de documentación~~ (Sin soporte)
+* <s>Tooltips de documentación</s>
 
 ### Plugins de Visual Studio para Rust
 
@@ -236,10 +236,10 @@ Eficiencia de Builder en Rust:
 * Snippets
 * Autocompletado 
 * Linternas
-* ~~Formato de código~~ (Sin soporte)
+* <s>Formato de código</s> 
 * Ir a la definición
-* ~~Depuración~~ (Sin soporte)
-* ~~Tooltips de documentación~~ (Sin soporte)
+* <s>Depuración</s>
+* <s>Tooltips de documentación</s>
 
 ---
 
