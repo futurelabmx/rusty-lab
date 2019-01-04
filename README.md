@@ -4,13 +4,21 @@
     <img src="src/images/rusty-lab.png" height="100px" width="100px" alt="Rusty-lab">
 </p>
 
+[![](https://img.shields.io/github/downloads/futurelabmx/rusty-lab/total.svg)](https://github.com/futurelabmx/rusty-lab)
+
 > Logo made here: logomakr.com/8gIeL8
 
-¡Aprende Rust con Future Lab!
+# ¡Aprende Rust con Future Lab!
 
-GitHub Pages Deploy Status:
+[![](https://img.shields.io/github/issues/futurelabmx/rusty-lab.svg)](https://github.com/futurelabmx/rusty-lab/issues) [![](https://img.shields.io/github/stars/futurelabmx/rusty-lab.svg)](https://github.com/futurelabmx/rusty-lab/stargazers) 
+## Despliegue
 
-[![Build Status](https://travis-ci.org/futurelabmx/rusty-lab.svg?branch=master)](https://travis-ci.org/futurelabmx/rusty-lab)
+| Plataforma | Lenguajes     | Libro (PDF/EPUB) | Status                                                                                                                        |
+| ---------- | ------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Travis.CI  | Rust `1.31.x` | **EN ESPERA**    | [![Build Status](https://travis-ci.org/futurelabmx/rusty-lab.svg?branch=master)](https://travis-ci.org/futurelabmx/rusty-lab) |
+
+
+
 
 
 El libro se encuentra en construcción, nuevos capítulos serán añadidos con el
@@ -19,10 +27,12 @@ tiempo, si deseas contribuir puedes leer el archivo
 
 - [ ] Crear una página principal fuera del libro.
 - [ ] Crear un tema CSS personalizado para el libro.
-- [ ] Agregar un Favicon para verse cool :sunglasses:
+- [x] Agregar un Favicon para verse cool :sunglasses:
 - [x] Incluir archivos `.rs` para modificaciones futuras.
 - [ ] Escribir acerca de las `crates`.
 - [ ] Relacionar Rust con otros lenguajes.
+- [ ] Automatizar la generación diaria de archivos `EPUB`.
+- [ ] 
 
 En el libro deseamos presentar Rust a los programadores de diversos lenguajes,
 debido a esto, si exponemos un problema y lo presentamos en X o Y lenguaje
