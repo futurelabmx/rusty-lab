@@ -1,9 +1,10 @@
 # Rusty-Lab.
 
 <p align="center">
-    <img src="src/images/rusty-lab.png" alt="Rusty-lab">
+    <img src="src/images/rusty-lab.png" height="100px" width="100px" alt="Rusty-lab">
 </p>
 
+> Logo made here: logomakr.com/8gIeL8
 
 ¡Aprende Rust con Future Lab!
 
