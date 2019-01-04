@@ -10,4 +10,4 @@
 - [¿Cargo?](PrimeraUnidad/01-cargo.md)
 - [FizzRust](PrimeraUnidad/02-fizzbuzz.md)
 --------------------------------------------------------------------------------
-[Contributores](contribs.md)
+[Contribuidores](contribs.md)
