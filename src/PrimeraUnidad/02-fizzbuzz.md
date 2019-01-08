@@ -368,6 +368,90 @@ las iteraciones de nuestro programa FizzBuzz.
 > entero se interpretará como un error irrecuperable y el programa se cerrará
 > inmediatamente.
 
-Primero necesitamos importar las bibliotecas necesarias para que el proyecto
-funcione:
+Primero necesitamos importar las bibliotecas necesarias para que el
+proyecto funcione, tendremos que crear una manera de pedir entrada al
+usuario y finalmente comprobar que nuestro programa funcione.
+
+El código completo debería verse de la siguiente manera:
+
+```rust,ignore
+{{#include ../code/rust/finished-fizzbuzz.rs}}
+```
+
+De nuevo hay muchas cosas nuevas en este código, cosa que nos beneficiará
+pues los temas posteriores serán mas sencillos de digerir una vez
+comprendamos como funcionan con este tipo de ejemplos.
+
+Nuestro primer paso es *"importar las bibliotecas necesarias"*.
+
+```rust,ignore
+{{#include ../code/rust/finished-fizzbuzz.rs:4}}
+//-- Mas código
+```
+Rust viene preparado con toda clase de cosas en su biblioteca estándar,
+sin embargo, si tuviésemos que importar cada cosa que utilizamos en
+nuestro código al final tendríamos un desastre. Al mismo tiempo, importar
+toneladas de bibliotecas a nuestro programa para dejar un gran porcentaje
+de éstas sin usar tampoco es algo bueno, por lo que un balance es
+necesario. Por lo que necesitaremos cargar las funciones de entrada y
+salida de la biblioteca estándar.
+
+Una vez tengamos las bibliotecas necesarias procederemos a pedir
+una entrada al usuario:
+
+```rust,ignore
+//-- Recorte
+{{#include ../code/rust/finished-fizzbuzz.rs:7:9}}
+//-- Recorte
+```
+
+Primero necesitamos un lugar donde almacenar la entrada del usuario:
+
+```rust,ignore
+{{#include ../code/rust/finished-fizzbuzz.rs:7}}
+```
+
+La declaración de variables se realiza con la palabra reservada
+`let` en Rust, cubriremos eso mas tarde, por ahora todo lo que tienes
+que saber es que con esta línea Rust está reservando una variable
+mutable (`mut`) llamada `entrada` (Si vienes de un lenguaje como Java
+podrás notar que es un método similar al de un `Scanner`, solo que con
+el estilo de Rust).
+
+Al igual que en otros lenguajes el operador `=` se utiliza para realizar
+una asignación, en el caso de nuestra línea de código estamos asignando
+el valor retornado por una función `String::new`, en este caso el valor
+que regresa la función es una nueva cadena.
+
+Similar a C++, Rust utiliza una sintáxis de 4 puntos para las funciones
+asociadas, por eso al llamar `::new()` estamos indicándole a Rust que
+`new` es una función asociada que retornará un `String`.
+
+En resumen la línea:
+```rust,ignore
+{{#include ../code/rust/finished-fizzbuzz.rs:7}}
+```
+
+Crea una nueva variable con una instancia vacía de un `String`.
+
+Ahora necesitamos indicar a nuestro usuario sus instrucciones, este
+es un paso importante puesto que tenemos que ser claros, como nuestros
+usuarios son inteligentes, asumiremos que saben lo que significa
+*iteraciones* y procederemos a imprimir un mensaje en la pantalla.
+
+```rust,ignore
+{{#include ../code/rust/finished-fizzbuzz.rs:8}}
+```
+
+Ahora necesitamos hacer algo para que el usuario ingrese el número y
+procesarlo para que se almacene en nuestra variable `entrada`:
+
+```rust,ignore
+{{#include ../code/rust/finished-fizzbuzz.rs:9}}
+```
+
+Como al inicio del programa utilizamos la línea `use std::io;` ahora
+tenemos las funciones y métodos de entrada de texto necesarios para
+trabajar. Similar a como funcionan los namespaces en C++ en Rust podemos
+omitir la línea `use std::io;` y obtener un código un poco mas ligero:
 
