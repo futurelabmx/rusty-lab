@@ -452,6 +452,54 @@ procesarlo para que se almacene en nuestra variable `entrada`:
 
 Como al inicio del programa utilizamos la línea `use std::io;` ahora
 tenemos las funciones y métodos de entrada de texto necesarios para
-trabajar. Similar a como funcionan los namespaces en C++ en Rust podemos
-omitir la línea `use std::io;` y obtener un código un poco mas ligero:
+trabajar, al llamar a la función `stdin` esta retornará una instancia de
+`std::io::Stdin`, lo que nos permitirá manejar la entrada estándar desde
+la terminal.
 
+La siguiente parte del código es `.read_line(&mut entrada)`, con ello
+llamamos a la función `.read_line` y el argumento le indica a la función
+que deberá guardar la entrada del usuario en una referencia para usarla
+mas tarde.
+
+La última parte es la función `.unwrap()`, con la cual compararemos la
+entrada del resultado. Como indicamos al inicio de este capítulo,
+asumiremos que los errores son irrecuperables y `unwrap()` nos ayudará
+con ello, al llamar a ésta función estamos indicándole a Rust lo
+siguiente: *"Si bien esto puede o no tener un valor, yo afirmo que lo*
+*tiene. En caso contrario, el programa fallará, no quiero un error recuperable"*.
+
+¡Listo!, con esto podemos pedir al usuario que ingrese *"algo"*,
+pero no nos basta con que ingrese *"algo"*, necesitamos que el
+usuario ingrese un número y cerrar el programa si ingresa cualquier
+cosa que no sea considerada un número:
+
+```rust,ignore
+{{#include ../code/rust/finished-fizzbuzz.rs:11}}
+```
+
+A estas alturas ya sabemos lo que hace `let`, solo como recordatorio, estamos
+declarando una variable nueva, llamada `iter` (por *iteraciones*), pero hay
+algo nuevo aquí, específicamente `: i32`. ¿Qué es esto? Simple, estamos haciendo
+algo llamado *"tipeado"*, en este caso estamos indicando que nuestra variable
+`iter` será tratada como un *"entero de 32 bits"* (No necesitamos entrar a
+detalle en esto, pues lo cubriremos en capítulos posteriores), después volvemos
+a utilizar el operador de asignación pues necesitamos que nuestra variable
+tenga un valor, en este caso la asignación consta de tres partes:
+
+* `trim()`: Esta función eliminará el salto de línea que el usuario ingresa al
+final de la función stdin, sin ésta función no podremos procesar el salto de
+línea y `unwrap()` lo detectará como un error.
+
+* `parse()`: Aquí haremos algo llamado *parsing* o conversión de tipos. Como
+podemos recordar, lo que ingresó nuestro usuario hasta ahora es una cadena, así
+esté conformada por números Rust por el momento piensa que es una cadena de
+caracteres, con esta función estamos convirtiendo esa cadena al tipo de la
+variable que se le está asignando, en este caso, convertimos una cadena a un
+entero de 32 bits.
+
+* `unwrap()` ya lo hemos cubierto, pero se asegurará de que la conversión
+resultante devuelva un entero de 32 bits, en caso contrario retornará un error,
+haciendo que el programa detenga su ejecución.
+
+Bien, ya solo nos falta asignar el número ingresado por el usuario a nuestro
+ciclo `for` para completar nuestro programa.
