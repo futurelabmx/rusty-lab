@@ -10,7 +10,6 @@ def fizzbuzz(x):
     else:
         return str(x)
 
-
 if __name__ == '__main__':
     sequence = '\n'.join(fizzbuzz(x) for x in range(1, 100))
     print(sequence)
