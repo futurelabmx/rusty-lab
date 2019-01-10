@@ -503,3 +503,34 @@ haciendo que el programa detenga su ejecución.
 
 Bien, ya solo nos falta asignar el número ingresado por el usuario a nuestro
 ciclo `for` para completar nuestro programa.
+
+Si prestaste atención notarás que el ciclo for tiene un pequeño cambio,
+vamos a verlo:
+
+```rust,ignore
+{{#include ../code/rust/finished-fizzbuzz.rs:13}}
+```
+
+¡Hemos cambiado la estructura de nuestro ciclo!
+No es nada de que alarmarse, hemos realizado el cambio para tomar ventaja de
+la edición 2018 de Rust la cual nos permite utilizar ciclos inclusivos, si
+recordamos las reglas de los ciclos for escritas anteriormente podremos recordar
+lo siguiente:
+
+> "[...] por lo tanto nuestro ciclo
+> `for` imprimirá los valores del `0` al `4`, no hasta el número `5`."
+
+Al utilizar la notación `..=` el rango será inclusivo por lo que el ciclo
+se repetirá el número de veces indicado, con esto evitamos realizar una
+operación extra sobre la entrada del usuario.
+
+Una vez realizadas las correcciones ya podemos ejecutar nuestro programa.
+
+¡Genial! Ahora ya sabes como realizar un programa FizzBuzz en Rust, es probable
+que tengas muchas preguntas en este momento ¿Por qué las variables mutan? ¿Qué
+es un ciclo? ¿Cuantos tipos de dato existen? ¿Cuales son los principios de Rust?
+
+Bien, esta y tus preguntas las resolveremos en el siguiente capítulo del libro
+en el cual trataremos conceptos básicos de programación, si deseas el código
+fuente del programa lo puedes conseguir en el siguiente
+[enlace](https://github.com/futurelabmx/rusty-lab/blob/master/src/code/rust/finished-fizzbuzz.rs).
