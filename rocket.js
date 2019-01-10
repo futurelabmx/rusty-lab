@@ -41,7 +41,7 @@ function attachRocket(element, type) {
     a.setAttribute('target', '_blank')
 
     var img = document.createElement('img')
-    img.setAttribute('src', 'img/ferris/' + type.attr + '.svg')
+    img.setAttribute('src', 'images/rocket/' + type.attr + '.svg')
     img.setAttribute('title', type.title)
     img.className = 'ferris'
 
