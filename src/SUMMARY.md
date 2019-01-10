@@ -9,5 +9,6 @@
 - [¡Hola Rust!](PrimeraUnidad/00-hola-rust.md)
 - [¿Cargo?](PrimeraUnidad/01-cargo.md)
 - [FizzRust](PrimeraUnidad/02-fizzbuzz.md)
+- [Aprendiendo las bases](PrimeraUnidad/03-bases.md)
 --------------------------------------------------------------------------------
 [Contribuidores](contribs.md)
