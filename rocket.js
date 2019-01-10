@@ -43,7 +43,7 @@ function attachRocket(element, type) {
     var img = document.createElement('img')
     img.setAttribute('src', 'images/rocket/' + type.attr + '.svg')
     img.setAttribute('title', type.title)
-    img.className = 'ferris'
+    img.className = 'rocket'
 
     a.appendChild(img)
 
