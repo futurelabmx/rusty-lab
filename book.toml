@@ -7,6 +7,7 @@ title = "Rusty Lab"
 [output.html]
 mathjax-support = true
 additional-css = ["rocket.css","theme/futurelab-edition.css"]
+additional-js = ["rocket.js"]
 
 [output.html.playpen]
 editable = true
