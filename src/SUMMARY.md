@@ -10,5 +10,6 @@
 - [¿Cargo?](PrimeraUnidad/01-cargo.md)
 - [FizzRust](PrimeraUnidad/02-fizzbuzz.md)
 - [Aprendiendo las bases](PrimeraUnidad/03-bases.md)
+  - [Variables y tipos](PrimeraUnidad/04-variables-y-tipos.md)
 --------------------------------------------------------------------------------
 [Contribuidores](contribs.md)
