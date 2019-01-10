@@ -47,3 +47,9 @@ Este repositorio utiliza recursos encontrados en
 https://github.com/rust-lang/book/ el cual posee una doble licencia
 MIT + Apache, todos los archivos expresador o utilizados aquí recibiran el
 reacondicionamiento propio para su uso e inclusión.
+
+Archivos bajo estos términos:
+
+* rocket.css
+* futurelab-edition.css
+* rocket.js
