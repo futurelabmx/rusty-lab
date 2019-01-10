@@ -114,7 +114,7 @@ Veamos este pequeño ejemplo para ilustrar lo anterior:
 
 El siguiente código producirá un error de compilación específicamente este:
 
-```
+```ignore
 error[E0384]: cannot assign twice to immutable variable `edad`
  --> src/main.rs:4:5
   |
@@ -135,13 +135,14 @@ que la variable es mutable, si deseamos hacer algo así necesitamos hacer lo
 siguiente:
 
 <span><b>Ejemplo 1.1</b></span>
+
 ```rust
 {{#include ../code/rust/mutvars.rs}}
 ```
 
 Esto debería imprimir el siguiente mensaje en pantalla:
 
-```
+```ignore
 Tienes 20 años
 Ahora tienes 21 años
 ```
