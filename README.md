@@ -32,7 +32,12 @@ tiempo, si deseas contribuir puedes leer el archivo
 - [ ] Escribir acerca de las `crates`.
 - [ ] Relacionar Rust con otros lenguajes.
 - [ ] Automatizar la generación diaria de archivos `EPUB`.
-- [ ] 
+- [ ] Crear un CSS personalizado para indicar errores similar al utilizado en
+el libro oficial, preferiblemente con los siguientes elementos:
+    * Indicador de código que no compila
+    * Indicador de códifo que entra en pánico
+    * Indicador de código sin salida
+    * Indicador de código inseguro
 
 En el libro deseamos presentar Rust a los programadores de diversos lenguajes,
 debido a esto, si exponemos un problema y lo presentamos en X o Y lenguaje
