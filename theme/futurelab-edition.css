@@ -1,0 +1,15 @@
+/*
+File modified from
+Rust Lang book under license MIT + Apache 2
+all credit to respective authors.
+*/
+
+span.caption {
+    font-size: .8em;
+    font-weight: 600;
+}
+
+span.caption code {
+    font-size: 0.875em;
+    font-weight: 400;
+}

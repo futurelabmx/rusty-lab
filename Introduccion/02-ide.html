@@ -1,0 +1,449 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>¿IDE o Editor de Texto? - Rusty Lab</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../rocket.css">
+        
+        <link rel="stylesheet" href="../theme/futurelab-edition.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../Introduccion/00-intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><a href="../Introduccion/01-antes-de-empezar.html"><strong aria-hidden="true">2.</strong> Antes de empezar</a></li><li><ol class="section"><li><a href="../Introduccion/01-windows.html"><strong aria-hidden="true">2.1.</strong> Instalación en Microsoft Windows</a></li><li><a href="../Introduccion/01-macos.html"><strong aria-hidden="true">2.2.</strong> Instalación en Mac OS</a></li><li><a href="../Introduccion/01-linux.html"><strong aria-hidden="true">2.3.</strong> Instalación en Gnu/Linux</a></li><li><a href="../Introduccion/02-ide.html" class="active"><strong aria-hidden="true">2.4.</strong> ¿IDE o Editor de Texto?</a></li></ol></li><li><a href="../PrimeraUnidad/00-hola-rust.html"><strong aria-hidden="true">3.</strong> ¡Hola Rust!</a></li><li><a href="../PrimeraUnidad/01-cargo.html"><strong aria-hidden="true">4.</strong> ¿Cargo?</a></li><li><a href="../PrimeraUnidad/02-fizzbuzz.html"><strong aria-hidden="true">5.</strong> FizzRust</a></li><li><a href="../PrimeraUnidad/03-bases.html"><strong aria-hidden="true">6.</strong> Aprendiendo las bases</a></li><li><ol class="section"><li><a href="../PrimeraUnidad/04-variables-y-tipos.html"><strong aria-hidden="true">6.1.</strong> Variables y tipos</a></li><li class="spacer"></li></ol></li><li><a href="../contribs.html">Contribuidores</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rusty Lab</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#hora-de-elegir-un-editor" id="hora-de-elegir-un-editor"><h1>¡Hora de elegir un editor!</h1></a>
+<p>Bien, empecemos con las malas noticias: Rust no tiene un IDE oficial, de hecho
+no existen IDEs 100% funcionales que estén dedicados enteramente a Rust, por
+lo que necesitarás elegir entre los editores de texto que rondan por la
+comunidad o si ya utilizas uno necesitarás descargar los plugins necesarios.</p>
+<blockquote>
+<p>Todos los datos de esta página fueron extraidos de la página
+<a href="https://areweideyet.com/">ARE WE IDE YET?</a>. Nosotros solo simplificaremos
+lo establecido ahí.</p>
+</blockquote>
+<p>Se indicarán los requerimientos entre paréntesis.</p>
+<a class="header" href="#atom" id="atom"><h2>ATOM</h2></a>
+<p>Atom es un editor de texto desarrollado por GitHub utilizando la biblioteca
+<em>Electron</em>, es extensible y fácil de utilizar.</p>
+<p>Eficiencia de atom en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin)</li>
+<li><s>Depuración</s></li>
+<li>Tooltips de documentación (Plugin)</li>
+</ul>
+<a class="header" href="#plugins-de-atom-para-rust" id="plugins-de-atom-para-rust"><h3>Plugins de ATOM para Rust</h3></a>
+<ul>
+<li><a href="https://atom.io/packages/language-rust">language-rust</a>.</li>
+<li><a href="https://atom.io/packages/ide-rust">ide-rust</a> &lt;- Este plugin instala
+el plugin <code>language-rust</code> y <code>atom-ide-ui</code>, provee al usuario con
+<code>rustfmt</code>, <code>racer</code> y funciones de IDE utilizando el <code>rls</code>.</li>
+<li><a href="https://atom.io/packages/linter-rust">linter-rust</a>
+depende del plugin <code>linter</code>.</li>
+<li><a href="https://atom.io/packages/racer">racer</a></li>
+<li><a href="https://atom.io/packages/rustfmt">rustfmt</a></li>
+<li><a href="https://vertexclique.github.io/tokamak/">tokamak</a></li>
+<li><a href="https://atom.io/packages/build-cargo">build-cargo</a> depende de
+<code>build</code> y <code>linter</code>.</li>
+<li><a href="https://atom.io/packages/atom-beautify">atom-beautify</a></li>
+<li><a href="https://atom.io/packages/languageserver-rust">languageserver-rust</a></li>
+</ul>
+<hr />
+<a class="header" href="#emacs" id="emacs"><h2>Emacs</h2></a>
+<p>Emacs es un editor de texto extensible, personalizable y libre, escrito
+en Lisp.</p>
+<p>Eficiencia de emacs en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin + Racer)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin + Racer)</li>
+<li><s>Depuración</s></li>
+<li>Tooltips de documentación (Plugin + Racer)</li>
+</ul>
+<a class="header" href="#plugins-de-emacs-para-rust" id="plugins-de-emacs-para-rust"><h3>Plugins de Emacs para Rust</h3></a>
+<ul>
+<li><a href="https://github.com/rust-lang/rust-mode">rust-mode</a></li>
+<li><a href="https://github.com/flycheck/flycheck-rust">flycheck-rust</a></li>
+<li><a href="https://github.com/racer-rust/emacs-racer">emacs-racer</a></li>
+<li><a href="https://github.com/freebroccolo/rust-snippets">rust-snippets</a></li>
+</ul>
+<hr />
+<a class="header" href="#sublime-text-23" id="sublime-text-23"><h2>Sublime text 2/3</h2></a>
+<p>Sublime text es un editor de texto escrito en C++, extensible y poderoso
+para editar código fuente.</p>
+<p>Eficiencia de sublime text en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis</li>
+<li>Snippets</li>
+<li>Autocompletado (Plugin + Racer)</li>
+<li>Linternas</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin + Racer)</li>
+<li><s>Depuración</s></li>
+<li><s>Tooltips de documentación</s></li>
+</ul>
+<a class="header" href="#plugins-de-sublime-text-para-rust" id="plugins-de-sublime-text-para-rust"><h3>Plugins de Sublime Text para Rust</h3></a>
+<ul>
+<li><a href="https://packagecontrol.io/packages/TOML">TOML</a></li>
+<li><a href="https://packagecontrol.io/packages/Rust%20Enhanced">Rust Enhanced</a></li>
+<li><a href="https://packagecontrol.io/packages/YcmdCompletion">YouCompleteMePlugin</a></li>
+<li><a href="https://packagecontrol.io/packages/BeautifyRust">BeautifyRust</a></li>
+</ul>
+<hr />
+<a class="header" href="#vimneovim" id="vimneovim"><h2>Vim/Neovim</h2></a>
+<p>Vim es un editor de texto extensible, altamente personalizable y útil
+para casi cualquier propósito, se incluye como reemplazo de <code>vi</code> en la
+mayoría de los sistemas operativos tipo UNIX.</p>
+<p>Eficiencia de Vim/Neovim en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin + Racer)</li>
+<li>Linternas (Plugin + Racer)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin + Racer)</li>
+<li><s>Depuración</s></li>
+<li>Tooltips de documentación (Plugin + Racer)</li>
+</ul>
+<a class="header" href="#plugins-de-vimneovim-para-rust" id="plugins-de-vimneovim-para-rust"><h3>Plugins de Vim/Neovim para Rust</h3></a>
+<ul>
+<li><a href="https://github.com/rust-lang/rust.vim">rust.vim</a></li>
+<li><a href="http://blog.jwilm.io/youcompleteme-rust">YouCompleteMe-rust</a></li>
+<li><a href="https://github.com/racer-rust/vim-racer">vim-racer</a></li>
+<li><a href="https://github.com/scrooloose/syntastic">syntastic</a></li>
+<li><a href="https://github.com/sirver/ultisnips">UltiSnips</a></li>
+</ul>
+<hr />
+<a class="header" href="#vscode--visual-studio-code--vscodium" id="vscode--visual-studio-code--vscodium"><h2>VSCode / Visual Studio Code / VSCodium</h2></a>
+<ul>
+<li>
+<p>VSCode es una herramienta que combina la simplicidad de un editor de
+texto con las necesidades de los desarrolladores. (VSCode es el proyecto
+padre de Visual Studio Code y VSCodium).</p>
+</li>
+<li>
+<p>Visual Studio Code es un editor derivado de VSCode el cual es
+clonado por Microsoft y modificado con telemetría, llaves de API
+cerradas y herramientas de integración avanzada.</p>
+</li>
+<li>
+<p>VSCodium es un derivado de VSCode el cual es una compilación del mismo
+que provee un editor 100 FLOSS (Free, Libre and Open Source Software).
+Por lo que este no contiene telemetría o rastro alguno de la marca de
+Microsoft, ideal para los entusiastas del software libre.</p>
+</li>
+</ul>
+<p>Eficiencia de VSCode en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin + Racer)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin + Racer)</li>
+<li>Depuración (Plugin)</li>
+<li>Tooltips de documentación (Plugin + Racer)</li>
+</ul>
+<a class="header" href="#plugins-de-vscode-para-rust" id="plugins-de-vscode-para-rust"><h3>Plugins de VSCode para Rust</h3></a>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust">Rust (RLS)</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">CodeLLDB</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=webfreak.debug">Debug</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=be5invis.toml">TOML Language Support</a></li>
+</ul>
+<hr />
+<a class="header" href="#eclipse" id="eclipse"><h2>Eclipse</h2></a>
+<p>Eclipse es un Entorno de Desarrollo Integrado (IDE) escrito en Java
+el cual está compuesto por un conjunto de herramientas que le garantizan
+extensibilidad y poder para el desarrollo multiplataforma.</p>
+<p>Eficiencia de Eclipse en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin)</li>
+<li>Depuración (Plugin)</li>
+<li>Tooltips de documentación (Plugin)</li>
+</ul>
+<a class="header" href="#plugins-de-eclipse-para-rust" id="plugins-de-eclipse-para-rust"><h3>Plugins de Eclipse para Rust</h3></a>
+<ul>
+<li><a href="https://github.com/eclipse/corrosion">Corrosion</a></li>
+</ul>
+<hr />
+<a class="header" href="#intellij-idea" id="intellij-idea"><h2>IntelliJ IDEA</h2></a>
+<p>IntelliJ IDEA es un IDE desarrollado por la compañía JetBrains hecha en
+Kotlin, Java y Python, cuenta con las ediciones de pago y comunitaria.</p>
+<p>Eficiencia de IntelliJ en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin)</li>
+<li>Depuración (Plugin)</li>
+<li>Tooltips de documentación (Plugin)</li>
+</ul>
+<a class="header" href="#plugins-de-intellij-para-rust" id="plugins-de-intellij-para-rust"><h3>Plugins de IntelliJ para Rust</h3></a>
+<ul>
+<li><a href="https://intellij-rust.github.io/">intellij-rust</a></li>
+</ul>
+<hr />
+<a class="header" href="#visual-studio" id="visual-studio"><h2>Visual Studio</h2></a>
+<p>Visual Studio es un IDE disponible para las plataformas de Microsoft
+Windows y Mac OS el cual posee todas las características para
+desarrollar software en Android, iOS, Windows, Web y Cloud Computing.</p>
+<p>Eficiencia de Visual Studio en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis</li>
+<li><s>Snippets</s></li>
+<li>Autocompletado</li>
+<li><s>Linternas</s></li>
+<li><s>Formato de código</s></li>
+<li>Ir a la definición (Plugin)</li>
+<li>Depuración (Plugin)</li>
+<li><s>Tooltips de documentación</s></li>
+</ul>
+<a class="header" href="#plugins-de-visual-studio-para-rust" id="plugins-de-visual-studio-para-rust"><h3>Plugins de Visual Studio para Rust</h3></a>
+<ul>
+<li><a href="https://github.com/PistonDevelopers/VisualRust">Visual Rust</a></li>
+</ul>
+<hr />
+<a class="header" href="#gnome-builder" id="gnome-builder"><h2>GNOME Builder</h2></a>
+<p>GNOME Builder es un IDE desarrollado en C para la plataforma Gnu/Linux
+el cual cuenta con búsqueda global, autocompletado, mini-mapa,
+documentación y edición avanzada.</p>
+<p>Eficiencia de Builder en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis</li>
+<li>Snippets</li>
+<li>Autocompletado</li>
+<li>Linternas</li>
+<li><s>Formato de código</s></li>
+<li>Ir a la definición</li>
+<li><s>Depuración</s></li>
+<li><s>Tooltips de documentación</s></li>
+</ul>
+<hr />
+<a class="header" href="#otros-editores-que-soportan-rust" id="otros-editores-que-soportan-rust"><h2>Otros editores que soportan Rust:</h2></a>
+<ul>
+<li>BBEdit</li>
+<li>Midnight Commander</li>
+<li>Geany</li>
+<li>gedit</li>
+<li>Kate</li>
+<li>Textadept</li>
+<li>Ride</li>
+<li>Solid Oak</li>
+</ul>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../Introduccion/01-linux.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../PrimeraUnidad/00-hola-rust.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../Introduccion/01-linux.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../PrimeraUnidad/00-hola-rust.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../rocket.js"></script>
+        
+
+        
+
+    </body>
+</html>

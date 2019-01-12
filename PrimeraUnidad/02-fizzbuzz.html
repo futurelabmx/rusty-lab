@@ -1,0 +1,709 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>FizzRust - Rusty Lab</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../rocket.css">
+        
+        <link rel="stylesheet" href="../theme/futurelab-edition.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../Introduccion/00-intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><a href="../Introduccion/01-antes-de-empezar.html"><strong aria-hidden="true">2.</strong> Antes de empezar</a></li><li><ol class="section"><li><a href="../Introduccion/01-windows.html"><strong aria-hidden="true">2.1.</strong> Instalación en Microsoft Windows</a></li><li><a href="../Introduccion/01-macos.html"><strong aria-hidden="true">2.2.</strong> Instalación en Mac OS</a></li><li><a href="../Introduccion/01-linux.html"><strong aria-hidden="true">2.3.</strong> Instalación en Gnu/Linux</a></li><li><a href="../Introduccion/02-ide.html"><strong aria-hidden="true">2.4.</strong> ¿IDE o Editor de Texto?</a></li></ol></li><li><a href="../PrimeraUnidad/00-hola-rust.html"><strong aria-hidden="true">3.</strong> ¡Hola Rust!</a></li><li><a href="../PrimeraUnidad/01-cargo.html"><strong aria-hidden="true">4.</strong> ¿Cargo?</a></li><li><a href="../PrimeraUnidad/02-fizzbuzz.html" class="active"><strong aria-hidden="true">5.</strong> FizzRust</a></li><li><a href="../PrimeraUnidad/03-bases.html"><strong aria-hidden="true">6.</strong> Aprendiendo las bases</a></li><li><ol class="section"><li><a href="../PrimeraUnidad/04-variables-y-tipos.html"><strong aria-hidden="true">6.1.</strong> Variables y tipos</a></li><li class="spacer"></li></ol></li><li><a href="../contribs.html">Contribuidores</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rusty Lab</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#creando-un-programa-fizzrustfizzbuzz" id="creando-un-programa-fizzrustfizzbuzz"><h1>Creando un programa FizzRust...FizzBuzz.</h1></a>
+<a class="header" href="#a-lectura-prolongada--" id="a-lectura-prolongada--"><h2>⚠️ LECTURA PROLONGADA  ⚠️</h2></a>
+<p>Hemos aprendo a las bases para utilizar nuestras herramientas de Rust y creamos
+nuestro primer &quot;Hola Mundo&quot; en poco tiempo, pero ahora pasemos a crear un
+programa más interesante, un programa llamado <em>&quot;FizzBuzz&quot;</em>.</p>
+<a class="header" href="#fizzque" id="fizzque"><h2>¿Fizz..que?</h2></a>
+<p>FizzBuzz es un juego que se utiliza con los niños para mejorar su
+capacidad de aplicar una división de manera mental. No, no planeamos
+tratarte como un niño pues esta prueba también se utiliza en las
+entrevistas de programación y funciona como un filtro, normalmente se
+les pide lo siguiente a los candidatos:</p>
+<p><em>&quot;Escriba un programa que imprima los números desde 1 hasta 100. Pero</em>
+<em>en cada número que sea múltiplo de 3 se deberá imprimir &quot;Fizz&quot; en el</em>
+<em>lugar del número, el mismo caso para los números que sean múltiplos de</em>
+<em>5. Por cada número que sea múltiplo de 3 y 5 se deberá imprimir</em>
+<em>FizzBuzz&quot;</em></p>
+<p>Por más simple que parezca la prueba, muchos programadores no logran
+pasarla pues no es un patrón que se vea dentro de las enseñanzas clásicas
+y por que no es posible representar las pruebas de manera directa y
+simple sin necesidad de duplicar algo.</p>
+<p>Aun así no nos vamos a adentrar en la complejidad de la prueba y
+explicar los árboles de desiciones en este capítulo sería desviarnos
+del objetivo principal, existen diferentes formas de resolver un
+problema FizzBuzz en diferentes lenguajes, aquí puedes ver algunos ejemplos.</p>
+<a class="header" href="#python" id="python"><h4>Python</h4></a>
+<pre><code class="language-python">def fizzbuzz(x):
+    &quot;&quot;&quot;Simple FizzBuzz, courtesy of @RodolfoFerro on @GitHub&quot;&quot;&quot;
+
+    if x % 3 == 0 and x % 5 == 0:
+        return &quot;FizzBuzz&quot;
+    elif x % 3 == 0:
+        return &quot;Fizz&quot;
+    elif x % 5 == 0:
+        return &quot;Buzz&quot;
+    else:
+        return str(x)
+
+if __name__ == '__main__':
+    sequence = '\n'.join(fizzbuzz(x) for x in range(1, 100))
+    print(sequence)
+
+</code></pre>
+<a class="header" href="#c-ansi--kernel-coding-style" id="c-ansi--kernel-coding-style"><h4>C (ANSI + Kernel Coding Style)</h4></a>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[])
+{
+        for (int i = 1; i &lt;= 100; i++) {
+                if (i % 3 == 0)
+                        printf(&quot;Fizz&quot;);
+                if (i % 5 == 0)
+                        printf(&quot;Buzz&quot;);
+                if (i % 3 != 0 &amp;&amp; i % 5 != 0)
+                         printf(&quot;%d&quot;, i);
+
+                printf(&quot;\n&quot;);
+        }
+        return 0;
+}
+
+</code></pre>
+<blockquote>
+<p>El problema con este ejemplo es que no se ve un caso para el
+&quot;FizzBuzz&quot;. Nótese que no existe la impresión de una nueva línea
+en el cuarto printf. Si el número es un múltiplo de 3 y 5 las
+primeras dos condiciones se cumplen, por lo tanto ambos casos
+se ejecutan.</p>
+</blockquote>
+<blockquote>
+<p>Si deseas agregar un ejemplo de FizzBuzz al libro eres bienvenido,
+solo abre un <em>Pull Request</em> que incluya el programa con tu lenguaje
+de programación favorito :D</p>
+</blockquote>
+<p>Bien, ahora vamos a tomar la aproximación de Rust. En este proyecto crearemos
+el mismo programa pero con salida de colores y en el camino explicaremos por
+encima algunos conceptos base de programación en Rust.</p>
+<a class="header" href="#preparando-el-proyecto" id="preparando-el-proyecto"><h2>Preparando el proyecto</h2></a>
+<p>Utilizando nuestros conocimientos previos lo primero que haremos será crear
+un nuevo proyecto utilizando Cargo, vamos a llamarlo FizzBuzz.</p>
+<p><code>$ cargo new --bin fizzbuzz</code></p>
+<p>Ahora entremos en el directorio creado por Cargo:</p>
+<p><code>$ cd fizzbuzz</code></p>
+<p>Vamos a editar el archivo <code>Cargo.toml</code> el cual se encuentra por defecto, en
+nuestro caso los programadores de Future Lab decidieron dejarlo de esta manera:</p>
+<pre><code class="language-toml">[package]
+name = &quot;fizzbuzz&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;Future Lab &lt;mxfuturelab@futuremail.com&gt;&quot;]
+edition = &quot;2018&quot;
+
+[dependencies]
+</code></pre>
+<p>En la parte superior mencionamos que nuestro programa tendría una salida a
+terminal de colores, para esto necesitamos agregar un <code>crate</code> a nuestra
+sección <code>[dependencies]</code>. La crate que utilizaremos es
+<a href="https://github.com/mackwic/colored">colored</a> un paquete de Rust que nos
+permite imprimir texto con decoraciones en la terminal.</p>
+<p>Nuestro archivo <code>Cargo.toml</code> debería quedar así:</p>
+<pre><code class="language-toml">[package]
+name = &quot;fizzbuzz&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;Future Lab &lt;mxfuturelab@futuremail.com&gt;&quot;]
+edition = &quot;2018&quot;
+
+[dependencies]
+colored = &quot;1.6&quot;
+</code></pre>
+<p>Bien, tenemos las dependencias que necesitamos para nuestro programa en
+Rust, digámosle a Cargo que las descargue y las compile para poder utilizarlas
+en nuestro proyecto sin problema alguno con:</p>
+<p><code>$ cargo build</code></p>
+<p>Esto debería de descargar y compilar <code>colored</code> y dejarlo listo para usar:</p>
+<pre><code class="language-ignore">   Updating crates.io index
+   Compiling lazy_static v1.2.0
+   Compiling colored v1.6.1
+   Compiling fizzbuzz v0.1.0 (/home/futurelab/Escritorio/fizzbuzz)
+    Finished dev [unoptimized + debuginfo] target(s) in 13.38s
+</code></pre>
+<a class="header" href="#escribir-una-base" id="escribir-una-base"><h2>Escribir una base</h2></a>
+<p>Utilizando el editor de tu preferencia abre el archivo <code>main.rs</code>, este es el
+archivo que vamos a modificar, elimina la línea que contiene el mensaje de
+impresión (<code>println!</code>) y procede a escribir el siguiente código, no te
+preocupes si no lo entiendes pues lo explicaremos a lo largo de este capítulo.</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    for x in 0..{
+        match (x % 3, x % 5) {
+            (0, 0) =&gt; println!(&quot;FizzBuzz&quot;),
+            (0, _) =&gt; println!(&quot;Fizz&quot;),
+            (_, 0) =&gt; println!(&quot;Buzz&quot;),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+        }
+    }
+}
+</code></pre></pre>
+<blockquote>
+<p>No ejecutes este código aún, es una versión de pruebas que
+modificaremos a lo largo de este y los siguientes capítulos.</p>
+</blockquote>
+<a class="header" href="#comprendiendo-el-código" id="comprendiendo-el-código"><h2>Comprendiendo el código</h2></a>
+<p>¿Que está pasando aquí? Hay muchos elementos nuevos (Claro, todo es nuevo
+a diferencia del macro <code>println!</code> que vimos en el capítulo pasado) por lo que
+vamos a volver a descomponer línea por línea todo el programa.</p>
+<p>Revisemos dentro de la función <code>main</code>, esta función es la misma que utilizamos
+en nuestro primer <code>hola mundo</code> por lo que no hay necesidad de explicarla así
+que nos dirigiremos a la segunda línea de nuestro código actual:</p>
+<pre><code class="language-rust ignore">    for x in 0..{
+</code></pre>
+<a class="header" href="#el-iterador" id="el-iterador"><h3>El iterador</h3></a>
+<p>Como mencionamos en el capítulo <strong>2</strong>, asumiremos que posees conocimientos
+básicos de programación por lo que debe ser evidente que esto es algo
+conocido como <em>&quot;ciclo for&quot;</em>, los exploraremos más adelante en el capítulo
+de control de flujo, por ahora vamos a dejar claras las bases de un
+ciclo <code>for</code> en Rust.</p>
+<p>Lo primero que podemos observar es que la sintaxis de los ciclos <code>for</code>
+no es similar a la utilizada en lenguajes como C, JavaScript o Java:</p>
+<pre><code class="language-c">for (x = 0; x &lt; 10; x++) {
+        printf(&quot;%i\n&quot;, x);
+}
+</code></pre>
+<p>En su lugar (y en términos más abstractos) los ciclos <code>for</code> en Rust
+se ven algo así:</p>
+<pre><code class="language-rust ignore">for x in 0..5 {
+    println!(&quot;{}&quot;, x);
+}
+</code></pre>
+<p>Si abstraemos los términos podríamos describirlos así:</p>
+<pre><code class="language-rust ignore">for variable in expresion {
+    código
+}
+</code></pre>
+<p>Siendo &quot;<code>expresion</code>&quot; un iterador. En nuestro ejemplo elegimos el rango de
+<code>0..5</code>, esta expresión consta de un inicio y un fin y el ciclo realizará
+una iteración entre esos valores, aunque Rust posee rangos inclusivos,
+por defecto el límite superior es exclusivo, por lo tanto nuestro ciclo
+<code>for</code> imprimirá los valores del <code>0</code> al <code>4</code>, no hasta el número <code>5</code>.</p>
+<p>La razón por la que Rust no posee ciclos <code>for</code> con una sintaxis parecida
+a C es sencilla, al tener esa sintaxis se controla manualmente cada
+elemento del ciclo lo cual deja el código susceptible a errores <em>humanos</em>.</p>
+<p>Pero hay algo diferente en nuestro ciclo for, si volvemos por un momento
+a nuestro código podemos notar que no tenemos un valor definido como
+límite superior del ciclo:</p>
+<pre><code class="language-rust ignore">    for x in 0..{
+</code></pre>
+<p>En su lugar tenemos una llave abierta, indicando el inicio de las
+instrucciones del ciclo. Esto es muy sencillo, cuando Rust encuentre
+un ciclo <code>for</code> de este tipo lo ejecutará infinitamente.</p>
+<p>Nos hemos equivocado a propósito, pues Rust posee una forma más sencilla
+de realizar ciclos infinitos.</p>
+<p>Por ahora continuaremos explorando la estructura del ciclo <code>for</code>:</p>
+<pre><code class="language-rust ignore">        match (x % 3, x % 5) {
+            (0, 0) =&gt; println!(&quot;FizzBuzz&quot;),
+            (0, _) =&gt; println!(&quot;Fizz&quot;),
+            (_, 0) =&gt; println!(&quot;Buzz&quot;),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+</code></pre>
+<a class="header" href="#múltiples-casos-múltiples-resultados" id="múltiples-casos-múltiples-resultados"><h3>Múltiples casos, múltiples resultados.</h3></a>
+<p>Aquí podemos ver otro elemento <em>&quot;antes de tiempo&quot;</em> que viene del control
+de flujo en Rust, en este caso <code>match</code>.</p>
+<p><code>match</code> es el equivalente a <code>switch</code> en otros lenguajes de programación
+como C o C++, una alternativa a comparar y ejecutar los diferentes
+valores que puede tomar una variable.</p>
+<p>La estructura de la palabra clave <code>match</code> puede ser utilizada de formas
+complejas y aunque no explicaremos a fondo su uso por ahora, intentaremos
+explicarte como funciona <code>match</code> en el caso de nuestro código.</p>
+<p>Para que <code>match</code> funcione correctamente necesita una expresión para
+evaluar, como nosotros tenemos <code>x</code> como variable (declarada en el
+alcance del ciclo <code>for</code>) y ésta se encuentra en uso como iterador
+su valor mutará en cada <em>&quot;vuelta&quot;</em> del ciclo, en este caso <code>x</code> aumentará
+su valor en una unidad por iteración por lo que <code>x</code> será lo que
+evaluaremos.</p>
+<p>Dentro de los paréntesis tenemos dos operaciones que procesarán <code>x</code> y
+arrojarán un resultado que será enviado a cualquiera de los posibles
+casos dentro de <code>match</code>, en este caso nuestras dos operaciones son las
+siguientes: <code>x % 3</code> y <code>x % 5</code>.</p>
+<p>El operador <code>%</code> cumple la misma función que en otros lenguajes, retorna
+el residuo de la división entre dos números, sabiendo esto cada
+iteración comparará a <code>x</code> dos veces, regresando el residuo del valor de
+<code>x</code> dividido entre <code>3</code> y <code>5</code>, dependiendo del resultado se enviará
+a la pantalla el mensaje.</p>
+<p>Veamos la primera condición:</p>
+<pre><code class="language-rust ignore">            (0, 0) =&gt; println!(&quot;FizzBuzz&quot;),
+</code></pre>
+<p>Si el residuo resultante de la división de <code>x</code>/<code>3</code> <strong>Y</strong> <code>x</code>/<code>5</code> es
+igual a cero entonces se enviará a la pantalla el mensaje &quot;FizzBuzz&quot;.</p>
+<hr />
+<p>En la segunda condición las cosas cambian un poco, podemos observar
+un elemento nuevo, un guión bajo (<code>_</code>), éste funciona de la misma
+manera que un <code>default:</code> funciona dentro de un <code>switch</code>.</p>
+<p>En este caso <code>_</code> funciona como un <em>&quot;atrapa-todo&quot;</em> en el cual caerán
+todos los resultados que no coincidan don las condiciones expresadas en
+los casos de <code>match</code>. Si observamos detenidamente el código podemos
+llegar a la conclusión de que <code>_</code> funcionará en caso de que
+la división de <code>x</code>/<code>3</code> ó <code>x</code>/<code>5</code> arrojen <em>cualquier valor diferente de 0</em></p>
+<pre><code class="language-rust ignore">            (0, _) =&gt; println!(&quot;Fizz&quot;),
+            (_, 0) =&gt; println!(&quot;Buzz&quot;),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+</code></pre>
+<hr />
+<a class="header" href="#agregando-algo-de-color" id="agregando-algo-de-color"><h3>Agregando algo de color</h3></a>
+<p>Bien, nuestro programa FizzBuzz funciona, en un ciclo infinito que
+se ejecutará hasta que nuestra computadora tenga la necesidad
+de detenerlo, más tarde arreglaremos ese problema, por ahora
+vamos a darle un poco de color a la salida del programa. Para esto
+utilizaremos un crate llamado <code>colored</code>, la misma que agregamos
+al inicio de este capítulo, el uso es sencillo, por ejemplo, podemos
+imprimir &quot;Hola Rust&quot; en color rojo:</p>
+<pre><code class="language-rust ignore">extern crate colored;
+
+use colored::*;
+
+fn main() {
+    println!(&quot;{}&quot;, &quot;¡Hola Rust!&quot;.red());
+}
+</code></pre>
+<blockquote>
+<p>Eliminamos la opción de ejecución en este ejemplo, pues el navegador
+no soporta la impresión de texto de color.</p>
+</blockquote>
+<p>Hagamos una ligera modificación, cuando el programa tenga que imprimir
+<em>&quot;Fizz&quot;</em>, lo hará en un color rojo, en caso de que necesite imprimir
+<em>&quot;Buzz&quot;</em> será en color amarillo y en el caso de imprimir <em>&quot;FizzBuzz&quot;</em> lo
+hará de color cían.</p>
+<blockquote>
+<p>(No es necesario que pongas esos colores si no son de
+tu agrado, en la <a href="https://github.com/mackwic/colored#features">guía oficial</a>
+del crate están listados todos los colores y estilos disponibles, anímate a
+experimentar un poco).</p>
+</blockquote>
+<p>Veamos el código utilizando colores de Future Lab :D</p>
+<pre><code class="language-rust ignore">extern crate colored;
+
+use colored::*;
+
+fn main() {
+    for x in 0..{
+        match (x % 3, x % 5) {
+            (0, 0) =&gt; println!(&quot;{}&quot;,&quot;FizzBuzz&quot;.cyan()),
+            (0, _) =&gt; println!(&quot;{}&quot;,&quot;Fizz&quot;.red()),
+            (_, 0) =&gt; println!(&quot;{}&quot;,&quot;Buzz&quot;.yellow()),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+        }
+    }
+}
+</code></pre>
+<p>Aun más elementos nuevos, vamos a explicarlos parte por parte:</p>
+<p>La declaración <code>extern crate</code> le especifica a Rust que nuestro programa
+depende de un biblioteca externa a nuestro proyecto, acercándola a
+nuestro alcance.</p>
+<pre><code class="language-rust ignore">extern crate colored;
+</code></pre>
+<p>La declaración <code>use</code> crea enlaces locales a funciones o métodos remotos,
+se utiliza para simplificar el uso de localización de archivos.</p>
+<pre><code class="language-rust ignore">use colored::*;
+</code></pre>
+<p>Las siguientes líneas son sencillas de explicar:</p>
+<pre><code class="language-rust ignore">            (0, 0) =&gt; println!(&quot;{}&quot;,&quot;FizzBuzz&quot;.cyan()),
+            (0, _) =&gt; println!(&quot;{}&quot;,&quot;Fizz&quot;.red()),
+            (_, 0) =&gt; println!(&quot;{}&quot;,&quot;Buzz&quot;.yellow()),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+</code></pre>
+<p>Nuestro macro <code>println!</code> ha cambiado, en este caso el crate <code>colored</code>
+solo funciona con cadenas de caracteres, por lo que necesitamos
+colocar algo llamado <em>&quot;placeholder&quot;</em> que en resumen es un espacio
+donde se colocará un elemento más tarde, tenemos que separar con una
+coma los argumentos, en ese caso el segundo argumento será nuestra
+cadena, en este caso <em>&quot;Fizz&quot;</em>, <em>&quot;Buzz&quot;</em>, y <em>&quot;FizzBuzz&quot;</em>, solo resta
+agregar la función correspondiente. <code>colored</code> retorna cadenas en todas
+sus funciones por lo que no habrá problema si pasamos las funciones
+seguidas de un punto en este caso.</p>
+<p>La impresión del programa debería verse de esta manera en una
+ejecución normal:</p>
+<p><img src="../images/colored-rust.png" alt="Salida De Colores" /></p>
+<p>Se ve genial ¿no?, puedes probar a hacer diferentes combinaciones, por ejemplo
+al imprimir &quot;FizzBuzz&quot; hacer que cada carácter tenga un color distinto:</p>
+<p><img src="../images/colored-rust2.png" alt="Salida De Colores" /></p>
+<p>¡Genial! Nuestro programa ahora imprime las cosas de una manera
+más <em>&quot;elegante&quot;</em>. Pero podemos notar un problema en las imágenes,
+los números evaluados son muy altos, no deberíamos de cargar al
+sistema con esa clase de operaciones.</p>
+<p>Podríamos colocar un límite superior en el ciclo <code>for</code> en nuestro
+código, pero, si bien es una buena solución la verdad sea dicha, tenemos
+planeado enseñarte algo que causa muchos problemas con los principiantes
+en el lenguaje de programación Rust.</p>
+<a class="header" href="#operaciones-de-entrada" id="operaciones-de-entrada"><h2>Operaciones de entrada</h2></a>
+<p>Entre los usuarios Novel, pedir entrada de datos al usuario es un tema
+común, pues no existe una manera sencilla de hacerlo como en otros
+lenguajes como C, Python o Ruby.</p>
+<p>Esto tiene una razón sencilla, una entrada errónea del usuario puede
+causar comportamientos inesperados en los programas que podamos crear,
+puede parecer algo tedioso al inicio y es algo que se ha estado trabajando
+desde las versiones mas nuevas de Rust, aun así, las comparaciones entre
+Rust y otros lenguajes como Python y Ruby, carecen de sentido, pues
+cumplen roles diferentes.</p>
+<p>Vamos a pedir al usuario ingresar un número entero, el cual servirá como límite
+superior de nuestro ciclo <code>for</code>, con ello el usuario tendrá el control sobre
+las iteraciones de nuestro programa FizzBuzz.</p>
+<blockquote>
+<p>En este caso, si el usuario ingresa cualquier cosa que no sea un número
+entero se interpretará como un error irrecuperable y el programa se cerrará
+inmediatamente.</p>
+</blockquote>
+<p>Primero necesitamos importar las bibliotecas necesarias para que el
+proyecto funcione, tendremos que crear una manera de pedir entrada al
+usuario y finalmente comprobar que nuestro programa funcione.</p>
+<p>El código completo debería verse de la siguiente manera:</p>
+<pre><code class="language-rust ignore">extern crate colored;
+
+use colored::*;
+use std::io;
+
+fn main() {
+    let mut entrada = String::new();
+    println!(&quot;Ingrese el número de iteraciones deseadas:&quot;);
+    io::stdin().read_line(&amp;mut entrada).unwrap();
+
+    let iter: i32 = entrada.trim().parse().unwrap();
+
+    for x in 0..=iter {
+        match (x % 3, x % 5) {
+            (0, 0) =&gt; println!(&quot;{}&quot;, &quot;FizzBuzz&quot;.cyan()),
+            (0, _) =&gt; println!(&quot;{}&quot;, &quot;Fizz&quot;.red()),
+            (_, 0) =&gt; println!(&quot;{}&quot;, &quot;Buzz&quot;.yellow()),
+            (_, _) =&gt; println!(&quot;{}&quot;, x),
+        }
+    }
+}
+
+</code></pre>
+<p>De nuevo hay muchas cosas nuevas en este código, cosa que nos beneficiará
+pues los temas posteriores serán mas sencillos de digerir una vez
+comprendamos como funcionan con este tipo de ejemplos.</p>
+<p>Nuestro primer paso es <em>&quot;importar las bibliotecas necesarias&quot;</em>.</p>
+<pre><code class="language-rust ignore">use std::io;
+//-- Mas código
+</code></pre>
+<p>Rust viene preparado con toda clase de cosas en su biblioteca estándar,
+sin embargo, si tuviésemos que importar cada cosa que utilizamos en
+nuestro código al final tendríamos un desastre. Al mismo tiempo, importar
+toneladas de bibliotecas a nuestro programa para dejar un gran porcentaje
+de éstas sin usar tampoco es algo bueno, por lo que un balance es
+necesario. Por lo que necesitaremos cargar las funciones de entrada y
+salida de la biblioteca estándar.</p>
+<p>Una vez tengamos las bibliotecas necesarias procederemos a pedir
+una entrada al usuario:</p>
+<pre><code class="language-rust ignore">//-- Recorte
+    let mut entrada = String::new();
+    println!(&quot;Ingrese el número de iteraciones deseadas:&quot;);
+    io::stdin().read_line(&amp;mut entrada).unwrap();
+//-- Recorte
+</code></pre>
+<p>Primero necesitamos un lugar donde almacenar la entrada del usuario:</p>
+<pre><code class="language-rust ignore">    let mut entrada = String::new();
+</code></pre>
+<p>La declaración de variables se realiza con la palabra reservada
+<code>let</code> en Rust, cubriremos eso mas tarde, por ahora todo lo que tienes
+que saber es que con esta línea Rust está reservando una variable
+mutable (<code>mut</code>) llamada <code>entrada</code> (Si vienes de un lenguaje como Java
+podrás notar que es un método similar al de un <code>Scanner</code>, solo que con
+el estilo de Rust).</p>
+<p>Al igual que en otros lenguajes el operador <code>=</code> se utiliza para realizar
+una asignación, en el caso de nuestra línea de código estamos asignando
+el valor retornado por una función <code>String::new</code>, en este caso el valor
+que regresa la función es una nueva cadena.</p>
+<p>Similar a C++, Rust utiliza una sintáxis de 4 puntos para las funciones
+asociadas, por eso al llamar <code>::new()</code> estamos indicándole a Rust que
+<code>new</code> es una función asociada que retornará un <code>String</code>.</p>
+<p>En resumen la línea:</p>
+<pre><code class="language-rust ignore">    let mut entrada = String::new();
+</code></pre>
+<p>Crea una nueva variable con una instancia vacía de un <code>String</code>.</p>
+<p>Ahora necesitamos indicar a nuestro usuario sus instrucciones, este
+es un paso importante puesto que tenemos que ser claros, como nuestros
+usuarios son inteligentes, asumiremos que saben lo que significa
+<em>iteraciones</em> y procederemos a imprimir un mensaje en la pantalla.</p>
+<pre><code class="language-rust ignore">    println!(&quot;Ingrese el número de iteraciones deseadas:&quot;);
+</code></pre>
+<p>Ahora necesitamos hacer algo para que el usuario ingrese el número y
+procesarlo para que se almacene en nuestra variable <code>entrada</code>:</p>
+<pre><code class="language-rust ignore">    io::stdin().read_line(&amp;mut entrada).unwrap();
+</code></pre>
+<p>Como al inicio del programa utilizamos la línea <code>use std::io;</code> ahora
+tenemos las funciones y métodos de entrada de texto necesarios para
+trabajar, al llamar a la función <code>stdin</code> esta retornará una instancia de
+<code>std::io::Stdin</code>, lo que nos permitirá manejar la entrada estándar desde
+la terminal.</p>
+<p>La siguiente parte del código es <code>.read_line(&amp;mut entrada)</code>, con ello
+llamamos a la función <code>.read_line</code> y el argumento le indica a la función
+que deberá guardar la entrada del usuario en una referencia para usarla
+mas tarde.</p>
+<p>La última parte es la función <code>.unwrap()</code>, con la cual compararemos la
+entrada del resultado. Como indicamos al inicio de este capítulo,
+asumiremos que los errores son irrecuperables y <code>unwrap()</code> nos ayudará
+con ello, al llamar a ésta función estamos indicándole a Rust lo
+siguiente: <em>&quot;Si bien esto puede o no tener un valor, yo afirmo que lo</em>
+<em>tiene. En caso contrario, el programa fallará, no quiero un error recuperable&quot;</em>.</p>
+<p>¡Listo!, con esto podemos pedir al usuario que ingrese <em>&quot;algo&quot;</em>,
+pero no nos basta con que ingrese <em>&quot;algo&quot;</em>, necesitamos que el
+usuario ingrese un número y cerrar el programa si ingresa cualquier
+cosa que no sea considerada un número:</p>
+<pre><code class="language-rust ignore">    let iter: i32 = entrada.trim().parse().unwrap();
+</code></pre>
+<p>A estas alturas ya sabemos lo que hace <code>let</code>, solo como recordatorio, estamos
+declarando una variable nueva, llamada <code>iter</code> (por <em>iteraciones</em>), pero hay
+algo nuevo aquí, específicamente <code>: i32</code>. ¿Qué es esto? Simple, estamos haciendo
+algo llamado <em>&quot;tipeado&quot;</em>, en este caso estamos indicando que nuestra variable
+<code>iter</code> será tratada como un <em>&quot;entero de 32 bits&quot;</em> (No necesitamos entrar a
+detalle en esto, pues lo cubriremos en capítulos posteriores), después volvemos
+a utilizar el operador de asignación pues necesitamos que nuestra variable
+tenga un valor, en este caso la asignación consta de tres partes:</p>
+<ul>
+<li>
+<p><code>trim()</code>: Esta función eliminará el salto de línea que el usuario ingresa al
+final de la función stdin, sin ésta función no podremos procesar el salto de
+línea y <code>unwrap()</code> lo detectará como un error.</p>
+</li>
+<li>
+<p><code>parse()</code>: Aquí haremos algo llamado <em>parsing</em> o conversión de tipos. Como
+podemos recordar, lo que ingresó nuestro usuario hasta ahora es una cadena, así
+esté conformada por números Rust por el momento piensa que es una cadena de
+caracteres, con esta función estamos convirtiendo esa cadena al tipo de la
+variable que se le está asignando, en este caso, convertimos una cadena a un
+entero de 32 bits.</p>
+</li>
+<li>
+<p><code>unwrap()</code> ya lo hemos cubierto, pero se asegurará de que la conversión
+resultante devuelva un entero de 32 bits, en caso contrario retornará un error,
+haciendo que el programa detenga su ejecución.</p>
+</li>
+</ul>
+<p>Bien, ya solo nos falta asignar el número ingresado por el usuario a nuestro
+ciclo <code>for</code> para completar nuestro programa.</p>
+<p>Si prestaste atención notarás que el ciclo for tiene un pequeño cambio,
+vamos a verlo:</p>
+<pre><code class="language-rust ignore">    for x in 0..=iter {
+</code></pre>
+<p>¡Hemos cambiado la estructura de nuestro ciclo!
+No es nada de que alarmarse, hemos realizado el cambio para tomar ventaja de
+la edición 2018 de Rust la cual nos permite utilizar ciclos inclusivos, si
+recordamos las reglas de los ciclos for escritas anteriormente podremos recordar
+lo siguiente:</p>
+<blockquote>
+<p>&quot;[...] por lo tanto nuestro ciclo
+<code>for</code> imprimirá los valores del <code>0</code> al <code>4</code>, no hasta el número <code>5</code>.&quot;</p>
+</blockquote>
+<p>Al utilizar la notación <code>..=</code> el rango será inclusivo por lo que el ciclo
+se repetirá el número de veces indicado, con esto evitamos realizar una
+operación extra sobre la entrada del usuario.</p>
+<p>Una vez realizadas las correcciones ya podemos ejecutar nuestro programa.</p>
+<p>¡Genial! Ahora ya sabes como realizar un programa FizzBuzz en Rust, es probable
+que tengas muchas preguntas en este momento ¿Por qué las variables mutan? ¿Qué
+es un ciclo? ¿Cuantos tipos de dato existen? ¿Cuales son los principios de Rust?</p>
+<p>Bien, esta y tus preguntas las resolveremos en el siguiente capítulo del libro
+en el cual trataremos conceptos básicos de programación, si deseas el código
+fuente del programa lo puedes conseguir en el siguiente
+<a href="https://github.com/futurelabmx/rusty-lab/blob/master/src/code/rust/finished-fizzbuzz.rs">enlace</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../PrimeraUnidad/01-cargo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../PrimeraUnidad/03-bases.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../PrimeraUnidad/01-cargo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../PrimeraUnidad/03-bases.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../rocket.js"></script>
+        
+
+        
+
+    </body>
+</html>

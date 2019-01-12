@@ -1,0 +1,1747 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rusty Lab</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="rocket.css">
+        
+        <link rel="stylesheet" href="theme/futurelab-edition.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="Introduccion/00-intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><a href="Introduccion/01-antes-de-empezar.html"><strong aria-hidden="true">2.</strong> Antes de empezar</a></li><li><ol class="section"><li><a href="Introduccion/01-windows.html"><strong aria-hidden="true">2.1.</strong> Instalación en Microsoft Windows</a></li><li><a href="Introduccion/01-macos.html"><strong aria-hidden="true">2.2.</strong> Instalación en Mac OS</a></li><li><a href="Introduccion/01-linux.html"><strong aria-hidden="true">2.3.</strong> Instalación en Gnu/Linux</a></li><li><a href="Introduccion/02-ide.html"><strong aria-hidden="true">2.4.</strong> ¿IDE o Editor de Texto?</a></li></ol></li><li><a href="PrimeraUnidad/00-hola-rust.html"><strong aria-hidden="true">3.</strong> ¡Hola Rust!</a></li><li><a href="PrimeraUnidad/01-cargo.html"><strong aria-hidden="true">4.</strong> ¿Cargo?</a></li><li><a href="PrimeraUnidad/02-fizzbuzz.html"><strong aria-hidden="true">5.</strong> FizzRust</a></li><li><a href="PrimeraUnidad/03-bases.html"><strong aria-hidden="true">6.</strong> Aprendiendo las bases</a></li><li><ol class="section"><li><a href="PrimeraUnidad/04-variables-y-tipos.html"><strong aria-hidden="true">6.1.</strong> Variables y tipos</a></li><li class="spacer"></li></ol></li><li><a href="contribs.html">Contribuidores</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rusty Lab</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#prólogo" id="prólogo"><h1>Prólogo</h1></a>
+<p>Lo hemos escuchado muchas veces, más cuando nos vemos envueltos en situaciones
+críticas al momento de producir software, necesitamos desarrollar herramientas
+que requieren ser rápidas, precisas y de bajo consumo de recursos.</p>
+<p>Existe una cantidad vasta de lenguajes de programación, bibliotecas y frameworks
+que nos pueden ayudar a realizar nuestro trabajo, aun así no todos son lo que
+definiríamos como <em>&quot;La herramienta correcta&quot;</em> para el trabajo que necesitamos
+entregar en dos semanas a un cliente altamente exigente.</p>
+<p>Cuando nos adentramos al lenguaje de programación <em>Rust</em> no tenemos línea alguna
+que nos especifique los límites de el lenguaje, pues el objetivo principal de
+Rust es el otorgar control, la adquisición de poder e independencia por parte
+del programador.</p>
+<p>Rust cumple conos paradigmas y su naturaleza extensible permite que los
+programadores desarrollen sus ideas sin límites que pueden llegas a ser molestos
+después de lidiar una o dos veces con ellos, pensemos en lenguajes de
+programación como C o C++, estos dos lenguajes son las bases de mucha de la
+tecnología usada actualmente, la mayoría de los dispositivos que usamos
+cuentan con un sistema operativo escrito mayormente en C o C++, sin embargo
+estos lenguajes de programación no son perfectos, el control que le es ofrecido
+al usuario no está regulado por criterios de ningún tipo lejos de la sintaxis
+y algunas protecciones básicas en la memoria (sin mencionar la protección que
+otorga el sistema operativo en muchos casos).</p>
+<p>Aun así los lenguajes de programación como C o C++ no poseen una regulación muy
+profunda, lo cual puede llevar a cometer los errores más comunes que se conocen
+en estos lenguajes como:</p>
+<ul>
+<li>Memory leaks</li>
+<li>Data races</li>
+<li>Stack &amp; Buffer overflow</li>
+<li>Null pointers</li>
+<li>Segfaults</li>
+<li>etc.</li>
+</ul>
+<p>Pensemos en el enfoque principal de Rust, ser un lenguaje de programación de
+sistemas, un nivel en el que se trabaja con un manejo avanzado de la memoria del
+sistema, representación extensiva de datos, concurrencia, trabajar con
+diferentes hilos de ejecución y más. Esto puede ser visto como algo duro o
+difícil pues es muy fácil cometer errores que pueden congelar, dañar parcial o
+totalmente un sistema funcional e incluso los programadores de
+sistemas con más experiencia no están libres de cometer errores menores que
+dejan sus programas expuestos a vulnerabilidades, cierres inesperados o
+corrupción de datos parcial o total.</p>
+<p>Rust no se limita solo a programación de sistemas, al ser extremadamente modular
+permite aplicaciones CLI, GUI's con <a href="https://gtk-rs.org/">gtk-rs</a> o incluso
+puedes desplegar tus propias web-apps utilizando
+<a href="https://rocket.rs/">rocket</a>, un poderoso framework hecho completamente en Rust.</p>
+<p>Incluso si eres un programador que trabaja a bajo nivel puedes reescribir tus
+proyectos en Rust para mejorar su tiempo de ejecución, seguridad,
+concurrencia o legibilidad sin miedo a introducir nuevos errores
+o vulnerabilidades.</p>
+<p>En este libro comunitario aprenderás a manejar las bases del lenguaje de
+programación Rust, podrás aplicar tus conocimientos para mejorar o
+realizar nuevos proyectos, no esperes más, toma tu computadora, una
+libreta y empieza a aprender con nosotros.</p>
+<p>-- Future Lab
+<img src="../images/future-logo.png" alt="Future Lab" /></p>
+<a class="header" href="#prepara-tu-entorno" id="prepara-tu-entorno"><h1>¡Prepara tu entorno!</h1></a>
+<p>¡Bienvenido! Si es tu primera vez utilizando el lenguaje de programación Rust
+este capítulo es para ti, antes de comenzar a escribir centenares de líneas de
+código necesitamos preparar nuestro entorno de desarrollo.</p>
+<blockquote>
+<p>Este libro asume que posees conocimientos básicos de programación, si eres o
+te consideras un novato en esta área te recomendamos comenzar por un lenguaje
+más sencillo como C o Python.</p>
+</blockquote>
+<p>Antes que nada tenemos que instalar Rust en nuestra computadora, dependiendo de
+nuestro sistema operativo nuestra instalación será diferente y necesitará más o
+menos pasos para configurarse correctamente.</p>
+<p>Por ahora necesitaremos:</p>
+<ul>
+<li>Una computadora</li>
+<li>Acceso a Internet</li>
+</ul>
+<p>En los capítulos <strong>2.1</strong>, <strong>2.2</strong> y <strong>2.3</strong> cubriremos la instalación en
+diferentes sistemas operativos comunes, si ya posees Rust instalado o si
+consideras que puedes guiarte durante el proceso de instalación te
+recomendamos mirar el capítulo <strong>2.4</strong> para que elijas tu editor preferido
+o puedes saltar hacia el capítulo <strong>3</strong> para comenzar a trabajar en Rust.</p>
+<blockquote>
+<p>Solo cubriremos los sistemas operativos más conocidos o más populares, siendo
+estos &quot;Windows&quot;, &quot;Mac OS&quot; &amp; &quot;Gnu/Linux&quot;. No cubriremos la instalación en otro
+sistema unix-like, aun así, si deseas contribuir con la instalación en otro
+sistema operativo eres bienvenido :)</p>
+</blockquote>
+<a class="header" href="#instalación-en-microsoft-windows" id="instalación-en-microsoft-windows"><h1>Instalación en Microsoft Windows</h1></a>
+<p>En este apartado instalaremos las herramientas necesarias para programar
+en el lenguaje de programación Rust dentro de un sistema operativo Microsoft
+Windows.</p>
+<a class="header" href="#instalar-rustup" id="instalar-rustup"><h2>Instalar Rustup</h2></a>
+<p>Lo primero que necesitamos es <code>rustup</code>,  el cual es un instalador del
+lenguaje y sus respectivas herramientas.</p>
+<blockquote>
+<p><a href="https://rustup.rs/">Sitio oficial de Rustup</a></p>
+</blockquote>
+<p>Si estás en una instalación de 64 bits te recomendamos instalar
+utilizando el siguiente <a href="https://win.rustup.rs/x86_64">enlace</a>.</p>
+<p>En caso contrario puedes usar el <a href="https://win.rustup.rs/i686">instalador</a>
+de 32 bits.</p>
+<p>No te preocupes si resulta confuso al inicio, el instalador de Rust
+te guiará paso a paso en el proceso.</p>
+<p>Si te consideras un novato en el lenguaje te recomendamos mantener los
+ajustes de instalación por defecto.</p>
+<p>Si deseas empaparte con un poco más de información continúa leyendo o
+si consideras que la instalación es suficiente puedes pasar al siguiente
+capítulo.</p>
+<a class="header" href="#los-canales-de-actualización" id="los-canales-de-actualización"><h2>Los canales de actualización</h2></a>
+<p>El desarrollo de Rust es muy activo, por lo que opera en tres canales de
+distribución:</p>
+<ul>
+<li>Stable</li>
+<li>Beta</li>
+<li>Nightly</li>
+</ul>
+<p>Si eres un usuario novel te recomendamos mantenerte en el canal <code>Stable</code>.</p>
+<blockquote>
+<p>Los canales <code>Beta</code> o <code>Nightly</code> son para aquellos valientes que desean
+probar características más recientes del lenguaje aunque a veces son
+necesarios para algunas herramientas.</p>
+</blockquote>
+<p>Vamos a explicar/traducir el proceso de liberación de Rust como viene
+explicado en el <a href="https://doc.rust-lang.org/book/appendix-07-nightly-rust.html?highlight=channel#choo-choo-release-channels-and-riding-the-trains">libro</a>:</p>
+<blockquote>
+<p>Necesitarás conocimientos básicos de Git para entender algunas cosas.</p>
+</blockquote>
+<p>Cada vez que se añade una característica a Rust, se crea un <em>commit</em> en
+la rama <code>master</code> del repositorio. Esto pasa con frecuencia ya que la
+comunidad de Rust es muy activa, por lo tanto cada noche una nueva
+versión del canal <code>Nightly</code> se produce, es decir, todos los días se
+libera una nueva versión con el <em>hash</em> del último commit aceptado dentro
+de <code>Nightly</code>, la rama <code>master</code> durante el transcurso del día podría
+verse algo así:</p>
+<p><code>nightly: * - - * - - *</code></p>
+<blockquote>
+<p>Cada <code>*</code> representa un <em>commit</em>.</p>
+</blockquote>
+<p>Como los ciclos de liberación son fijos cada seis semanas el equipo de
+desarrollo de Rust se prepara para liberar una nueva versión, antes que
+nada primero deben migrar los cambios, por lo que la rama <code>beta</code> sale
+de la rama <code>master</code> y con eso tendremos nuestra liberación <code>beta</code>.</p>
+<pre><code class="language-ignore">nightly: * - - * - - *
+                     |
+beta:                *
+</code></pre>
+<p>La mayoría de los usuarios de Rust no utiliza este canal de forma
+activa, en su lugar utilizan <em>Sistemas de Integración Continua</em> para
+detectar cualquier posible regresión o error. Mientras esto ocurre, la
+rama <code>master</code> continúa actualizandose.</p>
+<pre><code class="language-ignore">nightly: * - - * - - * - - * - - *
+                     |
+beta:                *
+</code></pre>
+<p>En caso de que una regresión se encuentre las cosas apuntan a nuestro
+favor, pues la edición <code>beta</code> primero fue probada antes de enviar los
+cambios a la versión estable, lo que se hace en estos casos es aplicar
+un parche en la rama <code>master</code> y después migrarlo a la rama <code>beta</code>.</p>
+<pre><code class="language-ignore">nightly: * - - * - - * - - * - - * - - *
+                     |
+beta:                * - - - - - - - - *
+</code></pre>
+<p>Seis semanas después de la liberación de la rama <code>beta</code> es tiempo de
+enviar una nueva versión estable, por lo que una rama llamada <code>stable</code>
+saldrá de la rama <code>beta</code>:</p>
+<pre><code class="language-ignore">nightly: * - - * - - * - - * - - * - - * - * - *
+                     |
+beta:                * - - - - - - - - *
+                                       |
+stable:                                *
+</code></pre>
+<p>Bien, una nueva versión de Rust está lista para usarse, pero tenemos
+que considear algo y es que han pasado 6 semanas, por lo que una nueva
+versión <code>beta</code> viene en camino, por lo tanto cada que se libera una
+versión estable, se crea una nueva versión beta.</p>
+<a class="header" href="#herramientas-de-desarrollo-para-rust" id="herramientas-de-desarrollo-para-rust"><h2>Herramientas de desarrollo para Rust</h2></a>
+<ul>
+<li>Racer (Nightly): <code>cargo install racer</code>.</li>
+<li>rustfmt (Stable - Nightly): <code>rustup component add rustfmt</code>.</li>
+<li>rust-doc (Stable - Nightly): <code>rustup component add rust-doc</code>.</li>
+</ul>
+<p>Si deseamos una integración propia con un IDE debemos de instalar
+<a href="https://github.com/rust-lang/rls">rls</a> el cual es un servidor de
+lenguaje que nos ayudará con el resaltado de errores en tiempo real
+y nos proporcionará de otras funciones útiles.</p>
+<ul>
+<li>RLS (Stable - Nightly):
+<code>rustup component add rls-preview rust-analysis rust-src</code></li>
+</ul>
+<p>¡Listo! Con esto tenemos nuestro entorno base para escribir programas en Rust.
+Ahora tenemos que elegir un IDE para empezar a desarrollar.</p>
+<p>Ve al capítulo <strong>2.4</strong> para ver nuestras recomendaciones o al capítulo <strong>3</strong> si
+deseas comenzar a escribir tus programas en Rust.</p>
+<a class="header" href="#instalación-en-mac-os" id="instalación-en-mac-os"><h1>Instalación en Mac OS</h1></a>
+<p>La instalación en Mac OS es similar a la instalación en los sistemas operativos
+tipo unix.</p>
+<p>Antes de empezar, si posees el gestor de paquetes
+<a href="https://brew.sh/index_es">homebrew</a> te recomendamos hacer la instalación por
+este medio ya que es más sencillo y el resultado es el mismo:</p>
+<ul>
+<li>
+<p>Instalación de Rustup
+<code>$ brew install rustup</code></p>
+</li>
+<li>
+<p>Iniciar la instalación de Rust
+<code>$ rustup-init</code></p>
+</li>
+<li>
+<p>Verificar nuestra instalación de Rust con:
+<code>$ rustc --version</code></p>
+</li>
+</ul>
+<p>Puedes instalar desde la terminal provista por tu sistema operativo ejecutando
+el siguiente comando:</p>
+<p><code>curl https://sh.rustup.rs -sSf | sh</code></p>
+<p>Con esto descargaremos la versión más reciente de Rustup y procederemos con la
+instalación del lenguaje.</p>
+<p>No te preocupes si resulta confuso al inicio, el instalador de Rust
+te guiará paso a paso en el proceso.</p>
+<p>Si te consideras un novato en el lenguaje te recomendamos mantener los
+ajustes de instalación por defecto.</p>
+<p>Para actualizar tus herramientas de Rust necesitaras ejecutar el comando
+<code>$ rustup update</code>.</p>
+<a class="header" href="#configurar-la-variable-de-entorno" id="configurar-la-variable-de-entorno"><h2>Configurar la variable de entorno</h2></a>
+<p>Al proceder con la instalación de Rust, todas las herramientas se
+almacenarán en el directorio <code>~/.cargo/bin</code>, ahí encontrarás todo el
+software que has descargado como <code>rustc</code>, <code>cargo</code> y <code>rustup</code>.</p>
+<p>Es opcional (y conveniente) incluir este directorio en una variable de
+entorno, durante la instalación <code>rustup</code> intentará configurar dicha
+variable definida como <code>PATH</code>. Como todas las líneas de comandos son
+diferentes las modificaciones hacia <code>PATH</code> podrían no surtir efecto
+hasta que se reinicie la consola, al salir de la sesión o puede no
+funcionar del todo, por lo que como usuario te tocará corregir este
+error por tus medios.</p>
+<p>Si deseas empaparte con un poco más de información continúa leyendo o
+si consideras que la instalación es suficiente puedes pasar al siguiente
+capítulo.</p>
+<a class="header" href="#los-canales-de-actualización-1" id="los-canales-de-actualización-1"><h2>Los canales de actualización</h2></a>
+<p>El desarrollo de Rust es muy activo, por lo que opera en tres canales de
+distribución:</p>
+<ul>
+<li>Stable</li>
+<li>Beta</li>
+<li>Nightly</li>
+</ul>
+<p>Si eres un usuario novel te recomendamos mantenerte en el canal <code>Stable</code>.</p>
+<blockquote>
+<p>Los canales <code>Beta</code> o <code>Nightly</code> son para aquellos valientes que desean
+probar características más recientes del lenguaje aunque a veces son
+necesarios para algunas herramientas.</p>
+</blockquote>
+<p>Vamos a explicar/traducir el proceso de liberación de Rust como viene
+explicado en el <a href="https://doc.rust-lang.org/book/appendix-07-nightly-rust.html?highlight=channel#choo-choo-release-channels-and-riding-the-trains">libro</a>:</p>
+<blockquote>
+<p>Necesitarás conocimientos básicos de Git para entender algunas cosas.</p>
+</blockquote>
+<p>Cada vez que se añade una característica a Rust, se crea un <em>commit</em> en
+la rama <code>master</code> del repositorio. Esto pasa con frecuencia ya que la
+comunidad de Rust es muy activa, por lo tanto cada noche una nueva
+versión del canal <code>Nightly</code> se produce, es decir, todos los días se
+libera una nueva versión con el <em>hash</em> del último commit aceptado dentro
+de <code>Nightly</code>, la rama <code>master</code> durante el transcurso del día podría
+verse algo así:</p>
+<p><code>nightly: * - - * - - *</code></p>
+<blockquote>
+<p>Cada <code>*</code> representa un <em>commit</em>.</p>
+</blockquote>
+<p>Como los ciclos de liberación son fijos cada seis semanas el equipo de
+desarrollo de Rust se prepara para liberar una nueva versión, antes que
+nada primero deben migrar los cambios, por lo que la rama <code>beta</code> sale
+de la rama <code>master</code> y con eso tendremos nuestra liberación <code>beta</code>.</p>
+<pre><code class="language-ignore">nightly: * - - * - - *
+                     |
+beta:                *
+</code></pre>
+<p>La mayoría de los usuarios de Rust no utiliza este canal de forma
+activa, en su lugar utilizan <em>Sistemas de Integración Continua</em> para
+detectar cualquier posible regresión o error. Mientras esto ocurre, la
+rama <code>master</code> continúa actualizandose.</p>
+<pre><code class="language-ignore">nightly: * - - * - - * - - * - - *
+                     |
+beta:                *
+</code></pre>
+<p>En caso de que una regresión se encuentre las cosas apuntan a nuestro
+favor, pues la edición <code>beta</code> primero fue probada antes de enviar los
+cambios a la versión estable, lo que se hace en estos casos es aplicar
+un parche en la rama <code>master</code> y después migrarlo a la rama <code>beta</code>.</p>
+<pre><code class="language-ignore">nightly: * - - * - - * - - * - - * - - *
+                     |
+beta:                * - - - - - - - - *
+</code></pre>
+<p>Seis semanas después de la liberación de la rama <code>beta</code> es tiempo de
+enviar una nueva versión estable, por lo que una rama llamada <code>stable</code>
+saldrá de la rama <code>beta</code>:</p>
+<pre><code class="language-ignore">nightly: * - - * - - * - - * - - * - - * - * - *
+                     |
+beta:                * - - - - - - - - *
+                                       |
+stable:                                *
+</code></pre>
+<p>Bien, una nueva versión de Rust está lista para usarse, pero tenemos
+que considear algo y es que han pasado 6 semanas, por lo que una nueva
+versión <code>beta</code> viene en camino, por lo tanto cada que se libera una
+versión estable, se crea una nueva versión beta.</p>
+<a class="header" href="#herramientas-de-desarrollo-para-rust-1" id="herramientas-de-desarrollo-para-rust-1"><h2>Herramientas de desarrollo para Rust</h2></a>
+<ul>
+<li>Racer (Nightly): <code>cargo install racer</code>.</li>
+<li>rustfmt (Stable - Nightly): <code>rustup component add rustfmt</code>.</li>
+<li>rust-doc (Stable - Nightly): <code>rustup component add rust-doc</code>.</li>
+</ul>
+<p>Si deseamos una integración propia con un IDE debemos de instalar
+<a href="https://github.com/rust-lang/rls">rls</a> el cual es un servidor de
+lenguaje que nos ayudará con el resaltado de errores en tiempo real
+y nos proporcionará de otras funciones útiles.</p>
+<ul>
+<li>RLS (Stable - Nightly):
+<code>rustup component add rls-preview rust-analysis rust-src</code></li>
+</ul>
+<p>¡Listo! Con esto tenemos nuestro entorno base para escribir programas en Rust.
+Ahora tenemos que elegir un IDE para empezar a desarrollar.</p>
+<p>Ve al capítulo <strong>2.4</strong> para ver nuestras recomendaciones o al capítulo <strong>3</strong> si
+deseas comenzar a escribir tus programas en Rust.</p>
+<a class="header" href="#instalación-en-gnulinux" id="instalación-en-gnulinux"><h1>Instalación en Gnu/Linux</h1></a>
+<p>La instalación en Gnu/Linux es la instalación más utilizada por los
+programadores del lenguaje Rust.</p>
+<p>Antes de empezar, toma un aviso de nosotros, muchas distribuciones de GNU/Linux
+ya poseen Rust y sus herramientas en los repositorios oficiales, si bien esto
+lleva a una instalación rápida las versiones de Rust que ofrecen pueden no
+estar en su versión más actual, excluyendo al usuario de la mayor parte de
+características nuevas que las actualizaciones pueden ofrecer.</p>
+<p>Puedes instalar desde la terminal provista por tu sistema operativo ejecutando
+el siguiente comando:</p>
+<p><code>curl https://sh.rustup.rs -sSf | sh</code></p>
+<p>Con esto descargaremos la versión más reciente de Rustup y procederemos con la
+instalación del lenguaje.</p>
+<p>No te preocupes si resulta confuso al inicio, el instalador de Rust
+te guiará paso a paso en el proceso.</p>
+<p>Si te consideras un novato en el lenguaje te recomendamos mantener los
+ajustes de instalación por defecto.</p>
+<p>Para actualizar tus herramientas de Rust necesitaras ejecutar el comando
+<code>$ rustup update</code>.</p>
+<a class="header" href="#configurar-la-variable-de-entorno-1" id="configurar-la-variable-de-entorno-1"><h2>Configurar la variable de entorno</h2></a>
+<p>Al proceder con la instalación de Rust, todas las herramientas se
+almacenarán en el directorio <code>~/.cargo/bin</code>, ahí encontrarás todo el
+software que has descargado como <code>rustc</code>, <code>cargo</code> y <code>rustup</code>.</p>
+<p>Es opcional (y conveniente) incluir este directorio en una variable de
+entorno, durante la instalación <code>rustup</code> intentará configurar dicha
+variable definida como <code>PATH</code>. Como todas las líneas de comandos son
+diferentes las modificaciones hacia <code>PATH</code> podrían no surtir efecto
+hasta que se reinicie la consola, al salir de la sesión o puede no
+funcionar del todo, por lo que como usuario te tocará corregir este
+error por tus medios.</p>
+<p>Si no funciona la modificación de la variable <code>PATH</code> en el archivo <code>~/.profile</code>
+puedes pegar la siguiente línea en tu archivo <code>.bashrc</code> (o cualquier archivo de
+configuración de la shell que utilices).</p>
+<pre><code class="language-sh">export PATH=&quot;$HOME/.cargo/bin:$PATH&quot;
+</code></pre>
+<p>Si deseas empaparte con un poco más de información continúa leyendo o
+si consideras que la instalación es suficiente puedes pasar al siguiente
+capítulo.</p>
+<a class="header" href="#los-canales-de-actualización-2" id="los-canales-de-actualización-2"><h2>Los canales de actualización</h2></a>
+<p>El desarrollo de Rust es muy activo, por lo que opera en tres canales de
+distribución:</p>
+<ul>
+<li>Stable</li>
+<li>Beta</li>
+<li>Nightly</li>
+</ul>
+<p>Si eres un usuario novel te recomendamos mantenerte en el canal <code>Stable</code>.</p>
+<blockquote>
+<p>Los canales <code>Beta</code> o <code>Nightly</code> son para aquellos valientes que desean
+probar características más recientes del lenguaje aunque a veces son
+necesarios para algunas herramientas.</p>
+</blockquote>
+<p>Vamos a explicar/traducir el proceso de liberación de Rust como viene
+explicado en el <a href="https://doc.rust-lang.org/book/appendix-07-nightly-rust.html?highlight=channel#choo-choo-release-channels-and-riding-the-trains">libro</a>:</p>
+<blockquote>
+<p>Necesitarás conocimientos básicos de Git para entender algunas cosas.</p>
+</blockquote>
+<p>Cada vez que se añade una característica a Rust, se crea un <em>commit</em> en
+la rama <code>master</code> del repositorio. Esto pasa con frecuencia ya que la
+comunidad de Rust es muy activa, por lo tanto cada noche una nueva
+versión del canal <code>Nightly</code> se produce, es decir, todos los días se
+libera una nueva versión con el <em>hash</em> del último commit aceptado dentro
+de <code>Nightly</code>, la rama <code>master</code> durante el transcurso del día podría
+verse algo así:</p>
+<p><code>nightly: * - - * - - *</code></p>
+<blockquote>
+<p>Cada <code>*</code> representa un <em>commit</em>.</p>
+</blockquote>
+<p>Como los ciclos de liberación son fijos cada seis semanas el equipo de
+desarrollo de Rust se prepara para liberar una nueva versión, antes que
+nada primero deben migrar los cambios, por lo que la rama <code>beta</code> sale
+de la rama <code>master</code> y con eso tendremos nuestra liberación <code>beta</code>.</p>
+<pre><code class="language-ignore">nightly: * - - * - - *
+                     |
+beta:                *
+</code></pre>
+<p>La mayoría de los usuarios de Rust no utiliza este canal de forma
+activa, en su lugar utilizan <em>Sistemas de Integración Continua</em> para
+detectar cualquier posible regresión o error. Mientras esto ocurre, la
+rama <code>master</code> continúa actualizandose.</p>
+<pre><code class="language-ignore">nightly: * - - * - - * - - * - - *
+                     |
+beta:                *
+</code></pre>
+<p>En caso de que una regresión se encuentre las cosas apuntan a nuestro
+favor, pues la edición <code>beta</code> primero fue probada antes de enviar los
+cambios a la versión estable, lo que se hace en estos casos es aplicar
+un parche en la rama <code>master</code> y después migrarlo a la rama <code>beta</code>.</p>
+<pre><code class="language-ignore">nightly: * - - * - - * - - * - - * - - *
+                     |
+beta:                * - - - - - - - - *
+</code></pre>
+<p>Seis semanas después de la liberación de la rama <code>beta</code> es tiempo de
+enviar una nueva versión estable, por lo que una rama llamada <code>stable</code>
+saldrá de la rama <code>beta</code>:</p>
+<pre><code class="language-ignore">nightly: * - - * - - * - - * - - * - - * - * - *
+                     |
+beta:                * - - - - - - - - *
+                                       |
+stable:                                *
+</code></pre>
+<p>Bien, una nueva versión de Rust está lista para usarse, pero tenemos
+que considear algo y es que han pasado 6 semanas, por lo que una nueva
+versión <code>beta</code> viene en camino, por lo tanto cada que se libera una
+versión estable, se crea una nueva versión beta.</p>
+<a class="header" href="#herramientas-de-desarrollo-para-rust-2" id="herramientas-de-desarrollo-para-rust-2"><h2>Herramientas de desarrollo para Rust</h2></a>
+<ul>
+<li>Racer (Nightly): <code>cargo install racer</code>.</li>
+<li>rustfmt (Stable - Nightly): <code>rustup component add rustfmt</code>.</li>
+<li>rust-doc (Stable - Nightly): <code>rustup component add rust-doc</code>.</li>
+</ul>
+<p>Si deseamos una integración propia con un IDE debemos de instalar
+<a href="https://github.com/rust-lang/rls">rls</a> el cual es un servidor de
+lenguaje que nos ayudará con el resaltado de errores en tiempo real
+y nos proporcionará de otras funciones útiles.</p>
+<ul>
+<li>RLS (Stable - Nightly):
+<code>rustup component add rls-preview rust-analysis rust-src</code></li>
+</ul>
+<p>¡Listo! Con esto tenemos nuestro entorno base para escribir programas en Rust.
+Ahora tenemos que elegir un IDE para empezar a desarrollar.</p>
+<p>Ve al capítulo <strong>2.4</strong> para ver nuestras recomendaciones o al capítulo <strong>3</strong> si
+deseas comenzar a escribir tus programas en Rust.</p>
+<a class="header" href="#hora-de-elegir-un-editor" id="hora-de-elegir-un-editor"><h1>¡Hora de elegir un editor!</h1></a>
+<p>Bien, empecemos con las malas noticias: Rust no tiene un IDE oficial, de hecho
+no existen IDEs 100% funcionales que estén dedicados enteramente a Rust, por
+lo que necesitarás elegir entre los editores de texto que rondan por la
+comunidad o si ya utilizas uno necesitarás descargar los plugins necesarios.</p>
+<blockquote>
+<p>Todos los datos de esta página fueron extraidos de la página
+<a href="https://areweideyet.com/">ARE WE IDE YET?</a>. Nosotros solo simplificaremos
+lo establecido ahí.</p>
+</blockquote>
+<p>Se indicarán los requerimientos entre paréntesis.</p>
+<a class="header" href="#atom" id="atom"><h2>ATOM</h2></a>
+<p>Atom es un editor de texto desarrollado por GitHub utilizando la biblioteca
+<em>Electron</em>, es extensible y fácil de utilizar.</p>
+<p>Eficiencia de atom en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin)</li>
+<li><s>Depuración</s></li>
+<li>Tooltips de documentación (Plugin)</li>
+</ul>
+<a class="header" href="#plugins-de-atom-para-rust" id="plugins-de-atom-para-rust"><h3>Plugins de ATOM para Rust</h3></a>
+<ul>
+<li><a href="https://atom.io/packages/language-rust">language-rust</a>.</li>
+<li><a href="https://atom.io/packages/ide-rust">ide-rust</a> &lt;- Este plugin instala
+el plugin <code>language-rust</code> y <code>atom-ide-ui</code>, provee al usuario con
+<code>rustfmt</code>, <code>racer</code> y funciones de IDE utilizando el <code>rls</code>.</li>
+<li><a href="https://atom.io/packages/linter-rust">linter-rust</a>
+depende del plugin <code>linter</code>.</li>
+<li><a href="https://atom.io/packages/racer">racer</a></li>
+<li><a href="https://atom.io/packages/rustfmt">rustfmt</a></li>
+<li><a href="https://vertexclique.github.io/tokamak/">tokamak</a></li>
+<li><a href="https://atom.io/packages/build-cargo">build-cargo</a> depende de
+<code>build</code> y <code>linter</code>.</li>
+<li><a href="https://atom.io/packages/atom-beautify">atom-beautify</a></li>
+<li><a href="https://atom.io/packages/languageserver-rust">languageserver-rust</a></li>
+</ul>
+<hr />
+<a class="header" href="#emacs" id="emacs"><h2>Emacs</h2></a>
+<p>Emacs es un editor de texto extensible, personalizable y libre, escrito
+en Lisp.</p>
+<p>Eficiencia de emacs en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin + Racer)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin + Racer)</li>
+<li><s>Depuración</s></li>
+<li>Tooltips de documentación (Plugin + Racer)</li>
+</ul>
+<a class="header" href="#plugins-de-emacs-para-rust" id="plugins-de-emacs-para-rust"><h3>Plugins de Emacs para Rust</h3></a>
+<ul>
+<li><a href="https://github.com/rust-lang/rust-mode">rust-mode</a></li>
+<li><a href="https://github.com/flycheck/flycheck-rust">flycheck-rust</a></li>
+<li><a href="https://github.com/racer-rust/emacs-racer">emacs-racer</a></li>
+<li><a href="https://github.com/freebroccolo/rust-snippets">rust-snippets</a></li>
+</ul>
+<hr />
+<a class="header" href="#sublime-text-23" id="sublime-text-23"><h2>Sublime text 2/3</h2></a>
+<p>Sublime text es un editor de texto escrito en C++, extensible y poderoso
+para editar código fuente.</p>
+<p>Eficiencia de sublime text en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis</li>
+<li>Snippets</li>
+<li>Autocompletado (Plugin + Racer)</li>
+<li>Linternas</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin + Racer)</li>
+<li><s>Depuración</s></li>
+<li><s>Tooltips de documentación</s></li>
+</ul>
+<a class="header" href="#plugins-de-sublime-text-para-rust" id="plugins-de-sublime-text-para-rust"><h3>Plugins de Sublime Text para Rust</h3></a>
+<ul>
+<li><a href="https://packagecontrol.io/packages/TOML">TOML</a></li>
+<li><a href="https://packagecontrol.io/packages/Rust%20Enhanced">Rust Enhanced</a></li>
+<li><a href="https://packagecontrol.io/packages/YcmdCompletion">YouCompleteMePlugin</a></li>
+<li><a href="https://packagecontrol.io/packages/BeautifyRust">BeautifyRust</a></li>
+</ul>
+<hr />
+<a class="header" href="#vimneovim" id="vimneovim"><h2>Vim/Neovim</h2></a>
+<p>Vim es un editor de texto extensible, altamente personalizable y útil
+para casi cualquier propósito, se incluye como reemplazo de <code>vi</code> en la
+mayoría de los sistemas operativos tipo UNIX.</p>
+<p>Eficiencia de Vim/Neovim en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin + Racer)</li>
+<li>Linternas (Plugin + Racer)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin + Racer)</li>
+<li><s>Depuración</s></li>
+<li>Tooltips de documentación (Plugin + Racer)</li>
+</ul>
+<a class="header" href="#plugins-de-vimneovim-para-rust" id="plugins-de-vimneovim-para-rust"><h3>Plugins de Vim/Neovim para Rust</h3></a>
+<ul>
+<li><a href="https://github.com/rust-lang/rust.vim">rust.vim</a></li>
+<li><a href="http://blog.jwilm.io/youcompleteme-rust">YouCompleteMe-rust</a></li>
+<li><a href="https://github.com/racer-rust/vim-racer">vim-racer</a></li>
+<li><a href="https://github.com/scrooloose/syntastic">syntastic</a></li>
+<li><a href="https://github.com/sirver/ultisnips">UltiSnips</a></li>
+</ul>
+<hr />
+<a class="header" href="#vscode--visual-studio-code--vscodium" id="vscode--visual-studio-code--vscodium"><h2>VSCode / Visual Studio Code / VSCodium</h2></a>
+<ul>
+<li>
+<p>VSCode es una herramienta que combina la simplicidad de un editor de
+texto con las necesidades de los desarrolladores. (VSCode es el proyecto
+padre de Visual Studio Code y VSCodium).</p>
+</li>
+<li>
+<p>Visual Studio Code es un editor derivado de VSCode el cual es
+clonado por Microsoft y modificado con telemetría, llaves de API
+cerradas y herramientas de integración avanzada.</p>
+</li>
+<li>
+<p>VSCodium es un derivado de VSCode el cual es una compilación del mismo
+que provee un editor 100 FLOSS (Free, Libre and Open Source Software).
+Por lo que este no contiene telemetría o rastro alguno de la marca de
+Microsoft, ideal para los entusiastas del software libre.</p>
+</li>
+</ul>
+<p>Eficiencia de VSCode en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin + Racer)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin + Racer)</li>
+<li>Depuración (Plugin)</li>
+<li>Tooltips de documentación (Plugin + Racer)</li>
+</ul>
+<a class="header" href="#plugins-de-vscode-para-rust" id="plugins-de-vscode-para-rust"><h3>Plugins de VSCode para Rust</h3></a>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust">Rust (RLS)</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">CodeLLDB</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=webfreak.debug">Debug</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=be5invis.toml">TOML Language Support</a></li>
+</ul>
+<hr />
+<a class="header" href="#eclipse" id="eclipse"><h2>Eclipse</h2></a>
+<p>Eclipse es un Entorno de Desarrollo Integrado (IDE) escrito en Java
+el cual está compuesto por un conjunto de herramientas que le garantizan
+extensibilidad y poder para el desarrollo multiplataforma.</p>
+<p>Eficiencia de Eclipse en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin)</li>
+<li>Depuración (Plugin)</li>
+<li>Tooltips de documentación (Plugin)</li>
+</ul>
+<a class="header" href="#plugins-de-eclipse-para-rust" id="plugins-de-eclipse-para-rust"><h3>Plugins de Eclipse para Rust</h3></a>
+<ul>
+<li><a href="https://github.com/eclipse/corrosion">Corrosion</a></li>
+</ul>
+<hr />
+<a class="header" href="#intellij-idea" id="intellij-idea"><h2>IntelliJ IDEA</h2></a>
+<p>IntelliJ IDEA es un IDE desarrollado por la compañía JetBrains hecha en
+Kotlin, Java y Python, cuenta con las ediciones de pago y comunitaria.</p>
+<p>Eficiencia de IntelliJ en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis (Plugin)</li>
+<li>Snippets (Plugin)</li>
+<li>Autocompletado (Plugin)</li>
+<li>Linternas (Plugin)</li>
+<li>Formato de código (Plugin)</li>
+<li>Ir a la definición (Plugin)</li>
+<li>Depuración (Plugin)</li>
+<li>Tooltips de documentación (Plugin)</li>
+</ul>
+<a class="header" href="#plugins-de-intellij-para-rust" id="plugins-de-intellij-para-rust"><h3>Plugins de IntelliJ para Rust</h3></a>
+<ul>
+<li><a href="https://intellij-rust.github.io/">intellij-rust</a></li>
+</ul>
+<hr />
+<a class="header" href="#visual-studio" id="visual-studio"><h2>Visual Studio</h2></a>
+<p>Visual Studio es un IDE disponible para las plataformas de Microsoft
+Windows y Mac OS el cual posee todas las características para
+desarrollar software en Android, iOS, Windows, Web y Cloud Computing.</p>
+<p>Eficiencia de Visual Studio en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis</li>
+<li><s>Snippets</s></li>
+<li>Autocompletado</li>
+<li><s>Linternas</s></li>
+<li><s>Formato de código</s></li>
+<li>Ir a la definición (Plugin)</li>
+<li>Depuración (Plugin)</li>
+<li><s>Tooltips de documentación</s></li>
+</ul>
+<a class="header" href="#plugins-de-visual-studio-para-rust" id="plugins-de-visual-studio-para-rust"><h3>Plugins de Visual Studio para Rust</h3></a>
+<ul>
+<li><a href="https://github.com/PistonDevelopers/VisualRust">Visual Rust</a></li>
+</ul>
+<hr />
+<a class="header" href="#gnome-builder" id="gnome-builder"><h2>GNOME Builder</h2></a>
+<p>GNOME Builder es un IDE desarrollado en C para la plataforma Gnu/Linux
+el cual cuenta con búsqueda global, autocompletado, mini-mapa,
+documentación y edición avanzada.</p>
+<p>Eficiencia de Builder en Rust:</p>
+<ul>
+<li>Resaltado de sintaxis</li>
+<li>Snippets</li>
+<li>Autocompletado</li>
+<li>Linternas</li>
+<li><s>Formato de código</s></li>
+<li>Ir a la definición</li>
+<li><s>Depuración</s></li>
+<li><s>Tooltips de documentación</s></li>
+</ul>
+<hr />
+<a class="header" href="#otros-editores-que-soportan-rust" id="otros-editores-que-soportan-rust"><h2>Otros editores que soportan Rust:</h2></a>
+<ul>
+<li>BBEdit</li>
+<li>Midnight Commander</li>
+<li>Geany</li>
+<li>gedit</li>
+<li>Kate</li>
+<li>Textadept</li>
+<li>Ride</li>
+<li>Solid Oak</li>
+</ul>
+<hr />
+<a class="header" href="#hola-rust" id="hola-rust"><h1>¡Hola Rust!</h1></a>
+<p>Tenemos todo lo necesario, ahora vamos a escribir nuestro primer
+programa en Rust.</p>
+<p>Existe una tradición entre los programadores, siempre que se aprende un
+nuevo lenguaje de programación, el primer programa que se escribe es un
+<em>&quot;Hola mundo&quot;</em>.</p>
+<p>No cubriremos a fondo el uso de la línea de comandos por lo tanto
+asumiremos que ya posees las habilidades para crear, renombrar o
+borrar directorios/archivos.</p>
+<p>Vamos a crear nuestro primer archivo fuente de Rust y lo llamaremos
+<code>main.rs</code>, es importante saber que TODOS los archivos de Rust terminan
+con la extensión <code>.rs</code>, las reglas para el nombre de los archivos son las
+mismas que aplican para otros lenguajes de programación.</p>
+<p>Ahora con tu editor de texto favorito abre el archivo <code>main.rs</code> y coloca
+lo siguiente:</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    println!(&quot;¡Hola Mundo!&quot;);
+}
+</code></pre></pre>
+<p>Es un pequeño programa que imprime las palabras <code>¡Hola Mundo!</code> en la
+consola.</p>
+<p>Puedes ejecutar el código desde este mismo libro aun así, te
+recomendamos que practiques en tu terminal.</p>
+<p>Guarda tu archivo <code>main.rs</code> y en tu terminal procede a llamar al
+compilador de Rust llamado <code>rustc</code>. Mas adelante explicaremos como
+funciona a fondo <code>rustc</code>, por ahora procederemos a compilar nuestro
+programa de la siguiente manera:</p>
+<pre><code class="language-ignore">$ rustc main.rs
+$ ./main
+¡Hola Mundo!
+</code></pre>
+<blockquote>
+<p>Los comandos están expresados en un entorno UNIX-Like.</p>
+</blockquote>
+<p>Vamos a descomponer nuestro programa en partes para entender un poco mejor
+lo que está pasando.</p>
+<p>Veamos la primera parte del programa:</p>
+<pre><code class="language-rust ignore">fn main() {
+</code></pre>
+<p>Lo primero que vemos es el abstracto <code>fn</code> el cual se utiliza para declarar
+funciones en Rust. Mas delante podemos ver <code>main()</code>, esto es el identificador de
+la función, a la derecha podemos ver un par de paréntesis, al igual que en otros
+lenguajes los paréntesis al lado del identificador de la función sirven para
+indicar los parámetros que esta va a recibir al momento de ser llamada.</p>
+<p>El último elemento que podemos ver es una <em>&quot;llave abierta&quot;</em>, ésta indica el
+inicio de un bloque de código <code>{</code>.</p>
+<p>La siguiente línea que podemos ver es esta:</p>
+<pre><code class="language-rust ignore">println!(&quot;¡Hola Mundo!&quot;);
+</code></pre>
+<p>A diferencia de otros lenguajes, Rust no utiliza funciones para la salida de
+consola, en este caso <code>println!</code> es un macro que es un elemento de
+<em>metaprogramación</em> que exploraremos más tarde, por ahora recuerda que al llamar
+un macro siempre deberás de colocar un <code>!</code> después del identificador.</p>
+<p>Dentro del macro <code>println!</code> encontramos el elemento <code>&quot;¡Hola Mundo!&quot;</code>. Esto es
+una cadena de carácteres que funciona como argumento del macro.</p>
+<p>En la última línea podemos ver una llave cerrada, la cual indica el final de un
+bloque de código.</p>
+<p>Rust es un lenguaje de programación compilado, si tienes experiencia con
+lenguajes como C o C++ sabrás que después de escribir el código fuente
+es necesario pasar el archivo resultante por un compilador, en el caso
+de C o C++ se utiliza <code>gcc</code> o <code>clang</code>, en Rust usaremos <code>rustc</code>.</p>
+<p>Si vienes de lenguajes dinámicos, mejor conocidos como interpretados como
+Python o Ruby probablemente te sea un poco difícil acostumbrarte a
+compilar y ejecutar. A diferencia de otros lenguajes de programación
+compilados Rust puede considerarse como <em>adelantado</em> en esa cuestión ya
+que puedes compilar un programa y enviar el binario generado a otra
+persona para que lo ejecute, incluso sin tener Rust instalado.</p>
+<p>Cuando proporcionas a otra persona tu script con terminación en <code>.rb</code> o
+<code>.py</code> todo lo que necesitan es tener instalado en su computadora el
+lenguaje de programación correspondiente.</p>
+<p>Compilar nuestros programas con <code>rustc</code> está bien si estamos
+desarrollando software simple, pero si deseamos crear proyectos más
+ambiciosos y con un poco más de complejidad, en el capítulo <strong>4</strong>
+discutiremos acerca de <code>cargo</code>, el gestor de paquetes de Rust.</p>
+<a class="header" href="#cargo-run" id="cargo-run"><h1>Cargo ¿run?</h1></a>
+<p>En el capítulo anterior creamos nuestro primer programa en Rust, un simple
+&quot;Hola mundo&quot;.</p>
+<p>Pero pensemos un momento: ¿Y si deseamos crear un proyecto más grande?, ¿Qué tal
+si necesitamos crear una herramienta de línea de comandos más compleja? o quizá
+tenemos una gran idea para crear un API para usarse en Inteligencia Artificial.</p>
+<p>De una forma u otra necesitaremos una forma de manejar nuestro
+proyecto de manera eficiente, aquí entra <code>cargo</code> el gestor de paquetes
+de Rust.</p>
+<p>Cargo no solo se limita a ser un gestor de paquetes, también es
+un sistema de construcción y un excelente manejador de dependencias.
+Muchos programadores de Rust, a los cuales llamaremos <em>Rustáceos</em> en
+adelante (Derivado de la palabra <em>&quot;Crustáceos&quot;</em>) utilizan cargo para
+manejar sus proyectos ya que éste realiza muchas acciones por
+nosotros, descarga y compila las bibliotecas que son dependencias de
+nuestro código, le da formato a nuestro código si somos inexpertos en
+el tema, ejecuta pruebas y despliega nuestro código listo para enviarse
+a producción.</p>
+<p>Casi todos (por no decir la palabra <em>&quot;Todos&quot;</em>) los proyectos de Rust
+utilizan Cargo, si has instalado Rust utilizando el instalador oficial
+(<code>rustup</code>) entonces ya posees Cargo instalado y listo para usarse.</p>
+<a class="header" href="#primer-proyecto-con-cargo" id="primer-proyecto-con-cargo"><h2>Primer proyecto con Cargo</h2></a>
+<p>Para crear un nuevo proyecto utilizando Cargo debemos ejecutar el
+siguiente comando:</p>
+<p><code>$ cargo new --bin hola_cargo</code></p>
+<p>Esto creará un nuevo proyecto de Cargo, si entramos en el directorio
+creado nos daremos cuenta que dentro hay varios archivos, un directorio
+y que se ha inicializado un nuevo repositorio con la herramienta <code>git</code>.</p>
+<p>Vamos a editar el archivo más llamativo del directorio llamado
+<code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">[package]
+name = &quot;hola_cargo&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;nombre &lt;nombre@ejemplo.com&gt;&quot;]
+edition = &quot;2018&quot;
+
+[dependencies]
+</code></pre>
+<p>La primera línea del archivo es la sección <code>[package]</code> que indicará
+todos los detalles al momento de configurar un paquete de Cargo.</p>
+<p>Las siguientes líneas contienen información necesaria para poder
+construir y compilar el paquete en cuestión:</p>
+<ul>
+<li>Nombre del paquete o <code>crate</code>.</li>
+<li>Versión del paquete</li>
+<li>Autor o autores del paquete</li>
+<li>La edición de Rust (Hablaremos más adelante de eso).</li>
+</ul>
+<p>La siguiente sección se llama <code>[dependencies]</code>, debajo de esta se
+colocarán todas las dependencias requeridas para construir nuestro
+paquete de Rust, las usaremos más adelante.</p>
+<p>Como mencionamos más arriba, cargo genera un directorio de nombre <code>src</code>
+en el cual se incluye un archivo llamado <code>main.rs</code>, este archivo en
+cuestión contiene un &quot;Hello World&quot; dentro.</p>
+<p>Cargo asume que <em>TODOS</em> tus archivos de código fuente se encontrarán
+dentro del directorio <code>src/</code> ya que el directorio raíz del proyecto solo
+estará dedicado a información acerca del mismo, véase archivos <code>README</code>,
+<code>LICENSE</code> o las configuraciones escritas en TOML.</p>
+<a class="header" href="#ejecutar-proyectos-utilizando-cargo" id="ejecutar-proyectos-utilizando-cargo"><h2>Ejecutar proyectos utilizando cargo</h2></a>
+<p>Si deseamos construir un proyecto utilizando Cargo solo es necesario
+escribir en nuestra terminal (dentro del directorio de nuestro
+proyecto):</p>
+<p><code>$ cargo build</code></p>
+<p>La saluda de la terminal nos debería mostrar una salida indicandonos si
+nuestro proyecto se pudo construir o si falló en algún punto:</p>
+<pre><code class="language-ignore">   Compiling hola_cargo v0.1.0 (/home/FutureLab/Escritorio/hola_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.39s
+</code></pre>
+<p>Cuando le damos la instrucción <code>build</code> a cargo éste creará un binario
+ejecutable en un nuevo árbol de directorios, específicamente dentro
+de <code>target/debug/&lt;archivo binario&gt;</code>.</p>
+<p>Además de compilar un binario ejecutable Cargo también descargará y
+compilará las dependencias necesarias para nuestro proyecto, al mismo
+tiempo creará un archivo nuevo llamado <code>Cargo.lock</code>, no te alarmes,
+este archivo vigilará las versiones de tus dependencias.</p>
+<p>Si bien podríamos ejecutar los binarios desde su ruta con
+<code>$ ./target/debug/hola_cargo</code> esto es ineficiente, por lo que cargo
+tiene otra función para compilar y ejecutar nuestros proyectos en un
+solo comando:</p>
+<p><code>$ cargo run</code></p>
+<p>Si ejecutamos esta orden, Cargo buscará los archivos <code>.rs</code> dentro de
+nuestro directorio <code>src/</code>, los compilará e inmediatamente después los
+ejecutará si no encontró problema alguno.</p>
+<pre><code class="language-ignore">    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/hola_cargo`
+Hello, world!
+</code></pre>
+<p>Cargo posee una variedad de comandos entre ellos:</p>
+<ul>
+<li><code>check</code> =&gt; Se encarga de revisar que el código compile sin producir
+ejecutables.</li>
+<li><code>clean</code> =&gt; Elimina el directorio <code>target/</code>.</li>
+<li><code>doc</code> =&gt; Construye el paquete y sus dependencias con documentación.</li>
+<li><code>init</code> =&gt; Crea un nuevo proyecto en un directorio existente.</li>
+<li><code>test</code> =&gt; Ejecuta las pruebas.</li>
+<li><code>bench</code> =&gt; Ejecuta puntos de referencia.</li>
+<li><code>update</code> =&gt; Actualiza las dependencias de <code>Cargo.lock</code>.</li>
+<li><code>search</code> =&gt; Busca <code>crates</code> en el registro.</li>
+<li><code>publish</code> =&gt; Publica el paquete actual al registro.</li>
+<li><code>install</code> =&gt; Instala un binario de Rust en <code>$HOME/.cargo/bin</code>.</li>
+<li><code>uninstall</code> =&gt; Desinstala un binario de Rust.</li>
+</ul>
+<p>La ventaja de Cargo es que los comandos que se pueden ejecutar son
+independientes de cualquier plataforma por lo que funciona de la
+misma manera en Windows, MacOS y Gnu/Linux.</p>
+<a class="header" href="#liberar-un-paquete" id="liberar-un-paquete"><h2>Liberar un paquete</h2></a>
+<p>Cuando hayas terminado tu proyecto solo necesitarás la bandera
+<code>--release</code> para generar un binario optimizado, esto generará un
+binario ejecutable en el directorio <code>target/release</code>.</p>
+<a class="header" href="#fin-de-la-lección" id="fin-de-la-lección"><h2>Fin de la lección</h2></a>
+<p>Por ahora has aprendido a utilizar Cargo y a crear un pequeño hola mundo
+en Rust, pero imprimir mensajes de ese tipo en la consola no es divertido
+por lo que en el siguiente capítulo crearemos un programa llamado
+<em>&quot;FizzBuzz&quot;</em> el cual es una pregunta utilizada en las entrevistas de
+programación.</p>
+<p>¡Prepárate para comenzar a utilizar Cargo de verdad!</p>
+<a class="header" href="#creando-un-programa-fizzrustfizzbuzz" id="creando-un-programa-fizzrustfizzbuzz"><h1>Creando un programa FizzRust...FizzBuzz.</h1></a>
+<a class="header" href="#a-lectura-prolongada--" id="a-lectura-prolongada--"><h2>⚠️ LECTURA PROLONGADA  ⚠️</h2></a>
+<p>Hemos aprendo a las bases para utilizar nuestras herramientas de Rust y creamos
+nuestro primer &quot;Hola Mundo&quot; en poco tiempo, pero ahora pasemos a crear un
+programa más interesante, un programa llamado <em>&quot;FizzBuzz&quot;</em>.</p>
+<a class="header" href="#fizzque" id="fizzque"><h2>¿Fizz..que?</h2></a>
+<p>FizzBuzz es un juego que se utiliza con los niños para mejorar su
+capacidad de aplicar una división de manera mental. No, no planeamos
+tratarte como un niño pues esta prueba también se utiliza en las
+entrevistas de programación y funciona como un filtro, normalmente se
+les pide lo siguiente a los candidatos:</p>
+<p><em>&quot;Escriba un programa que imprima los números desde 1 hasta 100. Pero</em>
+<em>en cada número que sea múltiplo de 3 se deberá imprimir &quot;Fizz&quot; en el</em>
+<em>lugar del número, el mismo caso para los números que sean múltiplos de</em>
+<em>5. Por cada número que sea múltiplo de 3 y 5 se deberá imprimir</em>
+<em>FizzBuzz&quot;</em></p>
+<p>Por más simple que parezca la prueba, muchos programadores no logran
+pasarla pues no es un patrón que se vea dentro de las enseñanzas clásicas
+y por que no es posible representar las pruebas de manera directa y
+simple sin necesidad de duplicar algo.</p>
+<p>Aun así no nos vamos a adentrar en la complejidad de la prueba y
+explicar los árboles de desiciones en este capítulo sería desviarnos
+del objetivo principal, existen diferentes formas de resolver un
+problema FizzBuzz en diferentes lenguajes, aquí puedes ver algunos ejemplos.</p>
+<a class="header" href="#python" id="python"><h4>Python</h4></a>
+<pre><code class="language-python">def fizzbuzz(x):
+    &quot;&quot;&quot;Simple FizzBuzz, courtesy of @RodolfoFerro on @GitHub&quot;&quot;&quot;
+
+    if x % 3 == 0 and x % 5 == 0:
+        return &quot;FizzBuzz&quot;
+    elif x % 3 == 0:
+        return &quot;Fizz&quot;
+    elif x % 5 == 0:
+        return &quot;Buzz&quot;
+    else:
+        return str(x)
+
+if __name__ == '__main__':
+    sequence = '\n'.join(fizzbuzz(x) for x in range(1, 100))
+    print(sequence)
+
+</code></pre>
+<a class="header" href="#c-ansi--kernel-coding-style" id="c-ansi--kernel-coding-style"><h4>C (ANSI + Kernel Coding Style)</h4></a>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[])
+{
+        for (int i = 1; i &lt;= 100; i++) {
+                if (i % 3 == 0)
+                        printf(&quot;Fizz&quot;);
+                if (i % 5 == 0)
+                        printf(&quot;Buzz&quot;);
+                if (i % 3 != 0 &amp;&amp; i % 5 != 0)
+                         printf(&quot;%d&quot;, i);
+
+                printf(&quot;\n&quot;);
+        }
+        return 0;
+}
+
+</code></pre>
+<blockquote>
+<p>El problema con este ejemplo es que no se ve un caso para el
+&quot;FizzBuzz&quot;. Nótese que no existe la impresión de una nueva línea
+en el cuarto printf. Si el número es un múltiplo de 3 y 5 las
+primeras dos condiciones se cumplen, por lo tanto ambos casos
+se ejecutan.</p>
+</blockquote>
+<blockquote>
+<p>Si deseas agregar un ejemplo de FizzBuzz al libro eres bienvenido,
+solo abre un <em>Pull Request</em> que incluya el programa con tu lenguaje
+de programación favorito :D</p>
+</blockquote>
+<p>Bien, ahora vamos a tomar la aproximación de Rust. En este proyecto crearemos
+el mismo programa pero con salida de colores y en el camino explicaremos por
+encima algunos conceptos base de programación en Rust.</p>
+<a class="header" href="#preparando-el-proyecto" id="preparando-el-proyecto"><h2>Preparando el proyecto</h2></a>
+<p>Utilizando nuestros conocimientos previos lo primero que haremos será crear
+un nuevo proyecto utilizando Cargo, vamos a llamarlo FizzBuzz.</p>
+<p><code>$ cargo new --bin fizzbuzz</code></p>
+<p>Ahora entremos en el directorio creado por Cargo:</p>
+<p><code>$ cd fizzbuzz</code></p>
+<p>Vamos a editar el archivo <code>Cargo.toml</code> el cual se encuentra por defecto, en
+nuestro caso los programadores de Future Lab decidieron dejarlo de esta manera:</p>
+<pre><code class="language-toml">[package]
+name = &quot;fizzbuzz&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;Future Lab &lt;mxfuturelab@futuremail.com&gt;&quot;]
+edition = &quot;2018&quot;
+
+[dependencies]
+</code></pre>
+<p>En la parte superior mencionamos que nuestro programa tendría una salida a
+terminal de colores, para esto necesitamos agregar un <code>crate</code> a nuestra
+sección <code>[dependencies]</code>. La crate que utilizaremos es
+<a href="https://github.com/mackwic/colored">colored</a> un paquete de Rust que nos
+permite imprimir texto con decoraciones en la terminal.</p>
+<p>Nuestro archivo <code>Cargo.toml</code> debería quedar así:</p>
+<pre><code class="language-toml">[package]
+name = &quot;fizzbuzz&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;Future Lab &lt;mxfuturelab@futuremail.com&gt;&quot;]
+edition = &quot;2018&quot;
+
+[dependencies]
+colored = &quot;1.6&quot;
+</code></pre>
+<p>Bien, tenemos las dependencias que necesitamos para nuestro programa en
+Rust, digámosle a Cargo que las descargue y las compile para poder utilizarlas
+en nuestro proyecto sin problema alguno con:</p>
+<p><code>$ cargo build</code></p>
+<p>Esto debería de descargar y compilar <code>colored</code> y dejarlo listo para usar:</p>
+<pre><code class="language-ignore">   Updating crates.io index
+   Compiling lazy_static v1.2.0
+   Compiling colored v1.6.1
+   Compiling fizzbuzz v0.1.0 (/home/futurelab/Escritorio/fizzbuzz)
+    Finished dev [unoptimized + debuginfo] target(s) in 13.38s
+</code></pre>
+<a class="header" href="#escribir-una-base" id="escribir-una-base"><h2>Escribir una base</h2></a>
+<p>Utilizando el editor de tu preferencia abre el archivo <code>main.rs</code>, este es el
+archivo que vamos a modificar, elimina la línea que contiene el mensaje de
+impresión (<code>println!</code>) y procede a escribir el siguiente código, no te
+preocupes si no lo entiendes pues lo explicaremos a lo largo de este capítulo.</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    for x in 0..{
+        match (x % 3, x % 5) {
+            (0, 0) =&gt; println!(&quot;FizzBuzz&quot;),
+            (0, _) =&gt; println!(&quot;Fizz&quot;),
+            (_, 0) =&gt; println!(&quot;Buzz&quot;),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+        }
+    }
+}
+</code></pre></pre>
+<blockquote>
+<p>No ejecutes este código aún, es una versión de pruebas que
+modificaremos a lo largo de este y los siguientes capítulos.</p>
+</blockquote>
+<a class="header" href="#comprendiendo-el-código" id="comprendiendo-el-código"><h2>Comprendiendo el código</h2></a>
+<p>¿Que está pasando aquí? Hay muchos elementos nuevos (Claro, todo es nuevo
+a diferencia del macro <code>println!</code> que vimos en el capítulo pasado) por lo que
+vamos a volver a descomponer línea por línea todo el programa.</p>
+<p>Revisemos dentro de la función <code>main</code>, esta función es la misma que utilizamos
+en nuestro primer <code>hola mundo</code> por lo que no hay necesidad de explicarla así
+que nos dirigiremos a la segunda línea de nuestro código actual:</p>
+<pre><code class="language-rust ignore">    for x in 0..{
+</code></pre>
+<a class="header" href="#el-iterador" id="el-iterador"><h3>El iterador</h3></a>
+<p>Como mencionamos en el capítulo <strong>2</strong>, asumiremos que posees conocimientos
+básicos de programación por lo que debe ser evidente que esto es algo
+conocido como <em>&quot;ciclo for&quot;</em>, los exploraremos más adelante en el capítulo
+de control de flujo, por ahora vamos a dejar claras las bases de un
+ciclo <code>for</code> en Rust.</p>
+<p>Lo primero que podemos observar es que la sintaxis de los ciclos <code>for</code>
+no es similar a la utilizada en lenguajes como C, JavaScript o Java:</p>
+<pre><code class="language-c">for (x = 0; x &lt; 10; x++) {
+        printf(&quot;%i\n&quot;, x);
+}
+</code></pre>
+<p>En su lugar (y en términos más abstractos) los ciclos <code>for</code> en Rust
+se ven algo así:</p>
+<pre><code class="language-rust ignore">for x in 0..5 {
+    println!(&quot;{}&quot;, x);
+}
+</code></pre>
+<p>Si abstraemos los términos podríamos describirlos así:</p>
+<pre><code class="language-rust ignore">for variable in expresion {
+    código
+}
+</code></pre>
+<p>Siendo &quot;<code>expresion</code>&quot; un iterador. En nuestro ejemplo elegimos el rango de
+<code>0..5</code>, esta expresión consta de un inicio y un fin y el ciclo realizará
+una iteración entre esos valores, aunque Rust posee rangos inclusivos,
+por defecto el límite superior es exclusivo, por lo tanto nuestro ciclo
+<code>for</code> imprimirá los valores del <code>0</code> al <code>4</code>, no hasta el número <code>5</code>.</p>
+<p>La razón por la que Rust no posee ciclos <code>for</code> con una sintaxis parecida
+a C es sencilla, al tener esa sintaxis se controla manualmente cada
+elemento del ciclo lo cual deja el código susceptible a errores <em>humanos</em>.</p>
+<p>Pero hay algo diferente en nuestro ciclo for, si volvemos por un momento
+a nuestro código podemos notar que no tenemos un valor definido como
+límite superior del ciclo:</p>
+<pre><code class="language-rust ignore">    for x in 0..{
+</code></pre>
+<p>En su lugar tenemos una llave abierta, indicando el inicio de las
+instrucciones del ciclo. Esto es muy sencillo, cuando Rust encuentre
+un ciclo <code>for</code> de este tipo lo ejecutará infinitamente.</p>
+<p>Nos hemos equivocado a propósito, pues Rust posee una forma más sencilla
+de realizar ciclos infinitos.</p>
+<p>Por ahora continuaremos explorando la estructura del ciclo <code>for</code>:</p>
+<pre><code class="language-rust ignore">        match (x % 3, x % 5) {
+            (0, 0) =&gt; println!(&quot;FizzBuzz&quot;),
+            (0, _) =&gt; println!(&quot;Fizz&quot;),
+            (_, 0) =&gt; println!(&quot;Buzz&quot;),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+</code></pre>
+<a class="header" href="#múltiples-casos-múltiples-resultados" id="múltiples-casos-múltiples-resultados"><h3>Múltiples casos, múltiples resultados.</h3></a>
+<p>Aquí podemos ver otro elemento <em>&quot;antes de tiempo&quot;</em> que viene del control
+de flujo en Rust, en este caso <code>match</code>.</p>
+<p><code>match</code> es el equivalente a <code>switch</code> en otros lenguajes de programación
+como C o C++, una alternativa a comparar y ejecutar los diferentes
+valores que puede tomar una variable.</p>
+<p>La estructura de la palabra clave <code>match</code> puede ser utilizada de formas
+complejas y aunque no explicaremos a fondo su uso por ahora, intentaremos
+explicarte como funciona <code>match</code> en el caso de nuestro código.</p>
+<p>Para que <code>match</code> funcione correctamente necesita una expresión para
+evaluar, como nosotros tenemos <code>x</code> como variable (declarada en el
+alcance del ciclo <code>for</code>) y ésta se encuentra en uso como iterador
+su valor mutará en cada <em>&quot;vuelta&quot;</em> del ciclo, en este caso <code>x</code> aumentará
+su valor en una unidad por iteración por lo que <code>x</code> será lo que
+evaluaremos.</p>
+<p>Dentro de los paréntesis tenemos dos operaciones que procesarán <code>x</code> y
+arrojarán un resultado que será enviado a cualquiera de los posibles
+casos dentro de <code>match</code>, en este caso nuestras dos operaciones son las
+siguientes: <code>x % 3</code> y <code>x % 5</code>.</p>
+<p>El operador <code>%</code> cumple la misma función que en otros lenguajes, retorna
+el residuo de la división entre dos números, sabiendo esto cada
+iteración comparará a <code>x</code> dos veces, regresando el residuo del valor de
+<code>x</code> dividido entre <code>3</code> y <code>5</code>, dependiendo del resultado se enviará
+a la pantalla el mensaje.</p>
+<p>Veamos la primera condición:</p>
+<pre><code class="language-rust ignore">            (0, 0) =&gt; println!(&quot;FizzBuzz&quot;),
+</code></pre>
+<p>Si el residuo resultante de la división de <code>x</code>/<code>3</code> <strong>Y</strong> <code>x</code>/<code>5</code> es
+igual a cero entonces se enviará a la pantalla el mensaje &quot;FizzBuzz&quot;.</p>
+<hr />
+<p>En la segunda condición las cosas cambian un poco, podemos observar
+un elemento nuevo, un guión bajo (<code>_</code>), éste funciona de la misma
+manera que un <code>default:</code> funciona dentro de un <code>switch</code>.</p>
+<p>En este caso <code>_</code> funciona como un <em>&quot;atrapa-todo&quot;</em> en el cual caerán
+todos los resultados que no coincidan don las condiciones expresadas en
+los casos de <code>match</code>. Si observamos detenidamente el código podemos
+llegar a la conclusión de que <code>_</code> funcionará en caso de que
+la división de <code>x</code>/<code>3</code> ó <code>x</code>/<code>5</code> arrojen <em>cualquier valor diferente de 0</em></p>
+<pre><code class="language-rust ignore">            (0, _) =&gt; println!(&quot;Fizz&quot;),
+            (_, 0) =&gt; println!(&quot;Buzz&quot;),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+</code></pre>
+<hr />
+<a class="header" href="#agregando-algo-de-color" id="agregando-algo-de-color"><h3>Agregando algo de color</h3></a>
+<p>Bien, nuestro programa FizzBuzz funciona, en un ciclo infinito que
+se ejecutará hasta que nuestra computadora tenga la necesidad
+de detenerlo, más tarde arreglaremos ese problema, por ahora
+vamos a darle un poco de color a la salida del programa. Para esto
+utilizaremos un crate llamado <code>colored</code>, la misma que agregamos
+al inicio de este capítulo, el uso es sencillo, por ejemplo, podemos
+imprimir &quot;Hola Rust&quot; en color rojo:</p>
+<pre><code class="language-rust ignore">extern crate colored;
+
+use colored::*;
+
+fn main() {
+    println!(&quot;{}&quot;, &quot;¡Hola Rust!&quot;.red());
+}
+</code></pre>
+<blockquote>
+<p>Eliminamos la opción de ejecución en este ejemplo, pues el navegador
+no soporta la impresión de texto de color.</p>
+</blockquote>
+<p>Hagamos una ligera modificación, cuando el programa tenga que imprimir
+<em>&quot;Fizz&quot;</em>, lo hará en un color rojo, en caso de que necesite imprimir
+<em>&quot;Buzz&quot;</em> será en color amarillo y en el caso de imprimir <em>&quot;FizzBuzz&quot;</em> lo
+hará de color cían.</p>
+<blockquote>
+<p>(No es necesario que pongas esos colores si no son de
+tu agrado, en la <a href="https://github.com/mackwic/colored#features">guía oficial</a>
+del crate están listados todos los colores y estilos disponibles, anímate a
+experimentar un poco).</p>
+</blockquote>
+<p>Veamos el código utilizando colores de Future Lab :D</p>
+<pre><code class="language-rust ignore">extern crate colored;
+
+use colored::*;
+
+fn main() {
+    for x in 0..{
+        match (x % 3, x % 5) {
+            (0, 0) =&gt; println!(&quot;{}&quot;,&quot;FizzBuzz&quot;.cyan()),
+            (0, _) =&gt; println!(&quot;{}&quot;,&quot;Fizz&quot;.red()),
+            (_, 0) =&gt; println!(&quot;{}&quot;,&quot;Buzz&quot;.yellow()),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+        }
+    }
+}
+</code></pre>
+<p>Aun más elementos nuevos, vamos a explicarlos parte por parte:</p>
+<p>La declaración <code>extern crate</code> le especifica a Rust que nuestro programa
+depende de un biblioteca externa a nuestro proyecto, acercándola a
+nuestro alcance.</p>
+<pre><code class="language-rust ignore">extern crate colored;
+</code></pre>
+<p>La declaración <code>use</code> crea enlaces locales a funciones o métodos remotos,
+se utiliza para simplificar el uso de localización de archivos.</p>
+<pre><code class="language-rust ignore">use colored::*;
+</code></pre>
+<p>Las siguientes líneas son sencillas de explicar:</p>
+<pre><code class="language-rust ignore">            (0, 0) =&gt; println!(&quot;{}&quot;,&quot;FizzBuzz&quot;.cyan()),
+            (0, _) =&gt; println!(&quot;{}&quot;,&quot;Fizz&quot;.red()),
+            (_, 0) =&gt; println!(&quot;{}&quot;,&quot;Buzz&quot;.yellow()),
+            (_, _) =&gt; println!(&quot;{}&quot;, x)
+</code></pre>
+<p>Nuestro macro <code>println!</code> ha cambiado, en este caso el crate <code>colored</code>
+solo funciona con cadenas de caracteres, por lo que necesitamos
+colocar algo llamado <em>&quot;placeholder&quot;</em> que en resumen es un espacio
+donde se colocará un elemento más tarde, tenemos que separar con una
+coma los argumentos, en ese caso el segundo argumento será nuestra
+cadena, en este caso <em>&quot;Fizz&quot;</em>, <em>&quot;Buzz&quot;</em>, y <em>&quot;FizzBuzz&quot;</em>, solo resta
+agregar la función correspondiente. <code>colored</code> retorna cadenas en todas
+sus funciones por lo que no habrá problema si pasamos las funciones
+seguidas de un punto en este caso.</p>
+<p>La impresión del programa debería verse de esta manera en una
+ejecución normal:</p>
+<p><img src="../images/colored-rust.png" alt="Salida De Colores" /></p>
+<p>Se ve genial ¿no?, puedes probar a hacer diferentes combinaciones, por ejemplo
+al imprimir &quot;FizzBuzz&quot; hacer que cada carácter tenga un color distinto:</p>
+<p><img src="../images/colored-rust2.png" alt="Salida De Colores" /></p>
+<p>¡Genial! Nuestro programa ahora imprime las cosas de una manera
+más <em>&quot;elegante&quot;</em>. Pero podemos notar un problema en las imágenes,
+los números evaluados son muy altos, no deberíamos de cargar al
+sistema con esa clase de operaciones.</p>
+<p>Podríamos colocar un límite superior en el ciclo <code>for</code> en nuestro
+código, pero, si bien es una buena solución la verdad sea dicha, tenemos
+planeado enseñarte algo que causa muchos problemas con los principiantes
+en el lenguaje de programación Rust.</p>
+<a class="header" href="#operaciones-de-entrada" id="operaciones-de-entrada"><h2>Operaciones de entrada</h2></a>
+<p>Entre los usuarios Novel, pedir entrada de datos al usuario es un tema
+común, pues no existe una manera sencilla de hacerlo como en otros
+lenguajes como C, Python o Ruby.</p>
+<p>Esto tiene una razón sencilla, una entrada errónea del usuario puede
+causar comportamientos inesperados en los programas que podamos crear,
+puede parecer algo tedioso al inicio y es algo que se ha estado trabajando
+desde las versiones mas nuevas de Rust, aun así, las comparaciones entre
+Rust y otros lenguajes como Python y Ruby, carecen de sentido, pues
+cumplen roles diferentes.</p>
+<p>Vamos a pedir al usuario ingresar un número entero, el cual servirá como límite
+superior de nuestro ciclo <code>for</code>, con ello el usuario tendrá el control sobre
+las iteraciones de nuestro programa FizzBuzz.</p>
+<blockquote>
+<p>En este caso, si el usuario ingresa cualquier cosa que no sea un número
+entero se interpretará como un error irrecuperable y el programa se cerrará
+inmediatamente.</p>
+</blockquote>
+<p>Primero necesitamos importar las bibliotecas necesarias para que el
+proyecto funcione, tendremos que crear una manera de pedir entrada al
+usuario y finalmente comprobar que nuestro programa funcione.</p>
+<p>El código completo debería verse de la siguiente manera:</p>
+<pre><code class="language-rust ignore">extern crate colored;
+
+use colored::*;
+use std::io;
+
+fn main() {
+    let mut entrada = String::new();
+    println!(&quot;Ingrese el número de iteraciones deseadas:&quot;);
+    io::stdin().read_line(&amp;mut entrada).unwrap();
+
+    let iter: i32 = entrada.trim().parse().unwrap();
+
+    for x in 0..=iter {
+        match (x % 3, x % 5) {
+            (0, 0) =&gt; println!(&quot;{}&quot;, &quot;FizzBuzz&quot;.cyan()),
+            (0, _) =&gt; println!(&quot;{}&quot;, &quot;Fizz&quot;.red()),
+            (_, 0) =&gt; println!(&quot;{}&quot;, &quot;Buzz&quot;.yellow()),
+            (_, _) =&gt; println!(&quot;{}&quot;, x),
+        }
+    }
+}
+
+</code></pre>
+<p>De nuevo hay muchas cosas nuevas en este código, cosa que nos beneficiará
+pues los temas posteriores serán mas sencillos de digerir una vez
+comprendamos como funcionan con este tipo de ejemplos.</p>
+<p>Nuestro primer paso es <em>&quot;importar las bibliotecas necesarias&quot;</em>.</p>
+<pre><code class="language-rust ignore">use std::io;
+//-- Mas código
+</code></pre>
+<p>Rust viene preparado con toda clase de cosas en su biblioteca estándar,
+sin embargo, si tuviésemos que importar cada cosa que utilizamos en
+nuestro código al final tendríamos un desastre. Al mismo tiempo, importar
+toneladas de bibliotecas a nuestro programa para dejar un gran porcentaje
+de éstas sin usar tampoco es algo bueno, por lo que un balance es
+necesario. Por lo que necesitaremos cargar las funciones de entrada y
+salida de la biblioteca estándar.</p>
+<p>Una vez tengamos las bibliotecas necesarias procederemos a pedir
+una entrada al usuario:</p>
+<pre><code class="language-rust ignore">//-- Recorte
+    let mut entrada = String::new();
+    println!(&quot;Ingrese el número de iteraciones deseadas:&quot;);
+    io::stdin().read_line(&amp;mut entrada).unwrap();
+//-- Recorte
+</code></pre>
+<p>Primero necesitamos un lugar donde almacenar la entrada del usuario:</p>
+<pre><code class="language-rust ignore">    let mut entrada = String::new();
+</code></pre>
+<p>La declaración de variables se realiza con la palabra reservada
+<code>let</code> en Rust, cubriremos eso mas tarde, por ahora todo lo que tienes
+que saber es que con esta línea Rust está reservando una variable
+mutable (<code>mut</code>) llamada <code>entrada</code> (Si vienes de un lenguaje como Java
+podrás notar que es un método similar al de un <code>Scanner</code>, solo que con
+el estilo de Rust).</p>
+<p>Al igual que en otros lenguajes el operador <code>=</code> se utiliza para realizar
+una asignación, en el caso de nuestra línea de código estamos asignando
+el valor retornado por una función <code>String::new</code>, en este caso el valor
+que regresa la función es una nueva cadena.</p>
+<p>Similar a C++, Rust utiliza una sintáxis de 4 puntos para las funciones
+asociadas, por eso al llamar <code>::new()</code> estamos indicándole a Rust que
+<code>new</code> es una función asociada que retornará un <code>String</code>.</p>
+<p>En resumen la línea:</p>
+<pre><code class="language-rust ignore">    let mut entrada = String::new();
+</code></pre>
+<p>Crea una nueva variable con una instancia vacía de un <code>String</code>.</p>
+<p>Ahora necesitamos indicar a nuestro usuario sus instrucciones, este
+es un paso importante puesto que tenemos que ser claros, como nuestros
+usuarios son inteligentes, asumiremos que saben lo que significa
+<em>iteraciones</em> y procederemos a imprimir un mensaje en la pantalla.</p>
+<pre><code class="language-rust ignore">    println!(&quot;Ingrese el número de iteraciones deseadas:&quot;);
+</code></pre>
+<p>Ahora necesitamos hacer algo para que el usuario ingrese el número y
+procesarlo para que se almacene en nuestra variable <code>entrada</code>:</p>
+<pre><code class="language-rust ignore">    io::stdin().read_line(&amp;mut entrada).unwrap();
+</code></pre>
+<p>Como al inicio del programa utilizamos la línea <code>use std::io;</code> ahora
+tenemos las funciones y métodos de entrada de texto necesarios para
+trabajar, al llamar a la función <code>stdin</code> esta retornará una instancia de
+<code>std::io::Stdin</code>, lo que nos permitirá manejar la entrada estándar desde
+la terminal.</p>
+<p>La siguiente parte del código es <code>.read_line(&amp;mut entrada)</code>, con ello
+llamamos a la función <code>.read_line</code> y el argumento le indica a la función
+que deberá guardar la entrada del usuario en una referencia para usarla
+mas tarde.</p>
+<p>La última parte es la función <code>.unwrap()</code>, con la cual compararemos la
+entrada del resultado. Como indicamos al inicio de este capítulo,
+asumiremos que los errores son irrecuperables y <code>unwrap()</code> nos ayudará
+con ello, al llamar a ésta función estamos indicándole a Rust lo
+siguiente: <em>&quot;Si bien esto puede o no tener un valor, yo afirmo que lo</em>
+<em>tiene. En caso contrario, el programa fallará, no quiero un error recuperable&quot;</em>.</p>
+<p>¡Listo!, con esto podemos pedir al usuario que ingrese <em>&quot;algo&quot;</em>,
+pero no nos basta con que ingrese <em>&quot;algo&quot;</em>, necesitamos que el
+usuario ingrese un número y cerrar el programa si ingresa cualquier
+cosa que no sea considerada un número:</p>
+<pre><code class="language-rust ignore">    let iter: i32 = entrada.trim().parse().unwrap();
+</code></pre>
+<p>A estas alturas ya sabemos lo que hace <code>let</code>, solo como recordatorio, estamos
+declarando una variable nueva, llamada <code>iter</code> (por <em>iteraciones</em>), pero hay
+algo nuevo aquí, específicamente <code>: i32</code>. ¿Qué es esto? Simple, estamos haciendo
+algo llamado <em>&quot;tipeado&quot;</em>, en este caso estamos indicando que nuestra variable
+<code>iter</code> será tratada como un <em>&quot;entero de 32 bits&quot;</em> (No necesitamos entrar a
+detalle en esto, pues lo cubriremos en capítulos posteriores), después volvemos
+a utilizar el operador de asignación pues necesitamos que nuestra variable
+tenga un valor, en este caso la asignación consta de tres partes:</p>
+<ul>
+<li>
+<p><code>trim()</code>: Esta función eliminará el salto de línea que el usuario ingresa al
+final de la función stdin, sin ésta función no podremos procesar el salto de
+línea y <code>unwrap()</code> lo detectará como un error.</p>
+</li>
+<li>
+<p><code>parse()</code>: Aquí haremos algo llamado <em>parsing</em> o conversión de tipos. Como
+podemos recordar, lo que ingresó nuestro usuario hasta ahora es una cadena, así
+esté conformada por números Rust por el momento piensa que es una cadena de
+caracteres, con esta función estamos convirtiendo esa cadena al tipo de la
+variable que se le está asignando, en este caso, convertimos una cadena a un
+entero de 32 bits.</p>
+</li>
+<li>
+<p><code>unwrap()</code> ya lo hemos cubierto, pero se asegurará de que la conversión
+resultante devuelva un entero de 32 bits, en caso contrario retornará un error,
+haciendo que el programa detenga su ejecución.</p>
+</li>
+</ul>
+<p>Bien, ya solo nos falta asignar el número ingresado por el usuario a nuestro
+ciclo <code>for</code> para completar nuestro programa.</p>
+<p>Si prestaste atención notarás que el ciclo for tiene un pequeño cambio,
+vamos a verlo:</p>
+<pre><code class="language-rust ignore">    for x in 0..=iter {
+</code></pre>
+<p>¡Hemos cambiado la estructura de nuestro ciclo!
+No es nada de que alarmarse, hemos realizado el cambio para tomar ventaja de
+la edición 2018 de Rust la cual nos permite utilizar ciclos inclusivos, si
+recordamos las reglas de los ciclos for escritas anteriormente podremos recordar
+lo siguiente:</p>
+<blockquote>
+<p>&quot;[...] por lo tanto nuestro ciclo
+<code>for</code> imprimirá los valores del <code>0</code> al <code>4</code>, no hasta el número <code>5</code>.&quot;</p>
+</blockquote>
+<p>Al utilizar la notación <code>..=</code> el rango será inclusivo por lo que el ciclo
+se repetirá el número de veces indicado, con esto evitamos realizar una
+operación extra sobre la entrada del usuario.</p>
+<p>Una vez realizadas las correcciones ya podemos ejecutar nuestro programa.</p>
+<p>¡Genial! Ahora ya sabes como realizar un programa FizzBuzz en Rust, es probable
+que tengas muchas preguntas en este momento ¿Por qué las variables mutan? ¿Qué
+es un ciclo? ¿Cuantos tipos de dato existen? ¿Cuales son los principios de Rust?</p>
+<p>Bien, esta y tus preguntas las resolveremos en el siguiente capítulo del libro
+en el cual trataremos conceptos básicos de programación, si deseas el código
+fuente del programa lo puedes conseguir en el siguiente
+<a href="https://github.com/futurelabmx/rusty-lab/blob/master/src/code/rust/finished-fizzbuzz.rs">enlace</a>.</p>
+<a class="header" href="#preludio" id="preludio"><h1>Preludio</h1></a>
+<p>En el capítulo anterior te enseñamos a crear un pequeño programa FizzBuzz, en
+este pequeño capítulo comenzaremos de lleno a mostrarte las bases del lenguaje
+de programación Rust, también dejaremos pequeños ejercicios para que practiques
+los temas que tratemos en cada capítulo. También incluiremos pequeños proyectos
+en los que te guiaremos paso a paso para que desarrolles tu habilidad para
+crear las herramientas necesarias en tu entorno.</p>
+<p>¡Vamos a por ello!</p>
+<a class="header" href="#variables-y-tipos" id="variables-y-tipos"><h1>Variables y tipos</h1></a>
+<p>Por muy gracioso que suene, una de las primeras cosas que los programadores
+buscan al aprender un nuevo lenguaje es la manera que tiene de declarar
+variables y sus respectivos tipos, en este capítulo aprenderemos a declarar
+variables y a manejar diferentes tipos de datos en Rust.</p>
+<p>Así mismo discutiremos los tipos primitivos, cuando <em>&quot;tipear&quot;</em> una variable o
+no, el alcance de las variables y otros tratos especiales que posee rust como la
+<em>inmutabilidad</em>.</p>
+<a class="header" href="#comentarios" id="comentarios"><h2>Comentarios</h2></a>
+<p>En un escenario ideal el código debería auto-documentarse por medio de las
+buenas prácticas como los nombres descriptivos de variables, un estilo de
+código limpio y una estructura impecable, aun así, existen casos donde se
+necesita de un elemento extra para explicar o justificar la estructura de una
+o varias partes de nuestro programa.</p>
+<p>Rust sigue la forma de comentar de nuestro querido lenguaje C, por lo tanto
+tenemos dos formas de comentar líneas de código:</p>
+<ul>
+<li><code>//</code> Comentarios con doble barra para una sola línea.</li>
+</ul>
+<pre><code class="language-rust ignore">// Esto es un comentario y no se compilará
+</code></pre>
+<ul>
+<li><code>/* */</code> Comentarios del tipo bloque para múltiples líneas.</li>
+</ul>
+<pre><code class="language-rust ignore">/*
+Esto
+es
+un
+comentario
+largo
+*/
+</code></pre>
+<p>El estilo recomendado por la guía oficial de Rust es utilizar el comentario de
+doble barra, incluso para varias líneas en caso de necesitar explicar tu código.</p>
+<p>Procura utilizar el comentario multilínea solamente para comentar código.</p>
+<blockquote>
+<p>rust-doc también ofrece comentarios para documentación utilizando tres barras
+<code>///</code>, estos son útiles en proyectos grandes que necesitarán de algún tipo de
+documentación oficial además, en estos comentarios podemos utilizar sintáxis
+markdown para mejorar la legibilidad de nuestra documentación.</p>
+</blockquote>
+<a class="header" href="#asignación-de-variables" id="asignación-de-variables"><h2>Asignación de variables</h2></a>
+<p>Hasta ahora hemos visto varios tipos de valores, hemos visto cadenas, números
+enteros, etc. Pero no debemos de confundir los valores con los objetos ni las
+variables.</p>
+<p>Tendremos que dejar algo muy claro desde el principio, la asignación de
+variables es diferente en Rust si lo comparamos con otros lenguajes, esto es
+para preservar 3 carácteristicas que hacen especial al lenguaje:</p>
+<ul>
+<li><strong>Seguridad</strong></li>
+<li><strong>Eficiencia</strong></li>
+<li><strong>Concisión</strong></li>
+</ul>
+<p>A diferencia de otros lenguajes (como <em>JavaScript</em> o <em>Ruby</em>), Rust necesita un
+poco más de planeación al escribir código pues necesitarás dictar los tipos de
+los parámetros de tus funciones, de sus valores de retorno y de tus variables.</p>
+<p>Por lo tanto Rust es un lenguaje <em>&quot;Estáticamente tipado&quot;</em> o de
+<em>&quot;Tipado estático&quot;</em> lo que significa que el compilador deberá conocer el tipo
+de los datos antes del tiempo de ejecución, este método que viene de lenguajes
+veteranos como C o C++ ha sido rediseñado en Rust, pues el compilador revisará
+que todos los caminos posibles de ejecución usarán valores solo de manera consistente con sus tipos. Esto permite que Rust detecte muchos errores de programación antes de tiempo, y es crucial para garantizar de seguridad de Rust.</p>
+<p>Por lo tanto, en lugar de utilizar un intérprete o un compilador en tiempo real
+como lo harían lenguajes como <em>Julia</em> o <em>LuaJIT (Lua Just In Time Compiler)</em>,
+Rust fue diseñado para utilizar algo llamado <em>&quot;Compilación anticipada&quot;</em> es decir
+una traducción completa de todo tu programa a código máquina antes de que
+comience a ejecutarse, por ello los tipos de datos que Rust utilizar ayudan al
+compilador a elegir una representación adecuada en el bajo nivel.</p>
+<p>Cuando Rust compila el código fuente el ejecutable resultante solo contiene
+objetos que tengan una dirección de memoria y un valor. Dichos objetos no poseen
+un nombre definido, pero estos mismos objetos necesitan de un identificador en
+el código fuente para poder referenciarlos más tarde.</p>
+<p>En Rust necesitaremos de la palabra reservada <code>let</code> para declarar cualquier
+variable, por ejemplo:</p>
+<pre><code class="language-rust ignore">let edad = 20;
+let nombre = &quot;Future Lab&quot;;
+let flotante = 3.1415;
+</code></pre>
+<a class="header" href="#variables-inmutables" id="variables-inmutables"><h3>Variables ¿inmutables?</h3></a>
+<p>Tus ojos no te están engañando, las variables en Rust son inmutables por
+defecto, esto se hace para preservar la seguridad en Rust, pero esto no es el
+fin del mundo, Rust nos ofrece la opción de mutar las variables a nuestro gusto
+siempre y cuando cumplamos con ciertas reglas impuestas por el compilador.</p>
+<blockquote>
+<p>Rust no es el primer lenguaje en hacer esto, muchos lenguajes funcionales
+poseen esta característica. De hecho en los lenguajes 100% funcionales la
+mutabilidad de las variables no está permitida.</p>
+</blockquote>
+<p>Veamos este pequeño ejemplo para ilustrar lo anterior:</p>
+<p><span><b>Ejemplo 1.0</b></span></p>
+<pre><code class="language-rust ignore">fn main() {
+    let edad = 10;
+
+    edad = 5;
+}
+</code></pre>
+<p>El siguiente código producirá un error de compilación específicamente este:</p>
+<pre><code class="language-ignore">error[E0384]: cannot assign twice to immutable variable `edad`
+ --&gt; src/main.rs:4:5
+  |
+2 |     let edad = 10;
+  |         ---- first assignment to `edad`
+3 | 
+4 |     edad = 5;
+  |     ^^^^^^^^ cannot assign twice to immutable variable
+</code></pre>
+<p>Rust aplica la sabiduría que muchos programadores necesitan:
+<em>&quot;Muchos errores surgen de cambios involuntarios o incorrectos de las</em>
+<em>variables, así que no permiré que el código cambie cualquier valor a menos que</em>
+<em>lo haya permitido explícitamente.&quot;</em></p>
+<p>Si deseamos una variable mutable necesitaríamos indicarle a Rust específicamente
+que la variable es mutable, si deseamos hacer algo así necesitamos hacer lo
+siguiente:</p>
+<p><span><b>Ejemplo 1.1</b></span></p>
+<pre><code class="language-rust ignore">fn main() {
+    let mut edad = 20;
+    println!(&quot;Tienes {} años&quot;, edad);
+
+    edad = 21;
+    println!(&quot;Ahora tienes {} años&quot;, edad);
+}
+</code></pre>
+<p>Esto debería imprimir el siguiente mensaje en pantalla:</p>
+<pre><code class="language-ignore">Tienes 20 años
+Ahora tienes 21 años
+</code></pre>
+<p>Para darnos una mejor idea de como funciona la mutabilidad de las variables
+aquí tenemos un ejemplo del código 1.0 escrito en C:</p>
+<pre><code class="language-c ignore">#include &lt;stdio.h&gt;
+
+int main(int argc, char const *argv[])
+{
+        int const edad = 10;
+        edad = 5;
+
+        return 0;
+}
+
+</code></pre>
+<blockquote>
+<p>No intentes compilarlo, no funcionará.</p>
+</blockquote>
+<p>A comparación de las variables mutables en el ejemplo 1.1:</p>
+<pre><code class="language-c ignore">#include &lt;stdio.h&gt;
+
+int main(int argc, char const *argv[])
+{
+        int edad = 20;
+        //C no permite la ñ
+        printf(&quot;Tienes %d anios\n&quot;, edad);
+
+        edad = 21;
+        printf(&quot;Ahora tienes %d anios\n&quot;, edad);
+        return 0;
+}
+
+</code></pre>
+<a class="header" href="#contributores" id="contributores"><h1>Contributores</h1></a>
+<p>Gracias a estas personas esta recopilación fué posible:
+[WIP]</p>
+<p>[PERSONAS]</p>
+<ul>
+<li>Omar Jair Purata Funes <a href="https://github.com/VentGrey">@VentGrey</a></li>
+<li>Rodolfo Ferro <a href="https://github.com/RodolfoFerro">@RodolfoFerro</a></li>
+</ul>
+<p>[ORGANIZACIONES]</p>
+<ul>
+<li>Future Lab <a href="https://github.com/futurelabmx">@futurelabmx</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="rocket.js"></script>
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>¿Cargo? - Rusty Lab</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../rocket.css">
+        
+        <link rel="stylesheet" href="../theme/futurelab-edition.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../Introduccion/00-intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><a href="../Introduccion/01-antes-de-empezar.html"><strong aria-hidden="true">2.</strong> Antes de empezar</a></li><li><ol class="section"><li><a href="../Introduccion/01-windows.html"><strong aria-hidden="true">2.1.</strong> Instalación en Microsoft Windows</a></li><li><a href="../Introduccion/01-macos.html"><strong aria-hidden="true">2.2.</strong> Instalación en Mac OS</a></li><li><a href="../Introduccion/01-linux.html"><strong aria-hidden="true">2.3.</strong> Instalación en Gnu/Linux</a></li><li><a href="../Introduccion/02-ide.html"><strong aria-hidden="true">2.4.</strong> ¿IDE o Editor de Texto?</a></li></ol></li><li><a href="../PrimeraUnidad/00-hola-rust.html"><strong aria-hidden="true">3.</strong> ¡Hola Rust!</a></li><li><a href="../PrimeraUnidad/01-cargo.html" class="active"><strong aria-hidden="true">4.</strong> ¿Cargo?</a></li><li><a href="../PrimeraUnidad/02-fizzbuzz.html"><strong aria-hidden="true">5.</strong> FizzRust</a></li><li><a href="../PrimeraUnidad/03-bases.html"><strong aria-hidden="true">6.</strong> Aprendiendo las bases</a></li><li><ol class="section"><li><a href="../PrimeraUnidad/04-variables-y-tipos.html"><strong aria-hidden="true">6.1.</strong> Variables y tipos</a></li><li class="spacer"></li></ol></li><li><a href="../contribs.html">Contribuidores</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rusty Lab</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#cargo-run" id="cargo-run"><h1>Cargo ¿run?</h1></a>
+<p>En el capítulo anterior creamos nuestro primer programa en Rust, un simple
+&quot;Hola mundo&quot;.</p>
+<p>Pero pensemos un momento: ¿Y si deseamos crear un proyecto más grande?, ¿Qué tal
+si necesitamos crear una herramienta de línea de comandos más compleja? o quizá
+tenemos una gran idea para crear un API para usarse en Inteligencia Artificial.</p>
+<p>De una forma u otra necesitaremos una forma de manejar nuestro
+proyecto de manera eficiente, aquí entra <code>cargo</code> el gestor de paquetes
+de Rust.</p>
+<p>Cargo no solo se limita a ser un gestor de paquetes, también es
+un sistema de construcción y un excelente manejador de dependencias.
+Muchos programadores de Rust, a los cuales llamaremos <em>Rustáceos</em> en
+adelante (Derivado de la palabra <em>&quot;Crustáceos&quot;</em>) utilizan cargo para
+manejar sus proyectos ya que éste realiza muchas acciones por
+nosotros, descarga y compila las bibliotecas que son dependencias de
+nuestro código, le da formato a nuestro código si somos inexpertos en
+el tema, ejecuta pruebas y despliega nuestro código listo para enviarse
+a producción.</p>
+<p>Casi todos (por no decir la palabra <em>&quot;Todos&quot;</em>) los proyectos de Rust
+utilizan Cargo, si has instalado Rust utilizando el instalador oficial
+(<code>rustup</code>) entonces ya posees Cargo instalado y listo para usarse.</p>
+<a class="header" href="#primer-proyecto-con-cargo" id="primer-proyecto-con-cargo"><h2>Primer proyecto con Cargo</h2></a>
+<p>Para crear un nuevo proyecto utilizando Cargo debemos ejecutar el
+siguiente comando:</p>
+<p><code>$ cargo new --bin hola_cargo</code></p>
+<p>Esto creará un nuevo proyecto de Cargo, si entramos en el directorio
+creado nos daremos cuenta que dentro hay varios archivos, un directorio
+y que se ha inicializado un nuevo repositorio con la herramienta <code>git</code>.</p>
+<p>Vamos a editar el archivo más llamativo del directorio llamado
+<code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">[package]
+name = &quot;hola_cargo&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;nombre &lt;nombre@ejemplo.com&gt;&quot;]
+edition = &quot;2018&quot;
+
+[dependencies]
+</code></pre>
+<p>La primera línea del archivo es la sección <code>[package]</code> que indicará
+todos los detalles al momento de configurar un paquete de Cargo.</p>
+<p>Las siguientes líneas contienen información necesaria para poder
+construir y compilar el paquete en cuestión:</p>
+<ul>
+<li>Nombre del paquete o <code>crate</code>.</li>
+<li>Versión del paquete</li>
+<li>Autor o autores del paquete</li>
+<li>La edición de Rust (Hablaremos más adelante de eso).</li>
+</ul>
+<p>La siguiente sección se llama <code>[dependencies]</code>, debajo de esta se
+colocarán todas las dependencias requeridas para construir nuestro
+paquete de Rust, las usaremos más adelante.</p>
+<p>Como mencionamos más arriba, cargo genera un directorio de nombre <code>src</code>
+en el cual se incluye un archivo llamado <code>main.rs</code>, este archivo en
+cuestión contiene un &quot;Hello World&quot; dentro.</p>
+<p>Cargo asume que <em>TODOS</em> tus archivos de código fuente se encontrarán
+dentro del directorio <code>src/</code> ya que el directorio raíz del proyecto solo
+estará dedicado a información acerca del mismo, véase archivos <code>README</code>,
+<code>LICENSE</code> o las configuraciones escritas en TOML.</p>
+<a class="header" href="#ejecutar-proyectos-utilizando-cargo" id="ejecutar-proyectos-utilizando-cargo"><h2>Ejecutar proyectos utilizando cargo</h2></a>
+<p>Si deseamos construir un proyecto utilizando Cargo solo es necesario
+escribir en nuestra terminal (dentro del directorio de nuestro
+proyecto):</p>
+<p><code>$ cargo build</code></p>
+<p>La saluda de la terminal nos debería mostrar una salida indicandonos si
+nuestro proyecto se pudo construir o si falló en algún punto:</p>
+<pre><code class="language-ignore">   Compiling hola_cargo v0.1.0 (/home/FutureLab/Escritorio/hola_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.39s
+</code></pre>
+<p>Cuando le damos la instrucción <code>build</code> a cargo éste creará un binario
+ejecutable en un nuevo árbol de directorios, específicamente dentro
+de <code>target/debug/&lt;archivo binario&gt;</code>.</p>
+<p>Además de compilar un binario ejecutable Cargo también descargará y
+compilará las dependencias necesarias para nuestro proyecto, al mismo
+tiempo creará un archivo nuevo llamado <code>Cargo.lock</code>, no te alarmes,
+este archivo vigilará las versiones de tus dependencias.</p>
+<p>Si bien podríamos ejecutar los binarios desde su ruta con
+<code>$ ./target/debug/hola_cargo</code> esto es ineficiente, por lo que cargo
+tiene otra función para compilar y ejecutar nuestros proyectos en un
+solo comando:</p>
+<p><code>$ cargo run</code></p>
+<p>Si ejecutamos esta orden, Cargo buscará los archivos <code>.rs</code> dentro de
+nuestro directorio <code>src/</code>, los compilará e inmediatamente después los
+ejecutará si no encontró problema alguno.</p>
+<pre><code class="language-ignore">    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+     Running `target/debug/hola_cargo`
+Hello, world!
+</code></pre>
+<p>Cargo posee una variedad de comandos entre ellos:</p>
+<ul>
+<li><code>check</code> =&gt; Se encarga de revisar que el código compile sin producir
+ejecutables.</li>
+<li><code>clean</code> =&gt; Elimina el directorio <code>target/</code>.</li>
+<li><code>doc</code> =&gt; Construye el paquete y sus dependencias con documentación.</li>
+<li><code>init</code> =&gt; Crea un nuevo proyecto en un directorio existente.</li>
+<li><code>test</code> =&gt; Ejecuta las pruebas.</li>
+<li><code>bench</code> =&gt; Ejecuta puntos de referencia.</li>
+<li><code>update</code> =&gt; Actualiza las dependencias de <code>Cargo.lock</code>.</li>
+<li><code>search</code> =&gt; Busca <code>crates</code> en el registro.</li>
+<li><code>publish</code> =&gt; Publica el paquete actual al registro.</li>
+<li><code>install</code> =&gt; Instala un binario de Rust en <code>$HOME/.cargo/bin</code>.</li>
+<li><code>uninstall</code> =&gt; Desinstala un binario de Rust.</li>
+</ul>
+<p>La ventaja de Cargo es que los comandos que se pueden ejecutar son
+independientes de cualquier plataforma por lo que funciona de la
+misma manera en Windows, MacOS y Gnu/Linux.</p>
+<a class="header" href="#liberar-un-paquete" id="liberar-un-paquete"><h2>Liberar un paquete</h2></a>
+<p>Cuando hayas terminado tu proyecto solo necesitarás la bandera
+<code>--release</code> para generar un binario optimizado, esto generará un
+binario ejecutable en el directorio <code>target/release</code>.</p>
+<a class="header" href="#fin-de-la-lección" id="fin-de-la-lección"><h2>Fin de la lección</h2></a>
+<p>Por ahora has aprendido a utilizar Cargo y a crear un pequeño hola mundo
+en Rust, pero imprimir mensajes de ese tipo en la consola no es divertido
+por lo que en el siguiente capítulo crearemos un programa llamado
+<em>&quot;FizzBuzz&quot;</em> el cual es una pregunta utilizada en las entrevistas de
+programación.</p>
+<p>¡Prepárate para comenzar a utilizar Cargo de verdad!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../PrimeraUnidad/00-hola-rust.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../PrimeraUnidad/02-fizzbuzz.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../PrimeraUnidad/00-hola-rust.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../PrimeraUnidad/02-fizzbuzz.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../rocket.js"></script>
+        
+
+        
+
+    </body>
+</html>

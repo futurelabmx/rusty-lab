@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>¡Hola Rust! - Rusty Lab</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../rocket.css">
+        
+        <link rel="stylesheet" href="../theme/futurelab-edition.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="../Introduccion/00-intro.html"><strong aria-hidden="true">1.</strong> Introducción</a></li><li><a href="../Introduccion/01-antes-de-empezar.html"><strong aria-hidden="true">2.</strong> Antes de empezar</a></li><li><ol class="section"><li><a href="../Introduccion/01-windows.html"><strong aria-hidden="true">2.1.</strong> Instalación en Microsoft Windows</a></li><li><a href="../Introduccion/01-macos.html"><strong aria-hidden="true">2.2.</strong> Instalación en Mac OS</a></li><li><a href="../Introduccion/01-linux.html"><strong aria-hidden="true">2.3.</strong> Instalación en Gnu/Linux</a></li><li><a href="../Introduccion/02-ide.html"><strong aria-hidden="true">2.4.</strong> ¿IDE o Editor de Texto?</a></li></ol></li><li><a href="../PrimeraUnidad/00-hola-rust.html" class="active"><strong aria-hidden="true">3.</strong> ¡Hola Rust!</a></li><li><a href="../PrimeraUnidad/01-cargo.html"><strong aria-hidden="true">4.</strong> ¿Cargo?</a></li><li><a href="../PrimeraUnidad/02-fizzbuzz.html"><strong aria-hidden="true">5.</strong> FizzRust</a></li><li><a href="../PrimeraUnidad/03-bases.html"><strong aria-hidden="true">6.</strong> Aprendiendo las bases</a></li><li><ol class="section"><li><a href="../PrimeraUnidad/04-variables-y-tipos.html"><strong aria-hidden="true">6.1.</strong> Variables y tipos</a></li><li class="spacer"></li></ol></li><li><a href="../contribs.html">Contribuidores</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Rusty Lab</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#hola-rust" id="hola-rust"><h1>¡Hola Rust!</h1></a>
+<p>Tenemos todo lo necesario, ahora vamos a escribir nuestro primer
+programa en Rust.</p>
+<p>Existe una tradición entre los programadores, siempre que se aprende un
+nuevo lenguaje de programación, el primer programa que se escribe es un
+<em>&quot;Hola mundo&quot;</em>.</p>
+<p>No cubriremos a fondo el uso de la línea de comandos por lo tanto
+asumiremos que ya posees las habilidades para crear, renombrar o
+borrar directorios/archivos.</p>
+<p>Vamos a crear nuestro primer archivo fuente de Rust y lo llamaremos
+<code>main.rs</code>, es importante saber que TODOS los archivos de Rust terminan
+con la extensión <code>.rs</code>, las reglas para el nombre de los archivos son las
+mismas que aplican para otros lenguajes de programación.</p>
+<p>Ahora con tu editor de texto favorito abre el archivo <code>main.rs</code> y coloca
+lo siguiente:</p>
+<pre><pre class="playpen"><code class="language-rust">fn main() {
+    println!(&quot;¡Hola Mundo!&quot;);
+}
+</code></pre></pre>
+<p>Es un pequeño programa que imprime las palabras <code>¡Hola Mundo!</code> en la
+consola.</p>
+<p>Puedes ejecutar el código desde este mismo libro aun así, te
+recomendamos que practiques en tu terminal.</p>
+<p>Guarda tu archivo <code>main.rs</code> y en tu terminal procede a llamar al
+compilador de Rust llamado <code>rustc</code>. Mas adelante explicaremos como
+funciona a fondo <code>rustc</code>, por ahora procederemos a compilar nuestro
+programa de la siguiente manera:</p>
+<pre><code class="language-ignore">$ rustc main.rs
+$ ./main
+¡Hola Mundo!
+</code></pre>
+<blockquote>
+<p>Los comandos están expresados en un entorno UNIX-Like.</p>
+</blockquote>
+<p>Vamos a descomponer nuestro programa en partes para entender un poco mejor
+lo que está pasando.</p>
+<p>Veamos la primera parte del programa:</p>
+<pre><code class="language-rust ignore">fn main() {
+</code></pre>
+<p>Lo primero que vemos es el abstracto <code>fn</code> el cual se utiliza para declarar
+funciones en Rust. Mas delante podemos ver <code>main()</code>, esto es el identificador de
+la función, a la derecha podemos ver un par de paréntesis, al igual que en otros
+lenguajes los paréntesis al lado del identificador de la función sirven para
+indicar los parámetros que esta va a recibir al momento de ser llamada.</p>
+<p>El último elemento que podemos ver es una <em>&quot;llave abierta&quot;</em>, ésta indica el
+inicio de un bloque de código <code>{</code>.</p>
+<p>La siguiente línea que podemos ver es esta:</p>
+<pre><code class="language-rust ignore">println!(&quot;¡Hola Mundo!&quot;);
+</code></pre>
+<p>A diferencia de otros lenguajes, Rust no utiliza funciones para la salida de
+consola, en este caso <code>println!</code> es un macro que es un elemento de
+<em>metaprogramación</em> que exploraremos más tarde, por ahora recuerda que al llamar
+un macro siempre deberás de colocar un <code>!</code> después del identificador.</p>
+<p>Dentro del macro <code>println!</code> encontramos el elemento <code>&quot;¡Hola Mundo!&quot;</code>. Esto es
+una cadena de carácteres que funciona como argumento del macro.</p>
+<p>En la última línea podemos ver una llave cerrada, la cual indica el final de un
+bloque de código.</p>
+<p>Rust es un lenguaje de programación compilado, si tienes experiencia con
+lenguajes como C o C++ sabrás que después de escribir el código fuente
+es necesario pasar el archivo resultante por un compilador, en el caso
+de C o C++ se utiliza <code>gcc</code> o <code>clang</code>, en Rust usaremos <code>rustc</code>.</p>
+<p>Si vienes de lenguajes dinámicos, mejor conocidos como interpretados como
+Python o Ruby probablemente te sea un poco difícil acostumbrarte a
+compilar y ejecutar. A diferencia de otros lenguajes de programación
+compilados Rust puede considerarse como <em>adelantado</em> en esa cuestión ya
+que puedes compilar un programa y enviar el binario generado a otra
+persona para que lo ejecute, incluso sin tener Rust instalado.</p>
+<p>Cuando proporcionas a otra persona tu script con terminación en <code>.rb</code> o
+<code>.py</code> todo lo que necesitan es tener instalado en su computadora el
+lenguaje de programación correspondiente.</p>
+<p>Compilar nuestros programas con <code>rustc</code> está bien si estamos
+desarrollando software simple, pero si deseamos crear proyectos más
+ambiciosos y con un poco más de complejidad, en el capítulo <strong>4</strong>
+discutiremos acerca de <code>cargo</code>, el gestor de paquetes de Rust.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../Introduccion/02-ide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../PrimeraUnidad/01-cargo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../Introduccion/02-ide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../PrimeraUnidad/01-cargo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../rocket.js"></script>
+        
+
+        
+
+    </body>
+</html>
