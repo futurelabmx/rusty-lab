@@ -1,7 +1,38 @@
 [package]
 name = "rusty-lab"
 version = "0.1.0"
-authors = ["VentGrey <omarpurataf@gmail.com>"]
+authors = ["Future Lab <mxfuturelab@gmail.com>"]
 edition = "2018"
 
+# Binary Locations (RLS)
+
+[[bin]]
+name = "hello_world"
+path = "code/rust/hello-world.rs"
+
+[[bin]]
+name = "hello_colored"
+path = "code/rust/hello-color.rs"
+
+[[bin]]
+name = "fizzbuzz"
+path = "code/rust/fizzbuzz.rs"
+
+[[bin]]
+name = "colored_fizzbuzz"
+path = "code/rust/colored-fizzbuzz.rs"
+
+[[bin]]
+name = "finished_fizzbuzz"
+path = "code/rust/finished-fizzbuzz.rs"
+
+[[bin]]
+name = "inmutvars"
+path = "code/rust/inmutvars.rs"
+
+[[bin]]
+name = "mutvars"
+path = "code/rust/mutvars.rs"
+
 [dependencies]
+colored = "1.7.0"
