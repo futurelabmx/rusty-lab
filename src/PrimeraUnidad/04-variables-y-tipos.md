@@ -136,7 +136,7 @@ siguiente:
 
 <span><b>Ejemplo 1.1</b></span>
 
-```rust
+```rust,ignore
 {{#include ../code/rust/mutvars.rs}}
 ```
 
@@ -150,7 +150,7 @@ Ahora tienes 21 años
 Para darnos una mejor idea de como funciona la mutabilidad de las variables
 aquí tenemos un ejemplo del código 1.0 escrito en C:
 
-```c
+```c,ignore
 {{#include ../code/c/inmutvars.c}}
 ```
 
@@ -158,6 +158,6 @@ aquí tenemos un ejemplo del código 1.0 escrito en C:
 
 A comparación de las variables mutables en el ejemplo 1.1:
 
-```c
+```c,ignore
 {{#include ../code/c/mutvars.c}}
 ```
