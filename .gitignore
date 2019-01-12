@@ -1,2 +1,4 @@
 book
 .vscode
+/target
+**/*.rs.bk
